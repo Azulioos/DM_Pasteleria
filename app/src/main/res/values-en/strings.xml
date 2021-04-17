@@ -1,0 +1,109 @@
+<resources>
+    <string name="app_name">DM Pasteleria</string>
+    <string-array name="numbers">
+        <item>Español</item>
+        <item>English</item>
+        <item>Portugués</item>
+    </string-array>
+
+    <string-array name="municipio">
+        <item>Guadalupe</item>
+        <item>Monterrey</item>
+        <item>San Nicolás</item>
+    </string-array>
+
+    <!--Principal del menu desplegable izquierdo-->
+    <string name="logo">Logo</string>
+    <string name="idioma">Select a language</string>
+    <string name="nav_header_title">Repostería Express</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <!-- Strings de Pe_admin_inicio -->
+    <string name="Ajustes_del_menu">Menu settings</string>
+    <string name="Ingredientes">Ingredients</string>
+    <string name="Pedidos">Pending orders</string>
+    <string name="Cerrar_sesion">Log out</string>
+
+
+    <!-- Strings de Pe_iniciodeseion -->
+    <string name="Registrarte_Como">Register as…</string>
+    <string name="Iniciar_Como">Start as…</string>
+    <string name="Registrar">Register</string>
+    <string name="Usuario">User</string>
+    <string name="Administrador">Admin</string>
+    <string name="Empleado">Worker</string>
+
+
+    <!-- Strings de Pe_admin_inventario -->
+    <string name="Editar">Edit</string>
+    <string name="Unidades">Units</string>
+    <string name="Acciones">Actions</string>
+    <string name="Volver">Return</string>
+    <string name="Agregar">Add</string>
+    <string name="Borrar">Delete</string>
+
+
+    <!--Menu desplegable izquierdo-->
+    <string name="menu_home">Página Principal</string>
+    <string name="menu_traditional">Pasteles Tradicionales</string>
+    <string name="menu_personalized">Pasteles Personalizados</string>
+    <string name="menu_other">Otros Postres</string>
+    <string name="menu_help">Información y ayuda</string>
+
+    <!--Menu desplegable derecho-->
+    <string name="action_pedidos">Pedidos</string>
+    <string name="action_settings">Ajustes de la cuenta</string>
+    <string name="action_logout">Salir</string>
+
+
+    <!-- Strings de Pe_usuario_inicio -->
+    <string name="title_seasonal">Pasteles de Temporada</string>
+    <string name="title_offer">Pasteles en Oferta</string>
+    <string name="title_other">Otros Postres</string>
+    <string name="title_otherOffer">Otros Postres en Oferta</string>
+    <string name="top_advises">Anuncios importantes, ofertas, y otros anunciios de prioridad</string>
+    <string name="title_Advises">Avisos importantes, ofertas especiales y avisos prioritarios</string>
+    <string name="title_Products">Productos y descripciones</string>
+
+    <!-- Strings de Pe_iniciodesesion -->
+    <string name="Iniciar">INGRESAR</string>
+    <string name="Residencia">Residencia</string>
+    <string name="Nacimiento">Fecha de nacimiento</string>
+    <string name="ICorreo">Ingrese su correo</string>
+    <string name="Correo">Correo electrónico</string>
+    <string name="IContraseña">Ingrese su contraseña</string>
+    <string name="CContraseña">Confirme su contraseña</string>
+    <string name="Contraseña">Contraseña</string>
+    <string name="Nombre">Nombre de usuario</string>
+    <string name="Crear">Crear una cuenta</string>
+    <string name="Ingresar">¿No tienes una cuenta? Crea una aquí</string>
+    <string name="Iniciodesesion">Inicio de sesión</string>
+
+    <!-- Strings de Pe_usuario_inicio -->
+    <string name="Bievenido">Welcome</string>
+    <string name="Sucursales">Stores</string>
+    <string name="ProductosDestacados">Popular products</string>
+    <string name="PastelesPredeterminados">Menu products</string>
+    <string name="PastelesPersonalizados">Personalized cakes</string>
+    <string name="Ir">Go</string>
+
+    <!-- Strings de Pe_usuario_inicio toolbar -->
+    <string name="Toolbar1">Account settings</string>
+    <string name="Toolbar2">Orders</string>
+    <string name="Toolbar3">Help</string>
+    <string name="Toolbar4">Language</string>
+    <string name="Toolbar5">Log out</string>
+
+    <!-- Strings de Pe_admin_inicio toolbar -->
+    <string name="Admin1">+ Add product</string>
+    <string name="Admin2">+ Add ingredient</string>
+    <string name="Admin3">App historial</string>
+    <string name="Admin4">General view</string>
+    <string name="Admin5">+ Expand app</string>
+    <string name="Admin6">Customize inventory</string>
+
+
+
+
+</resources>

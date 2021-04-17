@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "919457758899",
+    "project_id": "dm-pasteleria",
+    "storage_bucket": "dm-pasteleria.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:919457758899:android:d4ed2170aff6be9659fac6",
+        "android_client_info": {
+          "package_name": "com.example.dmpasteleria"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "919457758899-lppatl2vgr7v2a67q7r0k5jun9229eqb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCovOFvHmvMCwK9DhnJ_DJad6U37j-lG4g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "919457758899-lppatl2vgr7v2a67q7r0k5jun9229eqb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

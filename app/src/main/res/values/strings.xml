@@ -1,0 +1,108 @@
+<resources>
+    <string name="app_name">DM Pasteleria</string>
+    <string-array name="numbers">
+        <item>Español</item>
+        <item>English</item>
+        <item>Portugués</item>
+    </string-array>
+
+    <string-array name="municipio">
+        <item>Guadalupe</item>
+        <item>Monterrey</item>
+        <item>San Nicolás</item>
+    </string-array>
+
+    <!--Principal del menu desplegable izquierdo-->
+    <string name="logo">Logo</string>
+    <string name="idioma">Seleccionar idioma</string>
+    <string name="nav_header_title">Repostería Express</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <!-- Strings de Pe_admin_inicio -->
+    <string name="Ajustes_del_menu">Ajustes del menu</string>
+    <string name="Ingredientes">Ingredientes</string>
+    <string name="Pedidos">Pedidos</string>
+    <string name="Cerrar_sesion">Cerrar sesion</string>
+
+
+    <!-- Strings de Pe_iniciodeseion -->
+
+    <string name="Registrarte_Como">Registrarme como…</string>
+    <string name="Registrar">Registrar una cuenta</string>
+    <string name="Iniciar_Como">Iniciar como…</string>
+    <string name="Usuario">Usuario</string>
+    <string name="Administrador">Administrador</string>
+    <string name="Empleado">Empleado</string>
+
+
+    <!-- Strings de Pe_admin_inventario -->
+    <string name="Editar">Editar</string>
+    <string name="Unidades">Unidades</string>
+    <string name="Acciones">Acciones</string>
+    <string name="Volver">Volver</string>
+    <string name="Agregar">Agregar</string>
+    <string name="Borrar">Borrar</string>
+
+
+    <!--Menu desplegable izquierdo-->
+    <string name="menu_home">Página Principal</string>
+    <string name="menu_traditional">Pasteles Tradicionales</string>
+    <string name="menu_personalized">Pasteles Personalizados</string>
+    <string name="menu_other">Otros Postres</string>
+    <string name="menu_help">Información y ayuda</string>
+
+    <!--Menu desplegable derecho-->
+    <string name="action_pedidos">Pedidos</string>
+    <string name="action_settings">Ajustes de la cuenta</string>
+    <string name="action_logout">Salir</string>
+
+
+    <!-- Strings de Pe_usuario_inicio -->
+    <string name="title_seasonal">Pasteles de Temporada</string>
+    <string name="title_offer">Pasteles en Oferta</string>
+    <string name="title_other">Otros Postres</string>
+    <string name="title_otherOffer">Otros Postres en Oferta</string>
+    <string name="top_advises">Anuncios importantes, ofertas, y otros anunciios de prioridad</string>
+    <string name="title_Advises">Avisos importantes, ofertas especiales y avisos prioritarios</string>
+    <string name="title_Products">Productos y descripciones</string>
+
+    <!-- Strings de Pe_iniciodesesion -->
+    <string name="Iniciar">INGRESAR</string>
+    <string name="Residencia">Residencia</string>
+    <string name="Nacimiento">Fecha de nacimiento</string>
+    <string name="ICorreo">Ingrese su correo</string>
+    <string name="Correo">Correo electrónico</string>
+    <string name="IContraseña">Ingrese su contraseña</string>
+    <string name="CContraseña">Confirme su contraseña</string>
+    <string name="Contraseña">Contraseña</string>
+    <string name="Nombre">Nombre de usuario</string>
+    <string name="Crear">Crear una cuenta</string>
+    <string name="Ingresar">¿No tienes una cuenta? Crea una aquí</string>
+    <string name="Iniciodesesion">Inicio de sesión</string>
+
+    <!-- Strings de Pe_usuario_inicio -->
+    <string name="Sucursales">Sucursales</string>
+    <string name="Bievenido">Bienvenido</string>
+    <string name="ProductosDestacados">Productos destacados</string>
+    <string name="PastelesPredeterminados">Pasteles predeterminaddos</string>
+    <string name="PastelesPersonalizados">Pasteles personalizados</string>
+    <string name="Ir">Ir</string>
+
+    <!-- Strings de Pe_usuario_inicio toolbar -->
+    <string name="Toolbar1">Ajustes de la cuenta</string>
+    <string name="Toolbar2">Pedidos</string>
+    <string name="Toolbar3">Ayuda e informacion</string>
+    <string name="Toolbar4">Idioma</string>
+    <string name="Toolbar5">Cerrar sesion</string>
+
+    <!-- Strings de Pe_admin_inicio toolbar -->
+    <string name="Admin1">+ Agregar producto</string>
+    <string name="Admin2">+ Agregar ingrediente</string>
+    <string name="Admin3">Historial de la app</string>
+    <string name="Admin4">Vista general</string>
+    <string name="Admin5">+ Expandir alcance</string>
+    <string name="Admin6">Gestionar inventario</string>
+
+
+</resources>

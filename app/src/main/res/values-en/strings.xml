@@ -103,6 +103,17 @@
     <string name="Admin5">+ Expand app</string>
     <string name="Admin6">Customize inventory</string>
 
+    <string name="Admin_ai1">Add new ingredient</string>
+    <string name="Admin_ai2">Ingredients name</string>
+    <string name="Admin_ai3">Ingredient type</string>
+    <string name="Admin_ai4">Ingredient image</string>
+    <string name="Admin_ai5">Provider</string>
+
+
+    <string name="Admin_ai2c">Insert the ingredient name</string>
+    <string name="Admin_ai3c">Type</string>
+    <string name="Admin_ai4c">Choose an image</string>
+    <string name="Admin_ai5c">Insert the providers name</string>
 
 
 

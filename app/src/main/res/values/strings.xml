@@ -12,6 +12,14 @@
         <item>San Nicolás</item>
     </string-array>
 
+    <string-array name="tipo">
+        <item>Origen animal</item>
+        <item>Organico</item>
+        <item>Vegano</item>
+        <item>Lacteo</item>
+        <item>No comestible</item>
+    </string-array>
+
     <!--Principal del menu desplegable izquierdo-->
     <string name="logo">Logo</string>
     <string name="idioma">Seleccionar idioma</string>
@@ -103,6 +111,19 @@
     <string name="Admin4">Vista general</string>
     <string name="Admin5">+ Expandir alcance</string>
     <string name="Admin6">Gestionar inventario</string>
+
+    <!-- Strings de Pe_admin_agregari -->
+    <string name="Admin_ai1">Registrar nuevo ingrediente</string>
+    <string name="Admin_ai2">Nombre del ingrediente</string>
+    <string name="Admin_ai3">Tipo de ingrediente</string>
+    <string name="Admin_ai4">Imagen del ingrediente</string>
+    <string name="Admin_ai5">Proovedor</string>
+
+    <string name="Admin_ai2c">Ingrese el nombre del producto</string>
+    <string name="Admin_ai3c">Tipo</string>
+    <string name="Admin_ai4c">No seleccionado</string>
+    <string name="Admin_ai5c">Ingrese el nombre del proveedor</string>
+
 
 
 </resources>

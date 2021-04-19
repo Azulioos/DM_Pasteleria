@@ -109,7 +109,7 @@
 
             <LinearLayout
                 android:id="@+id/pass_c"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:background="@drawable/recurso_boton_blanco"
@@ -120,10 +120,11 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView4"
                 app:layout_constraintVertical_bias="0.0">
 
-                <EditText
+                <ImageButton
                     android:id="@+id/passwords"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/icono_ingredientes"
                     android:layout_margin="10dp"
 
                     android:autofillHints=""
@@ -131,7 +132,8 @@
                     android:hint="@string/Admin_ai4c"
                     android:inputType="textPassword"
                     android:textColor="@color/black"
-                    android:textColorHint="#60443B" />
+                    android:textColorHint="#60443B"/>
+
 
             </LinearLayout>
 

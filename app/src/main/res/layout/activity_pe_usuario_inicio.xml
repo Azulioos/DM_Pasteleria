@@ -59,22 +59,27 @@
                     android:id="@+id/verificar_inicio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_marginStart="103dp"
+                    android:layout_marginEnd="16dp"
                     android:background="@color/black"
+
                     android:gravity="center"
                     android:text="@string/Ir"
                     android:textColor="#60443B"
                     android:textSize="15sp"
-
+                    app:layout_constraintBottom_toTopOf="@+id/carousel"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <com.synnapps.carouselview.CarouselView
                     android:id="@+id/carousel"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="104dp"
+                    android:layout_marginTop="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.8"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -87,6 +92,8 @@
                 android:layout_marginTop="72dp"
                 android:background="@color/colorPrimary"
                 android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
                 <TextView
@@ -106,22 +113,26 @@
                     android:id="@+id/menu_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_marginStart="51dp"
+                    android:layout_marginEnd="16dp"
                     android:background="@color/black"
+
                     android:gravity="center"
                     android:text="@string/Ir"
                     android:textColor="#60443B"
                     android:textSize="15sp"
-
+                    app:layout_constraintBottom_toTopOf="@+id/carousel_2"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView2"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <com.synnapps.carouselview.CarouselView
                     android:id="@+id/carousel_2"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="119dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.8"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/menu_3" />
 
@@ -134,8 +145,9 @@
                 android:layout_marginTop="72dp"
                 android:background="@color/colorPrimary"
                 android:orientation="vertical"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
-                >
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
                 <TextView
                     android:id="@+id/textView3"
@@ -154,20 +166,23 @@
                     android:id="@+id/menu_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_marginStart="46dp"
+                    android:layout_marginEnd="16dp"
                     android:background="@color/black"
                     android:gravity="center"
+
                     android:text="@string/Ir"
                     android:textColor="#60443B"
                     android:textSize="15sp"
-
+                    app:layout_constraintBottom_toTopOf="@+id/carousel_3"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView3"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <com.synnapps.carouselview.CarouselView
                     android:id="@+id/carousel_3"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

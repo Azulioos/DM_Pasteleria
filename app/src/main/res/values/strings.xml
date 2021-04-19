@@ -124,6 +124,13 @@
     <string name="Admin_ai4c">No seleccionado</string>
     <string name="Admin_ai5c">Ingrese el nombre del proveedor</string>
 
+    <!-- Strings de Pe_admin_gestionari -->
+    <string name="Admin_gi1">Gestionar inventario</string>
+    <string name="Admin_gi2">Nombre del producto</string>
+    <string name="Admin_gi3">Imagen del producto</string>
+    <string name="Admin_gi4">Cantidad de unidades</string>
+    <string name="Admin_gi5">Editar unidades</string>
+
 
 
 </resources>

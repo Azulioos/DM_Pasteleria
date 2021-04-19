@@ -115,6 +115,14 @@
     <string name="Admin_ai4c">Choose an image</string>
     <string name="Admin_ai5c">Insert the providers name</string>
 
+    <!-- Strings de Pe_admin_gestionari -->
+    <string name="Admin_gi1">Check inventory</string>
+    <string name="Admin_gi2">Product`s name</string>
+    <string name="Admin_gi3">Product`s image</string>
+    <string name="Admin_gi4">Product`s units</string>
+    <string name="Admin_gi5">Edit amount</string>
+
+
 
 
 </resources>

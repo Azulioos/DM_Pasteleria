@@ -9,26 +9,20 @@
 
     <item
         android:title="@string/Toolbar1"
-        android:id="@+id/Toolbar"
-        />
+        android:id="@+id/Toolbar" />
 
     <item
         android:title="@string/Toolbar3"
-        android:id="@+id/Toolbar3"
-
-        />
+        android:id="@+id/Toolbar3" />
 
     <item
         android:title="@string/Toolbar4"
-        android:id="@+id/Toolbar4"
-
-        />
+        android:id="@+id/Toolbar4" />
 
     <item
         android:title="@string/Toolbar5"
         android:id="@+id/Toolbar5"
-
-        />
+        android:onClick="logout"/>
 
 
 

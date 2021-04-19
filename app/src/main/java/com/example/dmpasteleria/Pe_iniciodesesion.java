@@ -42,110 +42,87 @@ public class Pe_iniciodesesion extends AppCompatActivity {
         mIsWorker = findViewById(R.id.checkbox2);
         mIsAdmin = findViewById(R.id.checkbox3);
 
-        mIsAdmin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(buttonView.isChecked()){
-                    mIsUser.setChecked(false);
-                    mIsWorker.setChecked(false);
-                }
+        mIsAdmin.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(buttonView.isChecked()){
+                mIsUser.setChecked(false);
+                mIsWorker.setChecked(false);
             }
         });
 
-        mIsUser.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(buttonView.isChecked()){
-                    mIsAdmin.setChecked(false);
-                    mIsWorker.setChecked(false);
-                }
+        mIsUser.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(buttonView.isChecked()){
+                mIsAdmin.setChecked(false);
+                mIsWorker.setChecked(false);
             }
         });
 
-        mIsWorker.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(buttonView.isChecked()){
-                    mIsAdmin.setChecked(false);
-                    mIsUser.setChecked(false);
-                }
+        mIsWorker.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(buttonView.isChecked()){
+                mIsAdmin.setChecked(false);
+                mIsUser.setChecked(false);
             }
         });
 
-        mLoginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String email = mEmail.getText().toString().trim();
-                String password = mPassword.getText().toString().trim();
+        mLoginBtn.setOnClickListener(v -> {
+            String email = mEmail.getText().toString().trim();
+            String password = mPassword.getText().toString().trim();
 
-                fAuth = FirebaseAuth.getInstance();
-                fStore = FirebaseFirestore.getInstance();
+            fAuth = FirebaseAuth.getInstance();
+            fStore = FirebaseFirestore.getInstance();
 
-                if(TextUtils.isEmpty(email)){
-                    mEmail.setError("Ingresa tu Email.");
-                    return;
-                }
-                if(TextUtils.isEmpty(password)) {
-                    mPassword.setError("Ingresa tu contraseña, por favor.");
-                    return;
-                }
-
-                if(!(mIsWorker.isChecked() || mIsUser.isChecked() || mIsAdmin.isChecked())){
-                    Toast.makeText(Pe_iniciodesesion.this, "Seleciona un tipo de cuenta", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                fAuth.signInWithEmailAndPassword(email,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                    @Override
-                    public void onSuccess(AuthResult authResult) {
-                        openPrincipal(authResult.getUser().getUid());
-                        finish();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(Pe_iniciodesesion.this, "Error al iniciar sesion.", Toast.LENGTH_SHORT).show();
-                    }
-                });
+            if (TextUtils.isEmpty(email)) {
+                mEmail.setError("Ingresa tu Email.");
+                return;
             }
+            if (TextUtils.isEmpty(password)) {
+                mPassword.setError("Ingresa tu contraseña, por favor.");
+                return;
+            }
+
+            if (!(mIsWorker.isChecked() || mIsUser.isChecked() || mIsAdmin.isChecked())) {
+                Toast.makeText(Pe_iniciodesesion.this, "Seleciona un tipo de cuenta", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            fAuth.signInWithEmailAndPassword(email, password).addOnSuccessListener(authResult -> {
+                Pe_iniciodesesion.this.openPrincipal(authResult.getUser().getUid());
+                Pe_iniciodesesion.this.finish();
+            }).addOnFailureListener(e -> Toast.makeText(Pe_iniciodesesion.this, "Error al iniciar sesion.", Toast.LENGTH_SHORT).show());
         });
     }
 
     public void openPrincipal(String Uid){
         DocumentReference df = fStore.collection("users").document(Uid);
-        df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Log.d("TAG","OnSuccess" + documentSnapshot.getData());
+        df.get().addOnSuccessListener(documentSnapshot -> {
+            Log.d("TAG","OnSuccess" + documentSnapshot.getData());
 
-                if(documentSnapshot.getString("Role") != null && mIsUser.isChecked()){
-                    Intent intent = new Intent(Pe_iniciodesesion.this, Pe_usuario_inicio.class);
-                    startActivity(intent);
-                    Toast.makeText(Pe_iniciodesesion.this, "Iniciando pantalla de usuario", Toast.LENGTH_SHORT).show();
-                    finish();
-                }
+            if(documentSnapshot.getString("Role") != null && mIsUser.isChecked()){
+                Intent intent = new Intent(Pe_iniciodesesion.this, Pe_usuario_inicio.class);
+                startActivity(intent);
+                Toast.makeText(Pe_iniciodesesion.this, "Iniciando pantalla de usuario", Toast.LENGTH_SHORT).show();
+                finish();
+            }
 
-                if(documentSnapshot.getString("RoleAdmin") != null && mIsAdmin.isChecked()){
-                    Intent intent = new Intent(Pe_iniciodesesion.this, Pe_admin_inicio.class);
-                    Toast.makeText(Pe_iniciodesesion.this, "Iniciando pantalla de administrador", Toast.LENGTH_SHORT).show();
-                    startActivity(intent);
-                    finish();
-                }
+            if(documentSnapshot.getString("RoleAdmin") != null && mIsAdmin.isChecked()){
+                Intent intent = new Intent(Pe_iniciodesesion.this, Pe_admin_inicio.class);
+                Toast.makeText(Pe_iniciodesesion.this, "Iniciando pantalla de administrador", Toast.LENGTH_SHORT).show();
+                startActivity(intent);
+                finish();
+            }
 
-                if(documentSnapshot.getString("RoleWorker") != null && mIsWorker.isChecked()){
-                    Intent intent = new Intent(Pe_iniciodesesion.this, Pe_empleado_inicio.class);
-                    Toast.makeText(Pe_iniciodesesion.this, "Iniciando pantalla de empleado", Toast.LENGTH_SHORT).show();
-                    startActivity(intent);
-                    finish();
-                }
+            if(documentSnapshot.getString("RoleWorker") != null && mIsWorker.isChecked()){
+                Intent intent = new Intent(Pe_iniciodesesion.this, Pe_empleado_inicio.class);
+                Toast.makeText(Pe_iniciodesesion.this, "Iniciando pantalla de empleado", Toast.LENGTH_SHORT).show();
+                startActivity(intent);
+                finish();
+            }
 
-                if(!(mIsWorker.isChecked() || mIsUser.isChecked() || mIsAdmin.isChecked())){
-                    Toast.makeText(Pe_iniciodesesion.this, "Error de rol", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Pe_iniciodesesion.this, Pe_registro.class);
-                    startActivity(intent);
+            if(!(mIsWorker.isChecked() || mIsUser.isChecked() || mIsAdmin.isChecked())){
+                Toast.makeText(Pe_iniciodesesion.this, "Error de rol", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Pe_iniciodesesion.this, Pe_registro.class);
+                startActivity(intent);
 
 
-                }
             }
         });
     }

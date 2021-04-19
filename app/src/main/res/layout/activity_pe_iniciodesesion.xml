@@ -188,7 +188,7 @@
 
 
             <Button
-                android:id="@+id/verificar_inicio"
+                android:id="@+id/boton_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/black"
@@ -215,7 +215,7 @@
                 android:textStyle="italic"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/verificar_inicio"
+                app:layout_constraintTop_toBottomOf="@+id/boton_1"
                 app:layout_constraintVertical_bias="0.483" />
 
             <TextView
@@ -232,7 +232,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/ir_a_pantallaregistro"
-                app:layout_constraintTop_toBottomOf="@+id/verificar_inicio" />
+                app:layout_constraintTop_toBottomOf="@+id/boton_1" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

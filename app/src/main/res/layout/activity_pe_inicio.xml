@@ -80,8 +80,7 @@
             android:onClick="Inicio"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/boton_inicio_registro"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/boton_inicio_registro" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

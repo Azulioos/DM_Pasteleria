@@ -29,6 +29,4 @@
         android:id="@+id/Toolbar5"
         android:onClick="signOut" />
 
-
-
 </menu>

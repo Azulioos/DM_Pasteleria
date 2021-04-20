@@ -38,11 +38,10 @@
                 android:gravity="center"
                 android:text="@string/Admin_ai1"
                 android:textColor="@color/black"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/constraintLayout3"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
@@ -52,14 +51,18 @@
                 android:layout_height="match_parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                app:layout_constraintVertical_bias="1.0">
+
 
                 <TableLayout
                     android:id="@+id/tableLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_margin="20dp"
+                    android:background="@drawable/bordes"
                     android:gravity="center"
                     android:stretchColumns="0,1,2"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -71,34 +74,38 @@
 
 
                     <TableRow
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="5dp">
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bordes"
+                        android:padding="5dp"
+                        app:layout_constraintStart_toStartOf="parent">
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="10dp"
                             android:layout_height="wrap_content"
                             android:layout_column="0"
                             android:gravity="center"
                             android:padding="5dp"
+                            android:text="@string/Admin_gi2"
 
                             android:textColor="@color/black" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="15dp"
                             android:layout_height="wrap_content"
                             android:layout_column="1"
                             android:gravity="center"
                             android:padding="5dp"
-
+                            android:text="@string/Admin_gi3"
                             android:textColor="@color/black" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="11dp"
                             android:layout_height="wrap_content"
                             android:layout_column="2"
                             android:gravity="center"
                             android:padding="5dp"
+                            android:text="@string/Admin_gi4"
 
                             android:textColor="@color/black" />
 
@@ -107,16 +114,43 @@
                     <TableRow
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/bordes"
                         android:padding="5dp">
 
-                        <Button
-                            android:layout_width="wrap_content"
+                        <TextView
+                            android:id="@+id/Inventario_1"
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content"
+                            android:layout_column="0"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="@string/Admin_gi2"
+                            android:textColor="@color/black" />
+
+
+                        <ImageButton
+                            android:id="@+id/Inventario_2"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:autofillHints=""
+                            android:background="@color/white"
+                            android:hint="@string/Admin_ai4c"
+                            android:inputType="textPassword"
+                            android:src="@drawable/icono_ingredientes"
+                            android:textColor="@color/black"
+                            android:textColorHint="#60443B"
+                            />
+
+                        <TextView
+                            android:id="@+id/Inventario_3"
+                            android:layout_width="11dp"
                             android:layout_height="wrap_content"
                             android:layout_column="2"
                             android:gravity="center"
-                            android:textColor="@color/black"
+                            android:padding="5dp"
+                            android:text="@string/Admin_gi4"
 
-                            />
+                            android:textColor="@color/black" />
 
                     </TableRow>
 

@@ -106,6 +106,7 @@ public class Pe_admin_agregari extends AppCompatActivity implements AdapterView.
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
                                 Log.d(TAG, "Ingrediente agregado con el ID" + documentReference.getId());
+                                startActivity(new Intent(getApplicationContext(),Pe_admin_gestionari.class));
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                     @Override

@@ -52,6 +52,7 @@ public class Pe_admin_agregari extends AppCompatActivity implements AdapterView.
         mNombreProducto = findViewById(R.id.user);
         mProveedor = findViewById(R.id.cnacimiento);
         mImagen = findViewById(R.id.passwords);
+        mRegisterBtn = findViewById(R.id.verificar_inicio);
 
         mImagen.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,11 +95,10 @@ public class Pe_admin_agregari extends AppCompatActivity implements AdapterView.
                 }
 
                 Map<String, Object> inventario = new HashMap<>();
-                inventario.put("Producto", mNombreProducto);
-                inventario.put("Proveedor", mProveedor);
+                inventario.put("Producto", Producto);
+                inventario.put("Proveedor", Proveedor);
                 inventario.put("Tipo", Spinner_0);
                 inventario.put("Cantidad", 0);
-                inventario.put("Imagen", riverRef);
 
                 fStore.collection("inventario")
                         .add(inventario)
@@ -124,7 +124,7 @@ public class Pe_admin_agregari extends AppCompatActivity implements AdapterView.
 
     private void choosePicture() {
         Intent intent = new Intent();
-        intent.setType("Image/");
+        intent.setType("images/");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent, 1);
     }

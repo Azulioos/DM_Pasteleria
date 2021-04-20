@@ -130,7 +130,7 @@
     <string name="Admin_gi3">Imagen del producto</string>
     <string name="Admin_gi4">Cantidad de unidades</string>
     <string name="Admin_gi5">Editar unidades</string>
-
+    <string name="UserSettingsWelcome">Ajustes de cuenta</string>
 
 
 </resources>

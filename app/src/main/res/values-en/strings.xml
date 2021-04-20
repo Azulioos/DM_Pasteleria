@@ -122,6 +122,10 @@
     <string name="Admin_gi4">Product`s units</string>
     <string name="Admin_gi5">Edit amount</string>
     <string name="UserSettingsWelcome">Account settings</string>
+    <string name="username">Username</string>
+    <string name="usermail">User Email</string>
+    <string name="userdate">User Birthday</string>
+    <string name="UsuarioName">Username</string>
 
 
 </resources>

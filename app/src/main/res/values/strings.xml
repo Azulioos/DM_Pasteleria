@@ -131,6 +131,10 @@
     <string name="Admin_gi4">Cantidad de unidades</string>
     <string name="Admin_gi5">Editar unidades</string>
     <string name="UserSettingsWelcome">Ajustes de cuenta</string>
+    <string name="username">Nombre de usuario</string>
+    <string name="usermail">Correo de usuario</string>
+    <string name="userdate">Fecha de cumpleaños</string>
+    <string name="UsuarioName">Nombre de usuario</string>
 
 
 </resources>

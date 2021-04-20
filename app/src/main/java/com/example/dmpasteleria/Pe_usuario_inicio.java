@@ -102,4 +102,9 @@ public class Pe_usuario_inicio extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), Pe_inicio.class));
         finish();
     }
+
+    public void openUserAccount(MenuItem item){
+        startActivity(new Intent(getApplicationContext(), Pe_user_settings.class));
+        finish();
+    }
 }

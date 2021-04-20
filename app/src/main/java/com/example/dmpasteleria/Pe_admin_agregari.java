@@ -25,6 +25,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -79,10 +80,22 @@ public class Pe_admin_agregari extends AppCompatActivity implements AdapterView.
             public void onClick(View v) {
                 final String randomKey = UUID.randomUUID().toString();
                 StorageReference riverRef = storageReference.child("images/" + randomKey);
+                riverRef.putFile(imageURL)
+                        .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>(){
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot){
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                    }
+                });
 
                 String Producto = mNombreProducto.getText().toString().trim();
                 String Proveedor = mProveedor.getText().toString().trim();
                 String Spinner_0 = spinners.getSelectedItem().toString().trim();
+                String mUpload = riverRef.getDownloadUrl().toString();
 
 
                 if (TextUtils.isEmpty(Producto)) {
@@ -99,6 +112,8 @@ public class Pe_admin_agregari extends AppCompatActivity implements AdapterView.
                 inventario.put("Proveedor", Proveedor);
                 inventario.put("Tipo", Spinner_0);
                 inventario.put("Cantidad", 0);
+                inventario.put("imagen", mUpload);
+
 
                 fStore.collection("inventario")
                         .add(inventario)
@@ -106,7 +121,7 @@ public class Pe_admin_agregari extends AppCompatActivity implements AdapterView.
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
                                 Log.d(TAG, "Ingrediente agregado con el ID" + documentReference.getId());
-                                startActivity(new Intent(getApplicationContext(),Pe_admin_gestionari.class));
+                                startActivity(new Intent(getApplicationContext(),Pe_admin_inicio.class));
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -124,7 +139,7 @@ public class Pe_admin_agregari extends AppCompatActivity implements AdapterView.
 
     private void choosePicture() {
         Intent intent = new Intent();
-        intent.setType("images/");
+        intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent, 1);
     }

@@ -2,6 +2,7 @@ package com.example.dmpasteleria;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -14,6 +15,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Pe_admin_inicio extends AppCompatActivity {
 
+
+    private static final String TAG = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +71,13 @@ public class Pe_admin_inicio extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         fAuth.signOut();
         startActivity(new Intent(getApplicationContext(), Pe_inicio.class));
+        finish();
+    }
+
+    public void openUserAccount(MenuItem item) {
+        Log.d(TAG, "Abriendo actividad");
+        startActivity(new Intent(getApplicationContext(), Pe_user_settings.class));
+        Log.d(TAG, "Post abriendo actividad");
         finish();
     }
 }

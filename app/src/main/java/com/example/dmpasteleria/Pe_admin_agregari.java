@@ -38,6 +38,7 @@ public class Pe_admin_agregari extends AppCompatActivity implements AdapterView.
     FirebaseFirestore fStore;
     StorageReference storageRef;
 
+
     private ImageView mImagen;
     private FirebaseStorage storage;
     private StorageReference storageReference;

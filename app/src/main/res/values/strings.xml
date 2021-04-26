@@ -21,11 +21,11 @@
     </string-array>
 
     <string-array name="capas">
-        <item>Fresa</item>
-        <item>Piña</item>
-        <item>Chocolate</item>
-        <item>Glaseado</item>
-        <item>Cajeta</item>
+        <item>Fresa 39.99 $</item>
+        <item>Piña 29.99 $</item>
+        <item>Chocolate 39.99 $</item>
+        <item>Glaseado 19.99 $</item>
+        <item>Cajeta 39.99 $</item>
     </string-array>
 
 
@@ -156,19 +156,19 @@
     <string name="Vainilla">Vainilla</string>
     <string name="PP_1">Pasteles personalizados.</string>
     <string name="PP_2">Escoge un tamañao para el pastel</string>
-    <string name="PP_3">Pastel chico (1 a 2 personas)</string>
-    <string name="PP_4">Pastel normal (3 a 4 personas)</string>
-    <string name="PP_5">Pastel grande (5 a 7 personas)</string>
+    <string name="PP_3">Pastel chico (1 a 2 personas) 79.99 $Mxn</string>
+    <string name="PP_4">Pastel normal (3 a 4 personas)99.99 $Mxn</string>
+    <string name="PP_5">Pastel grande (5 a 7 personas) 129.99 $Mxn</string>
     <string name="PP_6">Diametro de 15 centimetros</string>
-    <string name="PP_7">Diametro de 19 centimetros</string>
-    <string name="PP_8">Diametro de 26 centimetros</string>
+    <string name="PP_7">Diametro de 19 centimetros. Condimentos + 10%</string>
+    <string name="PP_8">Diametro de 26 centimetros. Condimentos + 15%</string>
     <string name="PP_9">Selecciona el tipo de pan que desea</string>
     <string name="PP_10">Seleccione alguna superficie para su pastel</string>
-    <string name="PP_10_1">Almendras</string>
-    <string name="PP_10_2">Coco rayado</string>
-    <string name="PP_10_3">Fresas</string>
-    <string name="PP_10_4">Trozos de chocolate</string>
-    <string name="PP_10_5">Trozos de mazapan</string>
+    <string name="PP_10_1">Almendras 29.99 $Mxn</string>
+    <string name="PP_10_2">Coco rayado 19.99 $Mxn</string>
+    <string name="PP_10_3">Fresas 39.99 $Mxn</string>
+    <string name="PP_10_4">Trozos de chocolate 35.99 $Mxn</string>
+    <string name="PP_10_5">Chispas de colores 24.99 $Mxn</string>
     <string name="PP_10_6">Ninguno</string>
     <string name="PP_11">Seleccione la cantidad de capas que desea.</string>
     <string name="PP_12">Seleccione el color de la superficie</string>
@@ -180,6 +180,8 @@
     <string name="PP_12_6">Color azul</string>
     <string name="PP_13">Agregar un texto al pastel</string>
     <string name="PP_14">Ingrese la direccion de entrega</string>
+    <string name="PP_15">Verificar precio </string>
+    <string name="PP_16">Agregar al carrito</string>
 
     <string name="PP_0">No seleccionado</string>
     <string name="o">o</string>

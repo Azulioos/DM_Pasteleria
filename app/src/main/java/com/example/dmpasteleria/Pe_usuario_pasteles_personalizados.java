@@ -4,11 +4,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,27 +16,39 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.List;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+    Button mValidarBtn, mProceder;
     CheckBox mIsNormal, mIsSmall, mIsLarge, mExtra_5, mSuperficie_5;
     CheckBox mExtra_1, mExtra_2, mExtra_3, mExtra_4, mExtra_6;
     CheckBox mSuperficie_2, mSuperficie_3, mSuperficie_4, mSuperficie_1, mSuperficie_6;
     ImageView mImagen;
     String[] mPan = {String.valueOf(R.string.Chocolate), String.valueOf(R.string.Vainilla)};
-    String[] mCapas = {"1", "2", "3"};
     TextView mPanS;
     TextView mCapasS;
-    ListView mListaV;
-    List<EditText> mListaE;
-    List<TextView> mListaVV;
     LinearLayout mRelleno_1, mRelleno_2;
+    FirebaseFirestore fStore;
+
+    float PrecioFinal = 0;
+    float Precio = 0;
+    float Capa = 0;
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pe_usuario_pasteles_personalizados);
+
+
+        fStore = FirebaseFirestore.getInstance();
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
 
         mRelleno_1 = findViewById(R.id.PastelesPersonalizados_12_1);
         mRelleno_2 = findViewById(R.id.PastelesPersonalizados_12_2);
@@ -83,6 +95,9 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                 mIsSmall.setChecked(false);
                 mIsLarge.setChecked(false);
                 mImagen.setImageResource(R.drawable.icono_pastel_chico);
+                Precio = 0.8f;
+                Capa = 79.99f;
+
             }
         });
 
@@ -91,6 +106,8 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                 mIsNormal.setChecked(false);
                 mIsLarge.setChecked(false);
                 mImagen.setImageResource(R.drawable.icono_pastel);
+                Precio = 1f;
+                Capa = 99.99f;
             }
         });
 
@@ -99,6 +116,8 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                 mIsNormal.setChecked(false);
                 mIsSmall.setChecked(false);
                 mImagen.setImageResource(R.drawable.icono_pastel_grande);
+                Precio = 1.2f;
+                Capa = 129.99f;
             }
         });
 
@@ -109,6 +128,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                 mSuperficie_3.setChecked(false);
                 mSuperficie_4.setChecked(false);
                 mSuperficie_6.setChecked(false);
+
             }
         });
 
@@ -119,6 +139,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                 mExtra_3.setChecked(false);
                 mExtra_4.setChecked(false);
                 mExtra_6.setChecked(false);
+
             }
         });
 
@@ -151,6 +172,133 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
             mRelleno_2.setVisibility(View.VISIBLE);
             mRelleno_1.setVisibility(View.VISIBLE);
         }
+
+        mValidarBtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                mSuperficie_1.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                    if(buttonView.isChecked()){
+                        float Superficie_1 = 29.99f;
+                        PrecioFinal += Superficie_1;
+                    }
+                });
+
+                mSuperficie_2.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                    if(buttonView.isChecked()){
+                        float Superficie_2 = 19.99f;
+                        PrecioFinal += Superficie_2;
+                    }
+                });
+
+                mSuperficie_3.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                    if(buttonView.isChecked()){
+                        float Superficie_3 = 39.99f;
+                        PrecioFinal += Superficie_3;
+                    }
+                });
+
+                mSuperficie_4.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                    if(buttonView.isChecked()){
+                        float Superficie_4 = 35.99f;
+                        PrecioFinal += Superficie_4;
+                    }
+                });
+
+                mSuperficie_6.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                    if(buttonView.isChecked()){
+                        float Superficie_6 = 24.99f;
+                        PrecioFinal += Superficie_6;
+                    }
+                });
+
+                String Spinner_0 = spinners.getSelectedItem().toString().trim();
+                String Spinner_1 = spinners_1.getSelectedItem().toString().trim();
+                String Spinner_2 = spinners_2.getSelectedItem().toString().trim();
+                EditText Texto_E = findViewById(R.id.Texto);
+                String mTexto_E = Texto_E.getText().toString().trim();
+
+                if(Spinner_0.equals("1")){
+
+                }
+
+                if(Spinner_0.equals("2")){
+
+                    if(Spinner_1.equals("Fresa 39.99 $")){
+                        float Relleno_1 = 39.99f;
+                        PrecioFinal += Relleno_1;
+                    }
+                    if(Spinner_1.equals("Piña 29.99 $")){
+                        float Relleno_2 = 29.99f;
+                        PrecioFinal += Relleno_2;
+                    }
+                    if(Spinner_1.equals("Chocolate 39.99 $")){
+                        float Relleno_3 = 39.99f;
+                        PrecioFinal += Relleno_3;
+                    }
+                    if(Spinner_1.equals("Glaseado 19.99 $")){
+                        float Relleno_4 = 19.99f;
+                        PrecioFinal += Relleno_4;
+                    }
+                    if(Spinner_1.equals("Cajeta 39.99 $")){
+                        float Relleno_6 = 39.99f;
+                        PrecioFinal += Relleno_6;
+                    }
+
+                }
+
+                if(Spinner_0.equals("3")){
+
+                    if(Spinner_1.equals("Fresa 39.99 $")){
+                        float Relleno_1 = 39.99f;
+                        PrecioFinal += Relleno_1;
+                    }
+                    if(Spinner_1.equals("Piña 29.99 $")){
+                        float Relleno_2 = 29.99f;
+                        PrecioFinal += Relleno_2;
+                    }
+                    if(Spinner_1.equals("Chocolate 39.99 $")){
+                        float Relleno_3 = 39.99f;
+                        PrecioFinal += Relleno_3;
+                    }
+                    if(Spinner_1.equals("Glaseado 19.99 $")){
+                        float Relleno_4 = 19.99f;
+                        PrecioFinal += Relleno_4;
+                    }
+                    if(Spinner_1.equals("Cajeta 39.99 $")){
+                        float Relleno_6 = 39.99f;
+                        PrecioFinal += Relleno_6;
+                    }
+
+                    if(Spinner_2.equals("Fresa 39.99 $")){
+                        float Relleno_7 = 39.99f;
+                        PrecioFinal += Relleno_7;
+                    }
+                    if(Spinner_2.equals("Piña 29.99 $")){
+                        float Relleno_8 = 29.99f;
+                        PrecioFinal += Relleno_8;
+                    }
+                    if(Spinner_2.equals("Chocolate 39.99 $")){
+                        float Relleno_9 = 39.99f;
+                        PrecioFinal += Relleno_9;
+                    }
+                    if(Spinner_2.equals("Glaseado 19.99 $")){
+                        float Relleno_10 = 19.99f;
+                        PrecioFinal += Relleno_10;
+                    }
+                    if(Spinner_2.equals("Cajeta 39.99 $")){
+                        float Relleno_12 = 39.99f;
+                        PrecioFinal += Relleno_12;
+                    }
+                }
+
+                if(!(mTexto_E.equals(""))){
+                    float Texto = 19.99f;
+                    PrecioFinal += Texto;
+                }
+
+            }
+        });
 
     }
 

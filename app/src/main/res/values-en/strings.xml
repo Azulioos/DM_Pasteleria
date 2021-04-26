@@ -156,6 +156,8 @@
     <string name="PP_12_6">Color azul</string>
     <string name="PP_13">Agregar un texto al pastel</string>
     <string name="PP_14">Ingrese la direccion de entrega</string>
+    <string name="PP_15">Verificar precio </string>
+    <string name="PP_16">Agregar al carrito</string>
 
     <string name="PP_0">No seleccionado</string>
     <string name="o">o</string>

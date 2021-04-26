@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,9 @@ import com.google.firebase.storage.StorageReference;
 
 public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+    String mProducto;
+    String mPrecio;
+
     Button mValidarBtn, mProceder;
     CheckBox mIsNormal, mIsSmall, mIsLarge, mExtra_5, mSuperficie_5;
     CheckBox mExtra_1, mExtra_2, mExtra_3, mExtra_4, mExtra_6;
@@ -32,6 +36,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
     TextView mCapasS;
     LinearLayout mRelleno_1, mRelleno_2;
     FirebaseFirestore fStore;
+    TableLayout Recibo;
 
     float PrecioFinal = 0;
     float Precio = 0;
@@ -161,13 +166,12 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
             mRelleno_2.setVisibility(View.GONE);
             mRelleno_1.setVisibility(View.GONE);
         }
-        String Validar_2 = mCapasS.getText().toString().trim();
+
         if(Validar_1.equals("2")){
             mRelleno_2.setVisibility(View.GONE);
             mRelleno_1.setVisibility(View.VISIBLE);
         }
 
-        String Validar_3 = mCapasS.getText().toString().trim();
         if(Validar_1.equals("3")){
             mRelleno_2.setVisibility(View.VISIBLE);
             mRelleno_1.setVisibility(View.VISIBLE);
@@ -297,8 +301,14 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                     PrecioFinal += Texto;
                 }
 
+                addView();
+
             }
         });
+
+    }
+
+    private void addView() {
 
     }
 
@@ -311,5 +321,18 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    public Pe_usuario_pasteles_personalizados(String mProducto, String mPrecio){
+        this.mProducto = mProducto;
+        this.mPrecio = mPrecio;
+    }
+
+    public String getmProducto(){
+        return mProducto;
+    }
+
+    public  String getmPrecio(){
+        return mPrecio;
     }
 }

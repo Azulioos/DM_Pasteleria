@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.ImageView;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -16,8 +16,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.synnapps.carouselview.CarouselView;
-import com.synnapps.carouselview.ImageClickListener;
-import com.synnapps.carouselview.ImageListener;
 
 import java.util.Locale;
 
@@ -48,6 +46,20 @@ public class Pe_usuario_inicio extends AppCompatActivity {
         carouselView.setPageCount(mImages.length);
         carouselView.setImageListener((position, imageView) -> imageView.setImageResource(mImages[position]));
         carouselView.setImageClickListener(position -> {
+            Toast.makeText( Pe_usuario_inicio.this, mImagesTitle[position] , Toast.LENGTH_SHORT).show();   //Muestra un mensaje al hacer click en el pastel
+        });
+
+        CarouselView carouselView2 = findViewById(R.id.carousel_2);
+        carouselView2.setPageCount(mImages.length);
+        carouselView2.setImageListener((position, imageView) -> imageView.setImageResource(mImages[position]));
+        carouselView2.setImageClickListener(position -> {
+            Toast.makeText( Pe_usuario_inicio.this, mImagesTitle[position] , Toast.LENGTH_SHORT).show();   //Muestra un mensaje al hacer click en el pastel
+        });
+
+        CarouselView carouselView3 = findViewById(R.id.carousel_3);
+        carouselView3.setPageCount(mImages.length);
+        carouselView3.setImageListener((position, imageView) -> imageView.setImageResource(mImages[position]));
+        carouselView3.setImageClickListener(position -> {
             Toast.makeText( Pe_usuario_inicio.this, mImagesTitle[position] , Toast.LENGTH_SHORT).show();   //Muestra un mensaje al hacer click en el pastel
         });
     }
@@ -103,7 +115,8 @@ public class Pe_usuario_inicio extends AppCompatActivity {
         finish();
     }
 
-    public void openUserAccount(MenuItem item){
+
+    public void Personalized(View view) {
         startActivity(new Intent(getApplicationContext(), Pe_user_settings.class));
         finish();
     }

@@ -10,7 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorSecondary"
-        >
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -183,10 +186,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/PP_10"
                     android:layout_margin="7dp"
-                    android:textColor="@color/colorPrimary"
-                    />
+                    android:text="@string/PP_10"
+                    android:textColor="@color/colorPrimary" />
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -223,8 +225,7 @@
                         android:layout_margin="8dp"
                         app:cardBackgroundColor="@color/white"
                         app:cardCornerRadius="8dp"
-                        app:cardElevation="8dp"
-                        >
+                        app:cardElevation="8dp">
 
 
                         <LinearLayout
@@ -242,8 +243,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/PP_10_1"
                                 android:textAlignment="center"
-                                android:textColor="#60443B"
-                                />
+                                android:textColor="#60443B" />
 
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
@@ -433,10 +433,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/PP_11"
                     android:layout_margin="7dp"
-                    android:textColor="@color/colorPrimary"
-                    />
+                    android:text="@string/PP_11"
+                    android:textColor="@color/colorPrimary" />
             </LinearLayout>
 
 
@@ -522,15 +521,14 @@
                 </LinearLayout>
 
 
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
                 android:id="@+id/PastelesPersonalizados_15"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/purple_700"
                 android:layout_marginTop="20dp"
+                android:background="@color/purple_700"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -540,10 +538,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/PP_12"
                     android:layout_margin="7dp"
-                    android:textColor="@color/colorPrimary"
-                    />
+                    android:text="@string/PP_12"
+                    android:textColor="@color/colorPrimary" />
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -595,8 +592,7 @@
                                 android:id="@+id/Superficie_1"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:button="@drawable/icono_color_blanco"
-                                />
+                                android:button="@drawable/icono_color_blanco" />
 
 
                             <TextView
@@ -636,8 +632,7 @@
                                 android:id="@+id/Superficie_2"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:button="@drawable/icono_color_verde"
-                                />
+                                android:button="@drawable/icono_color_verde" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -671,11 +666,10 @@
                             android:orientation="vertical">
 
                             <CheckBox
+                                android:id="@+id/Superficie_3"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:button="@drawable/icono_color_rosa"
-                                android:id="@+id/Superficie_3"
-                                />
+                                android:button="@drawable/icono_color_rosa" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -712,9 +706,8 @@
                                 android:id="@+id/Superficie_4"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:button="@drawable/icono_pastel_chico"
                                 android:background="@drawable/icono_color_morado"
-                                />
+                                android:button="@drawable/icono_pastel_chico" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -752,8 +745,7 @@
                                 android:id="@+id/Superficie_6"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:button="@drawable/icono_color_azul"
-                                />
+                                android:button="@drawable/icono_color_azul" />
 
 
                             <TextView
@@ -791,8 +783,7 @@
                                 android:id="@+id/Superficie_5"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:button="@drawable/icono_color_amarillo"
-                                />
+                                android:button="@drawable/icono_color_amarillo" />
 
 
                             <TextView
@@ -915,16 +906,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/PastelesPersonalizados_19" />
 
-            <TableLayout
-                android:layout_margin="20dp"
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/PastelesPersonalizados_21"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/PastelesPersonalizados_20">
 
-            </TableLayout>
+            </androidx.recyclerview.widget.RecyclerView>
 
             <Button
                 android:id="@+id/PastelesPersonalizados_22"

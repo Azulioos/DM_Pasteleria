@@ -92,37 +92,31 @@ public class Pe_iniciodesesion extends AppCompatActivity {
     }
 
     public void openPrincipal(String Uid){
+        String good = "1";
         DocumentReference df = fStore.collection("users").document(Uid);
         df.get().addOnSuccessListener(documentSnapshot -> {
             Log.d("TAG","OnSuccess" + documentSnapshot.getData());
 
-            if(documentSnapshot.getString("Role") != null && mIsUser.isChecked()){
-                Intent intent = new Intent(Pe_iniciodesesion.this, Pe_usuario_inicio.class);
-                startActivity(intent);
-                Toast.makeText(Pe_iniciodesesion.this, "Iniciando pantalla de usuario", Toast.LENGTH_SHORT).show();
+            if (documentSnapshot.getString("Role").equals(good) && mIsUser.isChecked()){
+                Toast.makeText(Pe_iniciodesesion.this,"Abriendo pantalla de usuario", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(Pe_iniciodesesion.this, Pe_usuario_inicio.class));
                 finish();
-            }
-
-            if(documentSnapshot.getString("RoleAdmin") != null && mIsAdmin.isChecked()){
-                Intent intent = new Intent(Pe_iniciodesesion.this, Pe_admin_inicio.class);
-                Toast.makeText(Pe_iniciodesesion.this, "Iniciando pantalla de administrador", Toast.LENGTH_SHORT).show();
-                startActivity(intent);
-                finish();
-            }
-
-            if(documentSnapshot.getString("RoleWorker") != null && mIsWorker.isChecked()){
-                Intent intent = new Intent(Pe_iniciodesesion.this, Pe_empleado_inicio.class);
-                Toast.makeText(Pe_iniciodesesion.this, "Iniciando pantalla de empleado", Toast.LENGTH_SHORT).show();
-                startActivity(intent);
-                finish();
-            }
-
-            if(!(mIsWorker.isChecked() || mIsUser.isChecked() || mIsAdmin.isChecked())){
-                Toast.makeText(Pe_iniciodesesion.this, "Error de rol", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(Pe_iniciodesesion.this, Pe_registro.class);
-                startActivity(intent);
-
-
+            } else{
+                if(documentSnapshot.getString("RoleAdmin").equals(good) && mIsAdmin.isChecked()){
+                    Toast.makeText(Pe_iniciodesesion.this,"Abriendo pantalla de administrador", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(Pe_iniciodesesion.this, Pe_admin_inicio.class));
+                    finish();
+                } else{
+                    if(documentSnapshot.getString("RoleWorker").equals(good) && mIsWorker.isChecked()){
+                        Toast.makeText(Pe_iniciodesesion.this,"Abriendo pantalla de empleado", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Pe_iniciodesesion.this, Pe_admin_inicio.class));
+                        finish();
+                    } else{
+                        if(!(mIsWorker.isChecked() || mIsUser.isChecked() || mIsAdmin.isChecked())){
+                            Toast.makeText(Pe_iniciodesesion.this, "Error de rol", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
             }
         });
     }

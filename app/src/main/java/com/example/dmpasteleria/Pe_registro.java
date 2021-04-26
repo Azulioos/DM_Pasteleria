@@ -57,9 +57,9 @@ public class Pe_registro extends AppCompatActivity implements AdapterView.OnItem
         mPassword = findViewById(R.id.passwords);
         mRegisterBtn = findViewById(R.id.verificar_inicio);
         mCPassword = findViewById(R.id.cpass);
-        mIsAdmin = findViewById(R.id.checkbox);
-        mIsUser = findViewById(R.id.checkbox2);
-        mIsWorker = findViewById(R.id.checkbox3);
+        mIsAdmin = findViewById(R.id.checkboxAdmin);
+        mIsUser = findViewById(R.id.checkboxUsuario);
+        mIsWorker = findViewById(R.id.checkboxEmpleado);
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
@@ -69,133 +69,110 @@ public class Pe_registro extends AppCompatActivity implements AdapterView.OnItem
             finish();
         }
 
-        mDisplayDate = (TextView) findViewById(R.id.cnacimiento);
-        mDisplayDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Calendar cal = Calendar.getInstance();
-                int year = cal.get(Calendar.YEAR);
-                int month = cal.get(Calendar.MONTH) + 1;
-                int day = cal.get(Calendar.DAY_OF_MONTH);
+        mDisplayDate = findViewById(R.id.cnacimiento);
+        mDisplayDate.setOnClickListener(view -> {
+            Calendar cal = Calendar.getInstance();
+            int year = cal.get(Calendar.YEAR);
+            int month = cal.get(Calendar.MONTH) + 1;
+            int day = cal.get(Calendar.DAY_OF_MONTH);
 
-                cal.set(Calendar.YEAR, year);
-                cal.set(Calendar.MONTH, month);
-                cal.set(Calendar.DAY_OF_MONTH, day);
+            cal.set(Calendar.YEAR, year);
+            cal.set(Calendar.MONTH, month);
+            cal.set(Calendar.DAY_OF_MONTH, day);
 
-                cal.add(Calendar.YEAR, -18);
+            cal.add(Calendar.YEAR, -18);
 
-                DatePickerDialog dialog = new DatePickerDialog(
-                        Pe_registro.this,
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                        mDateSetListener,
-                        year,month,day);
-                dialog.getDatePicker().setMaxDate(cal.getTimeInMillis());
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.show();
+            DatePickerDialog dialog = new DatePickerDialog(
+                    Pe_registro.this,
+                    android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                    mDateSetListener,
+                    year,month,day);
+            dialog.getDatePicker().setMaxDate(cal.getTimeInMillis());
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            dialog.show();
 
-            }
         });
 
-        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int month, int day, int year){
-                Log.d(TAG,"onDateSet: mm/dd/yyyy : "+ month + "/" + day + "/" + year);
+        mDateSetListener = (datePicker, month, day, year) -> {
+            Log.d(TAG,"onDateSet: mm/dd/yyyy : "+ month + "/" + day + "/" + year);
 
-                String date = month + "/" + day + "/" + year;
-                mDisplayDate.setText(date);
-            }
+            String date = month + "/" + day + "/" + year;
+            mDisplayDate.setText(date);
         };
+
         Spinner spinners = findViewById(R.id.spinner2);
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.municipio, android.R.layout.simple_spinner_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinners.setAdapter(adapter1);
         spinners.setOnItemSelectedListener(this);
 
-        mRegisterBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String Username = mUsername.getText().toString().trim();
-                String Email = mEmail.getText().toString().trim();
-                String Password = mPassword.getText().toString().trim();
-                String CPassword = mCPassword.getText().toString().trim();
-                String Spinner_0 = spinners.getSelectedItem().toString().trim();
-                String Nacimiento = mDisplayDate.getText().toString().trim();
+        mRegisterBtn.setOnClickListener(v -> {
+            String Username = mUsername.getText().toString().trim();
+            String Email = mEmail.getText().toString().trim();
+            String Password = mPassword.getText().toString().trim();
+            String CPassword = mCPassword.getText().toString().trim();
+            String Spinner_0 = spinners.getSelectedItem().toString().trim();
+            String Nacimiento = mDisplayDate.getText().toString().trim();
 
 
-                if(TextUtils.isEmpty(Email)){
-                    mEmail.setError("Ingresa tu Email.");
-                    return;
-                }
-                if(TextUtils.isEmpty(Password)) {
-                    mPassword.setError("Ingresa tu contraseña, por favor.");
-                    return;
-                }
-
-                if(!Password.equals(CPassword)){
-                    mCPassword.setError("Las contraseñas no coinciden, intentalo de nuevo");
-                    return;
-                }
-
-                if(!(mIsWorker.isChecked() || mIsUser.isChecked() || mIsAdmin.isChecked())){
-                    Toast.makeText(Pe_registro.this, "Seleciona un tipo de cuenta", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                fAuth.createUserWithEmailAndPassword(Email, Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            FirebaseUser fUser = fAuth.getCurrentUser();
-                            userID = fAuth.getCurrentUser().getUid();
-                            DocumentReference documentReference = fStore.collection("users").document(userID);
-                            Map<String, Object> user = new HashMap<>();
-                            user.put("Username", Username);
-                            user.put("Email", Email);
-                            user.put("Password", Password);
-                            user.put("Residence", Spinner_0);
-                            user.put("Nacimiento", Nacimiento);
-                            if(mIsUser.isChecked()){
-                                user.put("Role", "1");
-                            }
-                            if(mIsAdmin.isChecked()){
-                                user.put("RoleAdmin", "1");
-                            }
-                            if(mIsWorker.isChecked()){
-                                user.put("RoleWorker", "1");
-
-                            }
-                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    Log.d(TAG, "Usuario creado correctamente con el ID: " + userID);
-
-                                }
-                            });
-
-
-                            fUser.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    Toast.makeText(Pe_registro.this, "Favor de revisar tu correo", Toast.LENGTH_SHORT).show();
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Log.d(TAG, "Error" + e.getMessage());
-
-                                }
-                            });
-
-                            Toast.makeText(Pe_registro.this, "Usuario creado con exito.",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),Pe_iniciodesesion.class));
-                        }
-                        else{
-                            Toast.makeText(Pe_registro.this, "Error! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-
+            if(TextUtils.isEmpty(Email)){
+                mEmail.setError("Ingresa tu Email.");
+                return;
             }
+            if(TextUtils.isEmpty(Password)) {
+                mPassword.setError("Ingresa tu contraseña, por favor.");
+                return;
+            }
+
+            if(!Password.equals(CPassword)){
+                mCPassword.setError("Las contraseñas no coinciden, intentalo de nuevo");
+                return;
+            }
+
+            if(!(mIsWorker.isChecked() || mIsUser.isChecked() || mIsAdmin.isChecked())){
+                Toast.makeText(Pe_registro.this, "Seleciona un tipo de cuenta", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            fAuth.createUserWithEmailAndPassword(Email, Password).addOnCompleteListener(task -> {
+                if(task.isSuccessful()){
+                    FirebaseUser fUser = fAuth.getCurrentUser();
+                    userID = fAuth.getCurrentUser().getUid();
+                    DocumentReference documentReference = fStore.collection("users").document(userID);
+                    Map<String, Object> user = new HashMap<>();
+                    user.put("Username", Username);
+                    user.put("Email", Email);
+                    user.put("Password", Password);
+                    user.put("Residence", Spinner_0);
+                    user.put("Nacimiento", Nacimiento);
+                    if(mIsUser.isChecked() && !(mIsAdmin.isChecked() && !(mIsWorker.isChecked()))){
+                        user.put("Role", "1");
+                        user.put("RoleAdmin", "0");
+                        user.put("RoleWorker", "0");
+                    }
+                    if(mIsAdmin.isChecked() && !(mIsWorker.isChecked()) && !(mIsUser.isChecked())){
+                        user.put("Role", "0");
+                        user.put("RoleAdmin", "1");
+                        user.put("RoleWorker", "0");
+                    }
+                    if(mIsWorker.isChecked() && !(mIsUser.isChecked()) && !(mIsAdmin.isChecked())){
+                        user.put("Role", "0");
+                        user.put("RoleAdmin", "0");
+                        user.put("RoleWorker", "1");
+                    }
+                    documentReference.set(user).addOnSuccessListener(aVoid -> Log.d(TAG, "Usuario creado correctamente con el ID: " + userID));
+
+
+                    fUser.sendEmailVerification().addOnSuccessListener(aVoid -> Toast.makeText(Pe_registro.this, "Favor de revisar tu correo", Toast.LENGTH_SHORT).show()).addOnFailureListener(e -> Log.d(TAG, "Error" + e.getMessage()));
+
+                    Toast.makeText(Pe_registro.this, "Usuario creado con exito.",Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext(),Pe_iniciodesesion.class));
+                }
+                else{
+                    Toast.makeText(Pe_registro.this, "Error! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
         });
 
     }
@@ -204,12 +181,10 @@ public class Pe_registro extends AppCompatActivity implements AdapterView.OnItem
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String text = parent.getItemAtPosition(position).toString();
         Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
-
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-
     }
 
 

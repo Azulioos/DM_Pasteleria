@@ -150,6 +150,11 @@
     <string name="usermail">Correo de usuario</string>
     <string name="userdate">Fecha de cumpleaños</string>
     <string name="UsuarioName">Nombre de usuario</string>
+    <string name="ChangeUserData" translatable="false">EDITAR</string>
+    <string name="UserChangeWelcome" translatable="false">Cambiando datos</string>
+    <string name="AcceptChanges" translatable="false">Aceptar</string>
+    <string name="NewUsername" translatable="false">Nuevo nombre de usuario</string>
+    <string name="NewUseremail" translatable="false">Nuevo correo de usuario</string>
 
     <!-- Strings de Pe_usuario_pasteles_personalizados -->
     <string name="Chocolate">Chocolate</string>

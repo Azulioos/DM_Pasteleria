@@ -47,7 +47,8 @@
                 android:src="@drawable/icono_puerta"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                tools:ignore="ContentDescription" />
 
 
             <TextView
@@ -159,7 +160,7 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <CheckBox
-                android:id="@+id/checkbox"
+                android:id="@+id/checkboxUsuario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -170,23 +171,23 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <CheckBox
-                android:id="@+id/checkbox2"
+                android:id="@+id/checkboxEmpleado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:text="@string/Empleado"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkbox3" />
+                app:layout_constraintTop_toBottomOf="@+id/checkboxAdmin" />
 
             <CheckBox
-                android:id="@+id/checkbox3"
+                android:id="@+id/checkboxAdmin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:text="@string/Administrador"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkbox"
+                app:layout_constraintTop_toBottomOf="@+id/checkboxUsuario"
                 app:layout_constraintVertical_bias="0.02" />
 
 
@@ -238,7 +239,7 @@
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkbox2" />
+                app:layout_constraintTop_toBottomOf="@+id/checkboxEmpleado" />
 
             <LinearLayout
                 android:id="@+id/c_cpass"

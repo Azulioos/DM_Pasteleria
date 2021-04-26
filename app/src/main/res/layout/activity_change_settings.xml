@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,7 +15,7 @@
 
             android:layout_margin="10dp"
             android:layout_marginBottom="200dp"
-            android:background="@drawable/recurso_boton_blanco"
+            android:background="@color/white"
             android:orientation="vertical">
 
 
@@ -26,7 +25,7 @@
                 android:layout_height="0dp"
                 android:layout_margin="20dp"
                 android:layout_marginTop="32dp"
-                android:text="@string/NewUsername"
+                android:text="@string/UsuarioName"
                 android:gravity="center"
                 app:autoSizeTextType="uniform"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -57,7 +56,7 @@
                 android:layout_marginTop="56dp"
                 android:layout_marginBottom="20dp"
                 android:gravity="center"
-                android:text="@string/UserSettingsWelcome"
+                android:text="@string/UserChangeWelcome"
                 android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold"
@@ -92,7 +91,7 @@
                 android:layout_marginTop="34dp"
                 android:width="0dp"
                 android:gravity="center"
-                android:text="@string/NewUseremail"
+                android:text="@string/usermail"
                 app:autoSizeTextType="uniform"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHeight_percent="0.025"
@@ -146,7 +145,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="144dp"
-                android:text="@string/ChangeUserData"
+                android:text="@string/AcceptChanges"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.501"
                 app:layout_constraintStart_toStartOf="parent"

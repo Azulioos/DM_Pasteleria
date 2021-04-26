@@ -35,7 +35,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
 
         <ImageView
             android:id="@+id/Imagen_inicio"
@@ -46,7 +47,8 @@
             android:src="@drawable/icono_pastel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Texto_inicio" />
+            app:layout_constraintTop_toBottomOf="@+id/Texto_inicio"
+            tools:ignore="ContentDescription" />
 
 
 

@@ -195,8 +195,9 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:orientation="vertical"
-                app:layout_constraintTop_toBottomOf="@+id/PastelesPersonalizados_9"
-                >
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/PastelesPersonalizados_9">
 
                 <GridLayout
                     android:id="@+id/gridLayout"
@@ -222,7 +223,8 @@
                         android:layout_margin="8dp"
                         app:cardBackgroundColor="@color/white"
                         app:cardCornerRadius="8dp"
-                        app:cardElevation="8dp">
+                        app:cardElevation="8dp"
+                        >
 
 
                         <LinearLayout
@@ -234,12 +236,14 @@
                             android:orientation="vertical">
 
 
-                            <TextView
+                            <CheckBox
+                                android:id="@+id/Extra_1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/PP_10_1"
                                 android:textAlignment="center"
-                                android:textColor="#60443B" />
+                                android:textColor="#60443B"
+                                />
 
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
@@ -268,7 +272,8 @@
                             android:orientation="vertical">
 
 
-                            <TextView
+                            <CheckBox
+                                android:id="@+id/Extra_2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/PP_10_2"
@@ -299,7 +304,8 @@
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <TextView
+                            <CheckBox
+                                android:id="@+id/Extra_3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/PP_10_3"
@@ -331,7 +337,8 @@
                             android:orientation="vertical">
 
 
-                            <TextView
+                            <CheckBox
+                                android:id="@+id/Extra_4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/PP_10_4"
@@ -364,8 +371,8 @@
                             android:orientation="vertical">
 
 
-
-                            <TextView
+                            <CheckBox
+                                android:id="@+id/Extra_6"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/PP_10_5"
@@ -397,8 +404,8 @@
                             android:orientation="vertical">
 
 
-
-                            <TextView
+                            <CheckBox
+                                android:id="@+id/Extra_5"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/PP_10_6"
@@ -411,6 +418,488 @@
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/PastelesPersonalizados_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/purple_700"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/scrollView_ui_layout"
+                app:layout_constraintVertical_bias="0.056">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/PP_11"
+                    android:layout_margin="7dp"
+                    android:textColor="@color/colorPrimary"
+                    />
+            </LinearLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/PastelesPersonalizados_11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/PastelesPersonalizados_10">
+
+                <LinearLayout
+
+                    android:id="@+id/PastelesPersonalizados_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/recurso_boton_blanco"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <Spinner
+                        android:id="@+id/PastelesPersonalizados_13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:autofillHints=""
+                        android:background="@color/white"
+                        android:hint="@string/ICorreo"
+                        android:textColor="@color/black"
+                        android:textColorHint="#60443B" />
+                </LinearLayout>
+
+
+                <LinearLayout
+
+                    android:id="@+id/PastelesPersonalizados_12_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/recurso_boton_blanco"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/PastelesPersonalizados_12"
+                    app:layout_constraintVertical_bias="0.127">
+
+                    <Spinner
+                        android:id="@+id/PastelesPersonalizados_13_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:autofillHints=""
+                        android:background="@color/white"
+                        android:hint="@string/ICorreo"
+                        android:textColor="@color/black"
+                        android:textColorHint="#60443B" />
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:id="@+id/PastelesPersonalizados_12_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/recurso_boton_blanco"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/PastelesPersonalizados_12_1">
+
+                    <Spinner
+                        android:id="@+id/PastelesPersonalizados_13_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:autofillHints=""
+                        android:background="@color/white"
+                        android:hint="@string/ICorreo"
+                        android:textColor="@color/black"
+                        android:textColorHint="#60443B" />
+                </LinearLayout>
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/PastelesPersonalizados_15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/purple_700"
+                android:layout_marginTop="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/PastelesPersonalizados_11"
+                app:layout_constraintVertical_bias="0.056">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/PP_12"
+                    android:layout_margin="7dp"
+                    android:textColor="@color/colorPrimary"
+                    />
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/scrollView_ui_layout_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/PastelesPersonalizados_15">
+
+                <GridLayout
+                    android:id="@+id/gridLayout_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/scrollView_ui_layout_2"
+                    android:layout_margin="10dp"
+                    android:columnCount="2"
+                    android:rowCount="3"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_row="0"
+                        android:layout_rowWeight="1"
+                        android:layout_column="0"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="8dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="8dp">
+
+
+                        <LinearLayout
+                            android:id="@+id/Admin_7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|center_horizontal"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/Superficie_1"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:button="@drawable/icono_color_blanco"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/PP_12_1"
+                                android:textAlignment="center"
+                                android:textColor="#60443B" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_row="0"
+                        android:layout_rowWeight="1"
+                        android:layout_column="1"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:layout_margin="8dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="8dp"
+
+                        >
+
+                        <LinearLayout
+                            android:id="@+id/Admin_8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|center_horizontal"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/Superficie_2"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:button="@drawable/icono_color_verde"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/PP_12_2"
+                                android:textAlignment="center"
+                                android:textColor="#60443B" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_row="1"
+                        android:layout_rowWeight="1"
+                        android:layout_column="0"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:layout_margin="8dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="8dp">
+
+                        <LinearLayout
+                            android:id="@+id/Admin_9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|center_horizontal"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:button="@drawable/icono_color_rosa"
+                                android:id="@+id/Superficie_3"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/PP_12_3"
+                                android:textAlignment="center"
+                                android:textColor="#60443B" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_row="1"
+                        android:layout_rowWeight="1"
+                        android:layout_column="1"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:layout_margin="8dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="8dp">
+
+                        <LinearLayout
+                            android:id="@+id/Admin_10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|center_horizontal"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/Superficie_4"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:button="@drawable/icono_pastel_chico"
+                                android:background="@drawable/icono_color_morado"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/PP_12_4"
+                                android:textAlignment="center"
+                                android:textColor="#60443B" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_row="2"
+                        android:layout_rowWeight="1"
+                        android:layout_column="1"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:layout_margin="8dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="8dp">
+
+                        <LinearLayout
+                            android:id="@+id/Admin_11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|center_horizontal"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/Superficie_6"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:button="@drawable/icono_color_azul"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/PP_12_5"
+                                android:textAlignment="center"
+                                android:textColor="#60443B" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_row="2"
+                        android:layout_rowWeight="1"
+                        android:layout_column="0"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:layout_margin="8dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="8dp">
+
+                        <LinearLayout
+                            android:id="@+id/Admin_12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|center_horizontal"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/Superficie_5"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:button="@drawable/icono_color_amarillo"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/PP_12_6"
+                                android:textAlignment="center"
+                                android:textColor="#60443B" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </GridLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/PastelesPersonalizados_16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="@string/PP_13"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/scrollView_ui_layout_2"
+                app:layout_constraintVertical_bias="0.031" />
+
+
+            <LinearLayout
+
+                android:id="@+id/PastelesPersonalizados_17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@drawable/recurso_boton_blanco"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.6"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/PastelesPersonalizados_16"
+                app:layout_constraintVertical_bias="0.0">
+
+                <EditText
+                    android:id="@+id/Texto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:autofillHints=""
+                    android:background="@color/white"
+
+                    android:hint="@string/PP_13"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/black"
+                    android:textColorHint="#60443B" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/PastelesPersonalizados_18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="@string/PP_14"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/PastelesPersonalizados_17"
+                app:layout_constraintVertical_bias="0.031" />
+
+
+            <LinearLayout
+
+                android:id="@+id/PastelesPersonalizados_19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@drawable/recurso_boton_blanco"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.6"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/PastelesPersonalizados_18"
+                app:layout_constraintVertical_bias="0.0">
+
+                <EditText
+                    android:id="@+id/Texto_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:autofillHints=""
+                    android:background="@color/white"
+
+                    android:hint="@string/PP_14"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/black"
+                    android:textColorHint="#60443B" />
+
+            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

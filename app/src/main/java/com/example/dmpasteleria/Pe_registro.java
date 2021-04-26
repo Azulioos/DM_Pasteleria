@@ -105,6 +105,7 @@ public class Pe_registro extends AppCompatActivity implements AdapterView.OnItem
                 mDisplayDate.setText(date);
             }
         };
+
         Spinner spinners = findViewById(R.id.spinner2);
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.municipio, android.R.layout.simple_spinner_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

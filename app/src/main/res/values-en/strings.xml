@@ -146,6 +146,16 @@
     <string name="PP_10_4">Trozos de chocolate</string>
     <string name="PP_10_5">Trozos de mazapan</string>
     <string name="PP_10_6">Ninguno</string>
+    <string name="PP_11">Seleccione la cantidad de capas que desea.</string>
+    <string name="PP_12">Seleccione el color de la superficie</string>
+    <string name="PP_12_1">Color blanco</string>
+    <string name="PP_12_2">Color verde</string>
+    <string name="PP_12_3">Color blanco</string>
+    <string name="PP_12_4">Color rosa</string>
+    <string name="PP_12_5">Color morado</string>
+    <string name="PP_12_6">Color azul</string>
+    <string name="PP_13">Agregar un texto al pastel</string>
+    <string name="PP_14">Ingrese la direccion de entrega</string>
 
     <string name="PP_0">No seleccionado</string>
     <string name="o">o</string>

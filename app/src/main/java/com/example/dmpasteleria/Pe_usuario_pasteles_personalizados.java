@@ -47,6 +47,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
     TextView mCapasS;
     LinearLayout mRelleno_1, mRelleno_2;
     FirebaseFirestore fStore;
+    EditText mDireccion, mTextoExtra;
 
     float PrecioFinal = 0;
     float Precio = 0;
@@ -540,7 +541,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
-                                Log.d(TAG, "Ingrediente agregado con el ID" + documentReference.getId());
+                                Log.d(TAG, "Estado del pedido = 0" + documentReference.getId());
                                 startActivity(new Intent(getApplicationContext(),Pe_usuario_pedidos.class));
                             }
                         }).addOnFailureListener(new OnFailureListener() {
@@ -569,7 +570,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
 
     private ArrayList<String[]> getClients() {
         int i;
-        for(i=1; i<=Contador_1;i++){
+        for(i=0; i<=Contador_1;i++){
             rows.add(new String[]{PPRC[i],PPRP[i]});
         }
         rows.add(new String[]{"Precio total", String.valueOf(PrecioFinal)});

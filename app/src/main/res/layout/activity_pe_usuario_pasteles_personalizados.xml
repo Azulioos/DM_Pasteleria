@@ -564,7 +564,7 @@
                                 android:id="@+id/Superficie_2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/PP_12_1"
+                                android:text="@string/PP_12_2"
                                 android:textAlignment="center"
                                 android:textColor="#60443B" />
 
@@ -602,7 +602,7 @@
                                 android:id="@+id/Superficie_3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/PP_12_1"
+                                android:text="@string/PP_12_4"
                                 android:textAlignment="center"
                                 android:textColor="#60443B" />
 
@@ -640,7 +640,7 @@
                                 android:id="@+id/Superficie_4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/PP_12_1"
+                                android:text="@string/PP_12_5"
                                 android:textAlignment="center"
                                 android:textColor="#60443B" />
 
@@ -680,7 +680,7 @@
                                 android:id="@+id/Superficie_6"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/PP_12_1"
+                                android:text="@string/PP_12_6"
                                 android:textAlignment="center"
                                 android:textColor="#60443B" />
 
@@ -719,7 +719,7 @@
                                 android:id="@+id/Superficie_5"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/PP_12_1"
+                                android:text="@string/PP_12_3"
                                 android:textAlignment="center"
                                 android:textColor="#60443B" />
 

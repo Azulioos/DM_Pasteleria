@@ -1,6 +1,8 @@
 package com.example.dmpasteleria;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,19 +16,27 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     String mProducto;
     String mPrecio;
 
-    Button mValidarBtn, mProceder;
+    Button mValidarBtn, mProcederBtn;
     CheckBox mIsNormal, mIsSmall, mIsLarge, mExtra_5, mSuperficie_5;
     CheckBox mExtra_1, mExtra_2, mExtra_3, mExtra_4, mExtra_6;
     CheckBox mSuperficie_2, mSuperficie_3, mSuperficie_4, mSuperficie_1, mSuperficie_6;
@@ -43,6 +53,15 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
     float Capa = 0;
     private FirebaseStorage storage;
     private StorageReference storageReference;
+    String[] PPRP = new String[20];
+    String[] PPRC = new String[20];
+    int Contador_1 = 0;
+
+    private String[]header={"Producto", "Costo"};
+    private TableLayout tableLayout;
+    private ArrayList<String[]> rows=new ArrayList<>();
+    private static final String TAG = "Pedidos";
+
 
 
     @Override
@@ -51,6 +70,14 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
         setContentView(R.layout.activity_pe_usuario_pasteles_personalizados);
 
 
+        Pe_usuario_pasteles_personalizados_tabla tableDynamic = new Pe_usuario_pasteles_personalizados_tabla(tableLayout,getApplicationContext());
+        tableDynamic.addHeader(header);
+
+        mValidarBtn = findViewById(R.id.PastelesPersonalizados_20);
+        mProcederBtn = findViewById(R.id.PastelesPersonalizados_22);
+
+
+        tableLayout =(TableLayout)findViewById(R.id.PastelesPersonalizados_21);
         fStore = FirebaseFirestore.getInstance();
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
@@ -181,10 +208,49 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
 
             @Override
             public void onClick(View v) {
+
+                mIsNormal.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                    if(buttonView.isChecked()){
+                        Precio = 0.8f;
+                        Capa = 79.99f;
+                        PrecioFinal += Capa;
+                        PPRC[Contador_1] = "Masa chica";
+                        PPRP[Contador_1] = String.valueOf(Capa);
+                        Contador_1 += 1;
+
+
+                    }
+                });
+
+                mIsSmall.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                    if(buttonView.isChecked()){
+                        Precio = 1f;
+                        Capa = 99.99f;
+                        PrecioFinal += Capa;
+                        PPRC[Contador_1] = "Masa normal";
+                        PPRP[Contador_1] = String.valueOf(Capa);
+                        Contador_1 += 1;
+                    }
+                });
+
+                mIsLarge.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                    if(buttonView.isChecked()){
+                        Precio = 1.2f;
+                        Capa = 129.99f;
+                        PrecioFinal += Capa;
+                        PPRC[Contador_1] = "Masa grande";
+                        PPRP[Contador_1] = String.valueOf(Capa);
+                        Contador_1 += 1;
+                    }
+                });
+
                 mSuperficie_1.setOnCheckedChangeListener((buttonView, isChecked) -> {
                     if(buttonView.isChecked()){
                         float Superficie_1 = 29.99f;
                         PrecioFinal += Superficie_1;
+                        PPRC[Contador_1] = String.valueOf(R.string.PP_10_1);
+                        PPRP[Contador_1] = String.valueOf(Superficie_1);
+                        Contador_1 += 1;
                     }
                 });
 
@@ -192,6 +258,9 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                     if(buttonView.isChecked()){
                         float Superficie_2 = 19.99f;
                         PrecioFinal += Superficie_2;
+                        PPRC[Contador_1] = String.valueOf(R.string.PP_10_2);
+                        PPRP[Contador_1] = String.valueOf(Superficie_2);
+                        Contador_1 += 1;
                     }
                 });
 
@@ -199,6 +268,9 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                     if(buttonView.isChecked()){
                         float Superficie_3 = 39.99f;
                         PrecioFinal += Superficie_3;
+                        PPRC[Contador_1] = String.valueOf(R.string.PP_10_3);
+                        PPRP[Contador_1] = String.valueOf(Superficie_3);
+                        Contador_1 += 1;
                     }
                 });
 
@@ -206,6 +278,9 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                     if(buttonView.isChecked()){
                         float Superficie_4 = 35.99f;
                         PrecioFinal += Superficie_4;
+                        PPRC[Contador_1] = String.valueOf(R.string.PP_10_4);
+                        PPRP[Contador_1] = String.valueOf(Superficie_4);
+                        Contador_1 += 1;
                     }
                 });
 
@@ -213,6 +288,9 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                     if(buttonView.isChecked()){
                         float Superficie_6 = 24.99f;
                         PrecioFinal += Superficie_6;
+                        PPRC[Contador_1] = String.valueOf(R.string.PP_10_6);
+                        PPRP[Contador_1] = String.valueOf(Superficie_6);
+                        Contador_1 += 1;
                     }
                 });
 
@@ -222,93 +300,164 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                 EditText Texto_E = findViewById(R.id.Texto);
                 String mTexto_E = Texto_E.getText().toString().trim();
 
-                if(Spinner_0.equals("1")){
-
-                }
-
                 if(Spinner_0.equals("2")){
 
                     if(Spinner_1.equals("Fresa 39.99 $")){
                         float Relleno_1 = 39.99f;
                         PrecioFinal += Relleno_1;
+                        PPRC[Contador_1] = "Fresa";
+                        PPRP[Contador_1] = String.valueOf(Relleno_1);
+                        Contador_1 += 1;
                     }
                     if(Spinner_1.equals("Piña 29.99 $")){
                         float Relleno_2 = 29.99f;
                         PrecioFinal += Relleno_2;
+                        PPRC[Contador_1] = "Piña";
+                        PPRP[Contador_1] = String.valueOf(Relleno_2);
+                        Contador_1 += 1;
                     }
                     if(Spinner_1.equals("Chocolate 39.99 $")){
                         float Relleno_3 = 39.99f;
                         PrecioFinal += Relleno_3;
+                        PPRC[Contador_1] = "Chocolate";
+                        PPRP[Contador_1] = String.valueOf(Relleno_3);
+                        Contador_1 += 1;
                     }
                     if(Spinner_1.equals("Glaseado 19.99 $")){
                         float Relleno_4 = 19.99f;
                         PrecioFinal += Relleno_4;
+                        PPRC[Contador_1] = "Glaseado";
+                        PPRP[Contador_1] = String.valueOf(Relleno_4);
+                        Contador_1 += 1;
+
                     }
                     if(Spinner_1.equals("Cajeta 39.99 $")){
                         float Relleno_6 = 39.99f;
                         PrecioFinal += Relleno_6;
+                        PPRC[Contador_1] = "Cajeta";
+                        PPRP[Contador_1] = String.valueOf(Relleno_6);
+                        Contador_1 += 1;
                     }
 
                 }
 
                 if(Spinner_0.equals("3")){
-
                     if(Spinner_1.equals("Fresa 39.99 $")){
                         float Relleno_1 = 39.99f;
                         PrecioFinal += Relleno_1;
+                        PPRC[Contador_1] = "Fresa";
+                        PPRP[Contador_1] = String.valueOf(Relleno_1);
+                        Contador_1 += 1;
                     }
                     if(Spinner_1.equals("Piña 29.99 $")){
                         float Relleno_2 = 29.99f;
                         PrecioFinal += Relleno_2;
+                        PPRC[Contador_1] = "Piña";
+                        PPRP[Contador_1] = String.valueOf(Relleno_2);
+                        Contador_1 += 1;
                     }
                     if(Spinner_1.equals("Chocolate 39.99 $")){
                         float Relleno_3 = 39.99f;
                         PrecioFinal += Relleno_3;
+                        PPRC[Contador_1] = "Chocolate";
+                        PPRP[Contador_1] = String.valueOf(Relleno_3);
+                        Contador_1 += 1;
                     }
                     if(Spinner_1.equals("Glaseado 19.99 $")){
                         float Relleno_4 = 19.99f;
                         PrecioFinal += Relleno_4;
+                        PPRC[Contador_1] = "Glaseado";
+                        PPRP[Contador_1] = String.valueOf(Relleno_4);
+                        Contador_1 += 1;
+
                     }
                     if(Spinner_1.equals("Cajeta 39.99 $")){
                         float Relleno_6 = 39.99f;
                         PrecioFinal += Relleno_6;
+                        PPRC[Contador_1] = "Cajeta";
+                        PPRP[Contador_1] = String.valueOf(Relleno_6);
+                        Contador_1 += 1;
                     }
 
                     if(Spinner_2.equals("Fresa 39.99 $")){
                         float Relleno_7 = 39.99f;
                         PrecioFinal += Relleno_7;
+                        PPRC[Contador_1] = "Fresa";
+                        PPRP[Contador_1] = String.valueOf(Relleno_7);
+                        Contador_1 += 1;
                     }
                     if(Spinner_2.equals("Piña 29.99 $")){
                         float Relleno_8 = 29.99f;
                         PrecioFinal += Relleno_8;
+                        PPRC[Contador_1] = "Piña";
+                        PPRP[Contador_1] = String.valueOf(Relleno_8);
+                        Contador_1 += 1;
                     }
                     if(Spinner_2.equals("Chocolate 39.99 $")){
                         float Relleno_9 = 39.99f;
                         PrecioFinal += Relleno_9;
+                        PPRC[Contador_1] = "Chocolate";
+                        PPRP[Contador_1] = String.valueOf(Relleno_9);
+                        Contador_1 += 1;
                     }
                     if(Spinner_2.equals("Glaseado 19.99 $")){
                         float Relleno_10 = 19.99f;
                         PrecioFinal += Relleno_10;
+                        PPRC[Contador_1] = "Glaseado";
+                        PPRP[Contador_1] = String.valueOf(Relleno_10);
+                        Contador_1 += 1;
                     }
                     if(Spinner_2.equals("Cajeta 39.99 $")){
                         float Relleno_12 = 39.99f;
                         PrecioFinal += Relleno_12;
+                        PPRC[Contador_1] = "Cajeta";
+                        PPRP[Contador_1] = String.valueOf(Relleno_12);
+                        Contador_1 += 1;
                     }
                 }
 
                 if(!(mTexto_E.equals(""))){
                     float Texto = 19.99f;
                     PrecioFinal += Texto;
+                    PPRC[Contador_1] = "Texto extra.";
+                    PPRP[Contador_1] = String.valueOf(Texto);
+                    Contador_1 += 1;
                 }
 
-                addView();
+                tableDynamic.addData(getClients());
+            }
+        });
+
+        mProcederBtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                int i;
+
+                Map<String, Object> pedidos = new HashMap<>();
+                for(i=0; i<Contador_1;i++){
+                    pedidos.put(PPRC[i], PPRP[i]);
+                }
+                pedidos.put("Precio total", PrecioFinal);
+
+                fStore.collection("pedidos")
+                        .add(pedidos)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+                                Log.d(TAG, "Ingrediente agregado con el ID" + documentReference.getId());
+                                startActivity(new Intent(getApplicationContext(),Pe_admin_inicio.class));
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG,"Error");
+                    }
+                });
 
             }
         });
 
-    }
-
-    private void addView() {
 
     }
 
@@ -323,16 +472,12 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
 
     }
 
-    public Pe_usuario_pasteles_personalizados(String mProducto, String mPrecio){
-        this.mProducto = mProducto;
-        this.mPrecio = mPrecio;
-    }
-
-    public String getmProducto(){
-        return mProducto;
-    }
-
-    public  String getmPrecio(){
-        return mPrecio;
+    private ArrayList<String[]> getClients() {
+        int i;
+        for(i=0; i<Contador_1;i++){
+            rows.add(new String[]{PPRC[i],PPRP[i]});
+        }
+        rows.add(new String[]{"Precio total", String.valueOf(PrecioFinal)});
+        return rows;
     }
 }

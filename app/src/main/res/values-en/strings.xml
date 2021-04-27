@@ -45,10 +45,10 @@
 
 
     <!--Menu desplegable izquierdo-->
-    <string name="menu_home">Página Principal</string>
-    <string name="menu_traditional">Pasteles Tradicionales</string>
-    <string name="menu_personalized">Pasteles Personalizados</string>
-    <string name="menu_other">Otros Postres</string>
+    <string name="menu_home">Starting page</string>
+    <string name="menu_traditional">Traditional cakes</string>
+    <string name="menu_personalized">Personalized cakes</string>
+    <string name="menu_other">Otros postres</string>
     <string name="menu_help">Información y ayuda</string>
 
     <!--Menu desplegable derecho-->
@@ -129,37 +129,37 @@
 
     <!-- Strings de Pe_usuario_pasteles_personalizados -->
     <string name="Chocolate">Chocolate</string>
-    <string name="Vainilla">Vainilla</string>
-    <string name="PP_1">Pasteles personalizados.</string>
-    <string name="PP_2">Escoge un tamañao para el pastel</string>
-    <string name="PP_3">Pastel chico (1 a 2 personas)</string>
-    <string name="PP_4">Pastel normal (3 a 4 personas)</string>
-    <string name="PP_5">Pastel grande (5 a 7 personas)</string>
-    <string name="PP_6">Diametro de 15 centimetros</string>
-    <string name="PP_7">Diametro de 19 centimetros</string>
-    <string name="PP_8">Diametro de 26 centimetros</string>
-    <string name="PP_9">Selecciona el tipo de pan que desea</string>
-    <string name="PP_10">Seleccione alguna superficie para su pastel</string>
-    <string name="PP_10_1">Almendras</string>
-    <string name="PP_10_2">Coco rayado</string>
-    <string name="PP_10_3">Fresas</string>
-    <string name="PP_10_4">Trozos de chocolate</string>
-    <string name="PP_10_5">Trozos de mazapan</string>
-    <string name="PP_10_6">Ninguno</string>
-    <string name="PP_11">Seleccione la cantidad de capas que desea.</string>
-    <string name="PP_12">Seleccione el color de la superficie</string>
-    <string name="PP_12_1">Color blanco</string>
-    <string name="PP_12_2">Color verde</string>
-    <string name="PP_12_3">Color blanco</string>
-    <string name="PP_12_4">Color rosa</string>
-    <string name="PP_12_5">Color morado</string>
-    <string name="PP_12_6">Color azul</string>
-    <string name="PP_13">Agregar un texto al pastel</string>
-    <string name="PP_14">Ingrese la direccion de entrega</string>
-    <string name="PP_15">Verificar precio </string>
-    <string name="PP_16">Agregar al carrito</string>
+    <string name="Vainilla">Vanilla</string>
+    <string name="PP_1">Custom cakes.</string>
+    <string name="PP_2">Choose a size for the cake</string>
+    <string name="PP_3">Small cake (1 to 2 people) 79.99 $Mxn</string>
+    <string name="PP_4">Normal cake (3 to 4 people)99.99 $Mxn</string>
+    <string name="PP_5">Large cake (5 to 7 people) 129.99 $Mxn</string>
+    <string name="PP_6">15-centimeter diameter</string>
+    <string name="PP_7">Diameter 19 centimeters. Seasonings + 10%</string>
+    <string name="PP_8">Diameter 26 centimeters. Seasonings + 15%</string>
+    <string name="PP_9">Select the type of bread you want</string>
+    <string name="PP_10">Select a surface for your cake</string>
+    <string name="PP_10_1">Almonds 29.99 $Mxn</string>
+    <string name="PP_10_2">Shredded coconut 19.99 $Mxn</string>
+    <string name="PP_10_3">Strawberries 39.99 $Mxn</string>
+    <string name="PP_10_4">Chocolate pieces 35.99 $Mxn</string>
+    <string name="PP_10_5">Color Sparks 24.99 $Mxn</string>
+    <string name="PP_10_6">None</string>
+    <string name="PP_11">Select the number of layers you want.</string>
+    <string name="PP_12">Select the surface color</string>
+    <string name="PP_12_1">White</string>
+    <string name="PP_12_2">Green</string>
+    <string name="PP_12_3">White</string>
+    <string name="PP_12_4">Pink</string>
+    <string name="PP_12_5">Purple</string>
+    <string name="PP_12_6">Blue</string>
+    <string name="PP_13">Add a text to the cake</string>
+    <string name="PP_14">Enter the delivery address</string>
+    <string name="PP_15">Check price</string>
+    <string name="PP_16">Add to cart</string>
 
-    <string name="PP_0">No seleccionado</string>
+    <string name="PP_0">Not selected</string>
     <string name="o">o</string>
 
 </resources>

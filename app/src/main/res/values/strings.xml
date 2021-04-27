@@ -36,11 +36,11 @@
     </string-array>
 
     <!--Principal del menu desplegable izquierdo-->
-    <string name="logo">Logo</string>
+    <string name="logo" translatable="false">Logo</string>
     <string name="idioma">Seleccionar idioma</string>
-    <string name="nav_header_title">Repostería Express</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
+    <string name="nav_header_title" translatable="false">Repostería Express</string>
+    <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
+    <string name="nav_header_desc" translatable="false">Navigation header</string>
 
     <!-- Strings de Pe_admin_inicio -->
     <string name="Ajustes_del_menu">Ajustes del menu</string>
@@ -86,7 +86,7 @@
     <string name="title_offer">Pasteles en Oferta</string>
     <string name="title_other">Otros Postres</string>
     <string name="title_otherOffer">Otros Postres en Oferta</string>
-    <string name="top_advises">Anuncios importantes, ofertas, y otros anunciios de prioridad</string>
+    <string name="top_advises">Anuncios importantes, ofertas, y otros anuncios de prioridad</string>
     <string name="title_Advises">Avisos importantes, ofertas especiales y avisos prioritarios</string>
     <string name="title_Products">Productos y descripciones</string>
 
@@ -132,7 +132,7 @@
     <string name="Admin_ai2">Nombre del ingrediente</string>
     <string name="Admin_ai3">Tipo de ingrediente</string>
     <string name="Admin_ai4">Imagen del ingrediente</string>
-    <string name="Admin_ai5">Proovedor</string>
+    <string name="Admin_ai5">Proveedor</string>
 
     <string name="Admin_ai2c">Ingrese el nombre del producto</string>
     <string name="Admin_ai3c">Tipo</string>
@@ -160,7 +160,7 @@
     <string name="Chocolate">Chocolate</string>
     <string name="Vainilla">Vainilla</string>
     <string name="PP_1">Pasteles personalizados.</string>
-    <string name="PP_2">Escoge un tamañao para el pastel</string>
+    <string name="PP_2">Escoge un tamaño para el pastel</string>
     <string name="PP_3">Pastel chico (1 a 2 personas) 79.99 $Mxn</string>
     <string name="PP_4">Pastel normal (3 a 4 personas)99.99 $Mxn</string>
     <string name="PP_5">Pastel grande (5 a 7 personas) 129.99 $Mxn</string>
@@ -189,7 +189,7 @@
     <string name="PP_16">Agregar al carrito</string>
 
     <string name="PP_0">No seleccionado</string>
-    <string name="o">o</string>
+    <string name="o" translatable="false">o</string>
 
 
 </resources>

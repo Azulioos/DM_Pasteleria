@@ -222,7 +222,7 @@
                     android:autofillHints=""
                     android:background="@color/white"
                     android:hint="@string/Usuario"
-                    android:inputType="textPassword"
+                    android:inputType="text"
                     android:textColor="@color/black"
                     android:textColorHint="#60443B" />
 

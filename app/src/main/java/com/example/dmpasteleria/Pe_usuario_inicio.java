@@ -23,14 +23,14 @@ public class Pe_usuario_inicio extends AppCompatActivity {
 
 
     //Creación del carousel
-    private final int[] mImages = new int[] {
+    /*private final int[] mImages = new int[] {
             R.drawable.cake1, R.drawable.cake2, R.drawable.cake3, R.drawable.cake4, R.drawable.cake5
-    };
+    };*/
 
     //Coloca los titulos de cada imagen del carousel
-    private final String[] mImagesTitle = new String[]{
+   /* private final String[] mImagesTitle = new String[]{
             "Pastel 1", "Pastel 2", "Pastel 3", "Pastel 4", "Pastel 5"
-    };
+    };*/
 
 
     @Override
@@ -42,6 +42,7 @@ public class Pe_usuario_inicio extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar_i);
         setSupportActionBar(toolbar);
 
+        /*
         CarouselView carouselView = findViewById(R.id.carousel);
         carouselView.setPageCount(mImages.length);
         carouselView.setImageListener((position, imageView) -> imageView.setImageResource(mImages[position]));
@@ -61,7 +62,7 @@ public class Pe_usuario_inicio extends AppCompatActivity {
         carouselView3.setImageListener((position, imageView) -> imageView.setImageResource(mImages[position]));
         carouselView3.setImageClickListener(position -> {
             Toast.makeText( Pe_usuario_inicio.this, mImagesTitle[position] , Toast.LENGTH_SHORT).show();   //Muestra un mensaje al hacer click en el pastel
-        });
+        });*/
     }
 
     private void loadLocale() {
@@ -71,7 +72,7 @@ public class Pe_usuario_inicio extends AppCompatActivity {
     }
 
     public void showChangeLanguageDialog(MenuItem menu) {
-        final String[] listItems = {"English","Español"};
+        final String[] listItems = {"English","Español", "Portugues"};
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(Pe_usuario_inicio.this);
         mBuilder.setTitle("Escoge un idioma");
         mBuilder.setSingleChoiceItems(listItems, -1, (dialogInterface, i) -> {
@@ -80,6 +81,9 @@ public class Pe_usuario_inicio extends AppCompatActivity {
                 recreate();
             }else if(i == 1){
                 setLocale("es");
+                recreate();
+            }else if (i == 2){
+                setLocale(("pt"));
                 recreate();
             }
             dialogInterface.dismiss();

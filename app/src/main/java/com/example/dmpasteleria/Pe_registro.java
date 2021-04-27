@@ -52,6 +52,7 @@ public class Pe_registro extends AppCompatActivity implements AdapterView.OnItem
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pe_registro);
 
+        //Instancias de los checkbox y edittexts
         mUsername = findViewById(R.id.user);
         mEmail = findViewById(R.id.email);
         mPassword = findViewById(R.id.passwords);
@@ -61,14 +62,17 @@ public class Pe_registro extends AppCompatActivity implements AdapterView.OnItem
         mIsUser = findViewById(R.id.checkboxUsuario);
         mIsWorker = findViewById(R.id.checkboxEmpleado);
 
+        //Instancias de la base de datos de Firebase
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
 
+        //Revisa si el usuario ya ha iniciado sesión, o si hay un usuario actual
         if(fAuth.getCurrentUser() != null){
             startActivity(new Intent(getApplicationContext(),Pe_iniciodesesion.class));
             finish();
         }
 
+        //Spinner para ingresar la fecha de nacimiento
         mDisplayDate = findViewById(R.id.cnacimiento);
         mDisplayDate.setOnClickListener(view -> {
             Calendar cal = Calendar.getInstance();
@@ -106,6 +110,7 @@ public class Pe_registro extends AppCompatActivity implements AdapterView.OnItem
         spinners.setAdapter(adapter1);
         spinners.setOnItemSelectedListener(this);
 
+        //Set on click listener para el botón de registro de usuario.
         mRegisterBtn.setOnClickListener(v -> {
             String Username = mUsername.getText().toString().trim();
             String Email = mEmail.getText().toString().trim();
@@ -115,6 +120,7 @@ public class Pe_registro extends AppCompatActivity implements AdapterView.OnItem
             String Nacimiento = mDisplayDate.getText().toString().trim();
 
 
+            //Revisa si hay campos en blanco
             if(TextUtils.isEmpty(Email)){
                 mEmail.setError("Ingresa tu Email.");
                 return;
@@ -134,6 +140,7 @@ public class Pe_registro extends AppCompatActivity implements AdapterView.OnItem
                 return;
             }
 
+            //Crea el usuario y lo registra en la base de datos
             fAuth.createUserWithEmailAndPassword(Email, Password).addOnCompleteListener(task -> {
                 if(task.isSuccessful()){
                     FirebaseUser fUser = fAuth.getCurrentUser();
@@ -162,7 +169,6 @@ public class Pe_registro extends AppCompatActivity implements AdapterView.OnItem
                     }
                     documentReference.set(user).addOnSuccessListener(aVoid -> Log.d(TAG, "Usuario creado correctamente con el ID: " + userID));
 
-
                     fUser.sendEmailVerification().addOnSuccessListener(aVoid -> Toast.makeText(Pe_registro.this, "Favor de revisar tu correo", Toast.LENGTH_SHORT).show()).addOnFailureListener(e -> Log.d(TAG, "Error" + e.getMessage()));
 
                     Toast.makeText(Pe_registro.this, "Usuario creado con exito.",Toast.LENGTH_SHORT).show();
@@ -188,6 +194,7 @@ public class Pe_registro extends AppCompatActivity implements AdapterView.OnItem
     }
 
 
+    //Función para regresar a la pantalla principal
     public void regresar(View view) {
         startActivity(new Intent(getApplicationContext(), Pe_inicio.class));
         finish();

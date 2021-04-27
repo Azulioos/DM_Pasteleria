@@ -31,7 +31,6 @@
         <activity android:name=".Pe_usuario_inicio" />
         <activity android:name=".Pe_registro" />
         <activity android:name=".Pe_iniciodesesion" />
-        <activity android:name=".MainActivity" />
         <activity android:name=".Pe_inicio">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

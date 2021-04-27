@@ -193,7 +193,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/scrollView_ui_layout"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:orientation="vertical"
@@ -201,221 +201,137 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/PastelesPersonalizados_9">
 
-                <GridLayout
-                    android:id="@+id/gridLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@+id/scrollView_ui_layout"
-                    android:layout_margin="10dp"
-                    android:columnCount="2"
-                    android:rowCount="3"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                <LinearLayout
+                    android:id="@+id/Admin_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:orientation="vertical"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
 
-                    <androidx.cardview.widget.CardView
+                    <CheckBox
+                        android:id="@+id/Extra_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_row="0"
-                        android:layout_rowWeight="1"
-                        android:layout_column="0"
-                        android:layout_columnWeight="1"
-                        android:layout_margin="8dp"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="8dp"
-                        app:cardElevation="8dp">
+                        android:text="@string/PP_10_1"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
 
 
-                        <LinearLayout
-                            android:id="@+id/Admin_1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical|center_horizontal"
-                            android:gravity="right"
-                            android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/Admin_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:gravity="center"
+                    android:orientation="vertical"
 
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Admin_1">
 
-                            <CheckBox
-                                android:id="@+id/Extra_1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/PP_10_1"
-                                android:textAlignment="center"
-                                android:textColor="#60443B"
-                                />
+                    <CheckBox
+                        android:id="@+id/Extra_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/PP_10_2"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
 
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
 
-                    <androidx.cardview.widget.CardView
+                <LinearLayout
+                    android:id="@+id/Admin_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Admin_2">
+
+                    <CheckBox
+                        android:id="@+id/Extra_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_row="0"
-                        android:layout_rowWeight="1"
-                        android:layout_column="1"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="fill"
-                        android:layout_margin="8dp"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="8dp"
-                        app:cardElevation="8dp"
+                        android:text="@string/PP_10_3"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
 
-                        >
-
-                        <LinearLayout
-                            android:id="@+id/Admin_2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical|center_horizontal"
-                            android:gravity="center"
-                            android:orientation="vertical">
+                </LinearLayout>
 
 
-                            <CheckBox
-                                android:id="@+id/Extra_2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/PP_10_2"
-                                android:textAlignment="center"
-                                android:textColor="#60443B" />
+                <LinearLayout
+                    android:id="@+id/Admin_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:gravity="center"
+                    android:orientation="vertical"
 
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Admin_3">
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="861dp"
-                        android:layout_height="wrap_content"
-                        android:layout_row="1"
-                        android:layout_rowWeight="1"
-                        android:layout_column="0"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="fill"
-                        android:layout_margin="8dp"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="8dp"
-                        app:cardElevation="8dp">
 
-                        <LinearLayout
-                            android:id="@+id/Admin_3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical|center_horizontal"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <CheckBox
-                                android:id="@+id/Extra_3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/PP_10_3"
-                                android:textAlignment="center"
-                                android:textColor="#60443B" />
-
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
+                    <CheckBox
+                        android:id="@+id/Extra_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_row="1"
-                        android:layout_rowWeight="1"
-                        android:layout_column="1"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="fill"
-                        android:layout_margin="8dp"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="8dp"
-                        app:cardElevation="8dp">
+                        android:text="@string/PP_10_4"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
 
-                        <LinearLayout
-                            android:id="@+id/Admin_5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical|center_horizontal"
-                            android:gravity="center"
-                            android:orientation="vertical">
+                </LinearLayout>
 
 
-                            <CheckBox
-                                android:id="@+id/Extra_4"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/PP_10_4"
-                                android:textAlignment="center"
-                                android:textColor="#60443B" />
+                <LinearLayout
+                    android:id="@+id/Admin_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:gravity="center"
+                    android:orientation="vertical"
 
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Admin_5">
 
 
-                    <androidx.cardview.widget.CardView
+                    <CheckBox
+                        android:id="@+id/Extra_6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_row="2"
-                        android:layout_rowWeight="1"
-                        android:layout_column="1"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="fill"
-                        android:layout_margin="8dp"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="8dp"
-                        app:cardElevation="8dp">
+                        android:text="@string/PP_10_5"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
 
-                        <LinearLayout
-                            android:id="@+id/Admin_6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical|center_horizontal"
-                            android:gravity="center"
-                            android:orientation="vertical">
+                </LinearLayout>
 
 
-                            <CheckBox
-                                android:id="@+id/Extra_6"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/PP_10_5"
-                                android:textAlignment="center"
-                                android:textColor="#60443B" />
+                <LinearLayout
+                    android:id="@+id/Admin_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Admin_6">
 
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
 
-                    <androidx.cardview.widget.CardView
+                    <CheckBox
+                        android:id="@+id/Extra_5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_row="2"
-                        android:layout_rowWeight="1"
-                        android:layout_column="0"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="fill"
-                        android:layout_margin="8dp"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="8dp"
-                        app:cardElevation="8dp">
+                        android:text="@string/PP_10_6"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
 
-                        <LinearLayout
-                            android:id="@+id/Admin_4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical|center_horizontal"
-                            android:gravity="center"
-                            android:orientation="vertical">
+                </LinearLayout>
 
 
-                            <CheckBox
-                                android:id="@+id/Extra_5"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/PP_10_6"
-                                android:textAlignment="center"
-                                android:textColor="#60443B" />
-
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-                </GridLayout>
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -453,7 +369,7 @@
                 <LinearLayout
 
                     android:id="@+id/PastelesPersonalizados_12"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
                     android:background="@drawable/recurso_boton_blanco"
@@ -470,6 +386,14 @@
                         android:hint="@string/ICorreo"
                         android:textColor="@color/black"
                         android:textColorHint="#60443B" />
+
+                    <Button
+                        android:id="@+id/PastelesPersonalizados_13b"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="150dp"
+
+                        />
                 </LinearLayout>
 
 
@@ -589,15 +513,15 @@
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <CheckBox
-                                android:id="@+id/Superficie_1"
+                            <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:background="@drawable/icono_color_blanco"
                                 android:button="@drawable/checkbox"/>
 
 
-                            <TextView
+                            <CheckBox
+                                android:id="@+id/Superficie_1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/PP_12_1"
@@ -630,17 +554,17 @@
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <CheckBox
-                                android:id="@+id/Superficie_2"
+                            <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:background="@drawable/icono_color_verde"
                                 android:button="@drawable/checkbox"/>
 
-                            <TextView
+                            <CheckBox
+                                android:id="@+id/Superficie_2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/PP_12_2"
+                                android:text="@string/PP_12_1"
                                 android:textAlignment="center"
                                 android:textColor="#60443B" />
 
@@ -668,17 +592,17 @@
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <CheckBox
-                                android:id="@+id/Superficie_3"
+                            <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:background="@drawable/icono_color_rosa"
-                                android:button="@drawable/checkbox"/>
+                                />
 
-                            <TextView
+                            <CheckBox
+                                android:id="@+id/Superficie_3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/PP_12_3"
+                                android:text="@string/PP_12_1"
                                 android:textAlignment="center"
                                 android:textColor="#60443B" />
 
@@ -706,17 +630,17 @@
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <CheckBox
-                                android:id="@+id/Superficie_4"
+                            <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:background="@drawable/icono_color_morado"
                                 android:button="@drawable/icono_pastel_chico" />
 
-                            <TextView
+                            <CheckBox
+                                android:id="@+id/Superficie_4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/PP_12_4"
+                                android:text="@string/PP_12_1"
                                 android:textAlignment="center"
                                 android:textColor="#60443B" />
 
@@ -745,19 +669,18 @@
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <CheckBox
-                                android:id="@+id/Superficie_6"
+                            <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:background="@drawable/icono_color_azul"
-                                android:button="@drawable/checkbox"
                                 />
 
 
-                            <TextView
+                            <CheckBox
+                                android:id="@+id/Superficie_6"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/PP_12_5"
+                                android:text="@string/PP_12_1"
                                 android:textAlignment="center"
                                 android:textColor="#60443B" />
 
@@ -785,18 +708,18 @@
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <CheckBox
-                                android:id="@+id/Superficie_5"
+                            <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:background="@drawable/icono_color_amarillo"
-                                android:button="@drawable/checkbox"/>
+                                />
 
 
-                            <TextView
+                            <CheckBox
+                                android:id="@+id/Superficie_5"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/PP_12_6"
+                                android:text="@string/PP_12_1"
                                 android:textAlignment="center"
                                 android:textColor="#60443B" />
 

@@ -56,12 +56,12 @@ public class Pe_usuario_pasteles_personalizados_tabla {
 
     private void createDataTable(){
         String info;
-        for(indexR=0;indexR<=header.length;indexR++){
+        for(indexR=1;indexR<=header.length;indexR++){
             newRow();
             for(indexC=0;indexC<header.length;indexC++){
                 newCell();
-                String[] columns=data.get(indexR-1);
-                info=(indexC<columns.length)?columns[indexC]:"";
+                String[] row=data.get(indexR-1);
+                info=(indexC<row.length)?row[indexC]:"";
                 txtCell.setText(info);
                 tableRow.addView(txtCell,newTableRowParams());
             }

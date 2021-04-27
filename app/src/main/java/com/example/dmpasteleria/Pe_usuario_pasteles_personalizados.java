@@ -36,7 +36,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
     String mProducto;
     String mPrecio;
 
-    Button mValidarBtn, mProcederBtn;
+    Button mValidarBtn, mProcederBtn, mValidar;
     CheckBox mIsNormal, mIsSmall, mIsLarge, mExtra_5, mSuperficie_5;
     CheckBox mExtra_1, mExtra_2, mExtra_3, mExtra_4, mExtra_6;
     CheckBox mSuperficie_2, mSuperficie_3, mSuperficie_4, mSuperficie_1, mSuperficie_6;
@@ -69,6 +69,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pe_usuario_pasteles_personalizados);
 
+        mValidar = findViewById(R.id.PastelesPersonalizados_13b);
         mValidarBtn = findViewById(R.id.PastelesPersonalizados_20);
         mProcederBtn = findViewById(R.id.PastelesPersonalizados_22);
 
@@ -119,11 +120,13 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                 builder.setView(sp);
                 builder.create().show();
                 if(sp.getSelectedItem() == "Chocolate"){
-                    mImagen.setImageResource(R.drawable.icono_chocolate);
+                    mImagen_2.setImageResource(R.drawable.icono_chocolate);
+                    mPanS.setText(R.string.Chocolate);
 
                 }
-                if(sp.getSelectedItem() == "Vainilla"){
-                    mImagen.setImageResource(R.drawable.icono_vainilla);
+                if(sp.getSelectedItem() == "Vainilla") {
+                    mImagen_2.setImageResource(R.drawable.icono_vainilla);
+                    mPanS.setText(R.string.Vainilla);
                 }
             }
         });
@@ -260,7 +263,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
         });
 
         String Validar_1 = spinners.getSelectedItem().toString().trim();
-        spinners.setOnClickListener(new View.OnClickListener() {
+        mValidarBtn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -538,7 +541,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
                                 Log.d(TAG, "Ingrediente agregado con el ID" + documentReference.getId());
-                                startActivity(new Intent(getApplicationContext(),Pe_admin_inicio.class));
+                                startActivity(new Intent(getApplicationContext(),Pe_usuario_pedidos.class));
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -566,7 +569,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
 
     private ArrayList<String[]> getClients() {
         int i;
-        for(i=0; i<Contador_1;i++){
+        for(i=1; i<=Contador_1;i++){
             rows.add(new String[]{PPRC[i],PPRP[i]});
         }
         rows.add(new String[]{"Precio total", String.valueOf(PrecioFinal)});

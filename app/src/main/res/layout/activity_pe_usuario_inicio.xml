@@ -64,7 +64,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/resource_gray_button"
+                    android:background="@drawable/recurso_boton_blanco"
                     android:gravity="center"
                     android:text="@string/Ir"
                     android:textColor="#60443B"
@@ -124,7 +124,7 @@
                     android:layout_height="wrap_content"
 
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/resource_gray_button"
+                    android:background="@drawable/recurso_boton_blanco"
 
                     android:gravity="center"
                     android:text="@string/Ir"
@@ -195,7 +195,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/resource_gray_button"
+                    android:background="@drawable/recurso_boton_blanco"
                     android:gravity="center"
                     android:onClick="Personalized"
                     android:text="@string/Ir"

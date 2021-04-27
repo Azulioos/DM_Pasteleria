@@ -193,7 +193,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/scrollView_ui_layout"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:orientation="vertical"
@@ -233,7 +233,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical|center_horizontal"
-                            android:gravity="center"
+                            android:gravity="right"
                             android:orientation="vertical">
 
 
@@ -243,7 +243,8 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/PP_10_1"
                                 android:textAlignment="center"
-                                android:textColor="#60443B" />
+                                android:textColor="#60443B"
+                                />
 
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
@@ -284,7 +285,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
+                        android:layout_width="861dp"
                         android:layout_height="wrap_content"
                         android:layout_row="1"
                         android:layout_rowWeight="1"
@@ -310,8 +311,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/PP_10_3"
                                 android:textAlignment="center"
-                                android:textColor="#60443B"
-                                />
+                                android:textColor="#60443B" />
 
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
@@ -593,7 +593,8 @@
                                 android:id="@+id/Superficie_1"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:button="@drawable/icono_color_blanco" />
+                                android:background="@drawable/icono_color_blanco"
+                                android:button="@drawable/checkbox"/>
 
 
                             <TextView
@@ -633,7 +634,8 @@
                                 android:id="@+id/Superficie_2"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:button="@drawable/icono_color_verde" />
+                                android:background="@drawable/icono_color_verde"
+                                android:button="@drawable/checkbox"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -670,7 +672,8 @@
                                 android:id="@+id/Superficie_3"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:button="@drawable/icono_color_rosa" />
+                                android:background="@drawable/icono_color_rosa"
+                                android:button="@drawable/checkbox"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -746,7 +749,9 @@
                                 android:id="@+id/Superficie_6"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:button="@drawable/icono_color_azul" />
+                                android:background="@drawable/icono_color_azul"
+                                android:button="@drawable/checkbox"
+                                />
 
 
                             <TextView
@@ -784,7 +789,8 @@
                                 android:id="@+id/Superficie_5"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:button="@drawable/icono_color_amarillo" />
+                                android:background="@drawable/icono_color_amarillo"
+                                android:button="@drawable/checkbox"/>
 
 
                             <TextView
@@ -906,6 +912,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/PastelesPersonalizados_19" />
+
 
             <TableLayout
                 android:id="@+id/PastelesPersonalizados_21"

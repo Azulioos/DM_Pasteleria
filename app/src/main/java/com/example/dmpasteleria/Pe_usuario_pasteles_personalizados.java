@@ -41,12 +41,12 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
     CheckBox mExtra_1, mExtra_2, mExtra_3, mExtra_4, mExtra_6;
     CheckBox mSuperficie_2, mSuperficie_3, mSuperficie_4, mSuperficie_1, mSuperficie_6;
     ImageView mImagen;
-    String[] mPan = {String.valueOf(R.string.Chocolate), String.valueOf(R.string.Vainilla)};
+    ImageView mImagen_2;
+    String[] mPan = {"Chocolate", "Vainilla"};
     TextView mPanS;
     TextView mCapasS;
     LinearLayout mRelleno_1, mRelleno_2;
     FirebaseFirestore fStore;
-    TableLayout Recibo;
 
     float PrecioFinal = 0;
     float Precio = 0;
@@ -69,10 +69,6 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pe_usuario_pasteles_personalizados);
 
-
-        Pe_usuario_pasteles_personalizados_tabla tableDynamic = new Pe_usuario_pasteles_personalizados_tabla(tableLayout,getApplicationContext());
-        tableDynamic.addHeader(header);
-
         mValidarBtn = findViewById(R.id.PastelesPersonalizados_20);
         mProcederBtn = findViewById(R.id.PastelesPersonalizados_22);
 
@@ -82,6 +78,9 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
+        Pe_usuario_pasteles_personalizados_tabla tableDynamic = new Pe_usuario_pasteles_personalizados_tabla(tableLayout,getApplicationContext());
+        tableDynamic.addHeader(header);
+
         mRelleno_1 = findViewById(R.id.PastelesPersonalizados_12_1);
         mRelleno_2 = findViewById(R.id.PastelesPersonalizados_12_2);
 
@@ -89,6 +88,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
         mIsLarge = findViewById(R.id.checkbox2);
         mIsNormal = findViewById(R.id.checkbox3);
         mImagen = findViewById(R.id.PastelesPersonalizados_5);
+        mImagen_2 = findViewById(R.id.PastelesPersonalizados_8);
 
         mExtra_5 = findViewById(R.id.Extra_5);
         mExtra_1 = findViewById(R.id.Extra_1);
@@ -103,6 +103,31 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
         mSuperficie_3 = findViewById(R.id.Superficie_3);
         mSuperficie_4 = findViewById(R.id.Superficie_4);
         mSuperficie_6 = findViewById(R.id.Superficie_6);
+
+        final ArrayAdapter<String> adp = new ArrayAdapter<String>(Pe_usuario_pasteles_personalizados.this,
+                android.R.layout.simple_spinner_item, mPan);
+
+        mPanS = (TextView)findViewById(R.id.PastelesPersonalizados_7);
+        final Spinner sp = new Spinner(Pe_usuario_pasteles_personalizados.this);
+        sp.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        sp.setAdapter(adp);
+
+        mPanS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Pe_usuario_pasteles_personalizados.this);
+                builder.setView(sp);
+                builder.create().show();
+                if(sp.getSelectedItem() == "Chocolate"){
+                    mImagen.setImageResource(R.drawable.icono_chocolate);
+
+                }
+                if(sp.getSelectedItem() == "Vainilla"){
+                    mImagen.setImageResource(R.drawable.icono_vainilla);
+                }
+            }
+        });
+
 
         Spinner spinners = findViewById(R.id.PastelesPersonalizados_13);
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.numero, android.R.layout.simple_spinner_item);
@@ -153,6 +178,53 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
             }
         });
 
+        mSuperficie_1.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(buttonView.isChecked()){
+                mSuperficie_5.setChecked(false);
+                mSuperficie_2.setChecked(false);
+                mSuperficie_3.setChecked(false);
+                mSuperficie_4.setChecked(false);
+                mSuperficie_6.setChecked(false);
+
+            }
+        });
+
+
+        mSuperficie_2.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(buttonView.isChecked()){
+                mSuperficie_1.setChecked(false);
+                mSuperficie_5.setChecked(false);
+                mSuperficie_3.setChecked(false);
+                mSuperficie_4.setChecked(false);
+                mSuperficie_6.setChecked(false);
+
+            }
+        });
+
+        mSuperficie_3.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(buttonView.isChecked()){
+                mSuperficie_1.setChecked(false);
+                mSuperficie_2.setChecked(false);
+                mSuperficie_5.setChecked(false);
+                mSuperficie_4.setChecked(false);
+                mSuperficie_6.setChecked(false);
+
+            }
+        });
+
+
+        mSuperficie_4.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(buttonView.isChecked()){
+                mSuperficie_1.setChecked(false);
+                mSuperficie_2.setChecked(false);
+                mSuperficie_3.setChecked(false);
+                mSuperficie_5.setChecked(false);
+                mSuperficie_6.setChecked(false);
+
+            }
+        });
+
+
         mSuperficie_5.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if(buttonView.isChecked()){
                 mSuperficie_1.setChecked(false);
@@ -163,6 +235,18 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
 
             }
         });
+
+        mSuperficie_6.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(buttonView.isChecked()){
+                mSuperficie_1.setChecked(false);
+                mSuperficie_2.setChecked(false);
+                mSuperficie_3.setChecked(false);
+                mSuperficie_4.setChecked(false);
+                mSuperficie_5.setChecked(false);
+
+            }
+        });
+
 
         mExtra_5.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if(buttonView.isChecked()){
@@ -175,20 +259,28 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
             }
         });
 
+        String Validar_1 = spinners.getSelectedItem().toString().trim();
+        spinners.setOnClickListener(new View.OnClickListener() {
 
-        final ArrayAdapter<String> adp = new ArrayAdapter<String>(Pe_usuario_pasteles_personalizados.this,
-                android.R.layout.simple_spinner_item, mPan);
+            @Override
+            public void onClick(View v) {
+                if(Validar_1.equals("1")){
+                    mRelleno_2.setVisibility(View.GONE);
+                    mRelleno_1.setVisibility(View.GONE);
+                }
 
-        mPanS = (TextView)findViewById(R.id.PastelesPersonalizados_7);
-        final Spinner sp = new Spinner(Pe_usuario_pasteles_personalizados.this);
-        sp.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-        sp.setAdapter(adp);
+                if(Validar_1.equals("2")){
+                    mRelleno_2.setVisibility(View.GONE);
+                    mRelleno_1.setVisibility(View.VISIBLE);
+                }
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(Pe_usuario_pasteles_personalizados.this);
-        builder.setView(sp);
-        builder.create().show();
+                if(Validar_1.equals("3")){
+                    mRelleno_2.setVisibility(View.VISIBLE);
+                    mRelleno_1.setVisibility(View.VISIBLE);
+                }
 
-        String Validar_1 = mCapasS.getText().toString().trim();
+            }
+        });
         if(Validar_1.equals("1")){
             mRelleno_2.setVisibility(View.GONE);
             mRelleno_1.setVisibility(View.GONE);
@@ -244,7 +336,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                     }
                 });
 
-                mSuperficie_1.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                mExtra_1.setOnCheckedChangeListener((buttonView, isChecked) -> {
                     if(buttonView.isChecked()){
                         float Superficie_1 = 29.99f;
                         PrecioFinal += Superficie_1;
@@ -254,7 +346,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                     }
                 });
 
-                mSuperficie_2.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                mExtra_2.setOnCheckedChangeListener((buttonView, isChecked) -> {
                     if(buttonView.isChecked()){
                         float Superficie_2 = 19.99f;
                         PrecioFinal += Superficie_2;
@@ -264,7 +356,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                     }
                 });
 
-                mSuperficie_3.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                mExtra_3.setOnCheckedChangeListener((buttonView, isChecked) -> {
                     if(buttonView.isChecked()){
                         float Superficie_3 = 39.99f;
                         PrecioFinal += Superficie_3;
@@ -274,7 +366,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                     }
                 });
 
-                mSuperficie_4.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                mExtra_4.setOnCheckedChangeListener((buttonView, isChecked) -> {
                     if(buttonView.isChecked()){
                         float Superficie_4 = 35.99f;
                         PrecioFinal += Superficie_4;
@@ -284,7 +376,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                     }
                 });
 
-                mSuperficie_6.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                mExtra_6.setOnCheckedChangeListener((buttonView, isChecked) -> {
                     if(buttonView.isChecked()){
                         float Superficie_6 = 24.99f;
                         PrecioFinal += Superficie_6;

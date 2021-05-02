@@ -20,7 +20,7 @@ import com.synnapps.carouselview.CarouselView;
 import java.util.Locale;
 
 public class Pe_usuario_inicio extends AppCompatActivity {
-
+    FirebaseAuth fAuth;
 
     //Creación del carousel
     private final int[] mImages = new int[] {
@@ -38,6 +38,13 @@ public class Pe_usuario_inicio extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pe_usuario_inicio);
         loadLocale();
+
+        fAuth = FirebaseAuth.getInstance();
+
+        if(fAuth.getCurrentUser() == null) {
+            startActivity(new Intent(getApplicationContext(), Pe_inicio.class));
+            finish();
+        }
 
         Toolbar toolbar = findViewById(R.id.toolbar_i);
         setSupportActionBar(toolbar);

@@ -17,11 +17,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -47,6 +48,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
     TextView mCapasS;
     LinearLayout mRelleno_1, mRelleno_2;
     FirebaseFirestore fStore;
+    FirebaseAuth fAuth;
     EditText mDireccion, mTextoExtra;
 
     float PrecioFinal = 0;
@@ -64,11 +66,17 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
     private static final String TAG = "Pedidos";
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pe_usuario_pasteles_personalizados);
+
+        fAuth = FirebaseAuth.getInstance();
+
+        if(fAuth.getCurrentUser() == null) {
+            startActivity(new Intent(getApplicationContext(), Pe_inicio.class));
+            finish();
+        }
 
         mValidar = findViewById(R.id.PastelesPersonalizados_13b);
         mValidarBtn = findViewById(R.id.PastelesPersonalizados_20);
@@ -106,32 +114,11 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
         mSuperficie_4 = findViewById(R.id.Superficie_4);
         mSuperficie_6 = findViewById(R.id.Superficie_6);
 
-        final ArrayAdapter<String> adp = new ArrayAdapter<String>(Pe_usuario_pasteles_personalizados.this,
-                android.R.layout.simple_spinner_item, mPan);
-
-        mPanS = (TextView)findViewById(R.id.PastelesPersonalizados_7);
-        final Spinner sp = new Spinner(Pe_usuario_pasteles_personalizados.this);
-        sp.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-        sp.setAdapter(adp);
-
-        mPanS.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(Pe_usuario_pasteles_personalizados.this);
-                builder.setView(sp);
-                builder.create().show();
-                if(sp.getSelectedItem() == "Chocolate"){
-                    mImagen_2.setImageResource(R.drawable.icono_chocolate);
-                    mPanS.setText(R.string.Chocolate);
-
-                }
-                if(sp.getSelectedItem() == "Vainilla") {
-                    mImagen_2.setImageResource(R.drawable.icono_vainilla);
-                    mPanS.setText(R.string.Vainilla);
-                }
-            }
-        });
-
+        Spinner spinners_4 = findViewById(R.id.PastelesPersonalizados_7);
+        ArrayAdapter<CharSequence> adapter4 = ArrayAdapter.createFromResource(this, R.array.numero, android.R.layout.simple_spinner_item);
+        adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinners_4.setAdapter(adapter4);
+        spinners_4.setOnItemSelectedListener(this);
 
         Spinner spinners = findViewById(R.id.PastelesPersonalizados_13);
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.numero, android.R.layout.simple_spinner_item);
@@ -264,7 +251,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
         });
 
         String Validar_1 = spinners.getSelectedItem().toString().trim();
-        mValidarBtn.setOnClickListener(new View.OnClickListener() {
+        mValidar.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -535,6 +522,11 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                     pedidos.put(PPRC[i], PPRP[i]);
                 }
                 pedidos.put("Precio total", PrecioFinal);
+                FirebaseUser Usuario = fAuth.getCurrentUser();
+                String Estado = "0";
+                pedidos.put("Usuario", Usuario);
+                pedidos.put("Estado del pedido", Estado);
+
 
                 fStore.collection("pedidos")
                         .add(pedidos)

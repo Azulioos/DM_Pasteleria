@@ -12,6 +12,34 @@
         <item>San Nicolás</item>
     </string-array>
 
+    <string-array name="Pan">
+        <item>Chocolate</item>
+        <item>Vainilla</item>
+        <item>Fresa</item>
+    </string-array>
+
+    <string-array name="tipo">
+        <item>Origen animal</item>
+        <item>Organico</item>
+        <item>Vegano</item>
+        <item>Lacteo</item>
+        <item>No comestible</item>
+    </string-array>
+
+    <string-array name="capas">
+        <item>Fresa 39.99 $</item>
+        <item>Piña 29.99 $</item>
+        <item>Chocolate 39.99 $</item>
+        <item>Glaseado 19.99 $</item>
+        <item>Cajeta 39.99 $</item>
+    </string-array>
+
+    <string-array name="numero">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
     <!--Principal del menu desplegable izquierdo-->
     <string name="logo">Logo</string>
     <string name="idioma">Select a language</string>
@@ -24,7 +52,6 @@
     <string name="Ingredientes">Ingredients</string>
     <string name="Pedidos">Pending orders</string>
     <string name="Cerrar_sesion">Log out</string>
-
 
     <!-- Strings de Pe_iniciodeseion -->
     <string name="Registrarte_Como">Register as…</string>
@@ -108,7 +135,6 @@
     <string name="Admin_ai3">Ingredient type</string>
     <string name="Admin_ai4">Ingredient image</string>
     <string name="Admin_ai5">Provider</string>
-
 
     <string name="Admin_ai2c">Insert the ingredient name</string>
     <string name="Admin_ai3c">Type</string>

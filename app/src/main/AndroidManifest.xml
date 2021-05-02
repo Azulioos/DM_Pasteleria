@@ -4,7 +4,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -14,9 +16,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DMPasteleria">
-        <activity android:name=".Pe_usuario_pedidos"/>
-        <activity android:name=".Pe_usuario_sucursales" />
-        <activity android:name=".Pe_usuario_pasteles_personalizados" />
+
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCYhaJkQ0B0DbxPO25i8lU5-4DovTxp8BA"/>
+
+        <activity android:name=".Pe_usuario_pasteles_personalizados_mapa"/>
+        <activity android:name=".Pe_usuario_pedidos" />
+        <activity android:name=".Pe_usuario_sucursales"/>
+        <activity android:name=".Pe_usuario_pasteles_personalizados"/>
         <activity android:name=".Pe_admin_vistageneral" />
         <activity android:name=".Pe_admin_agregarp" />
         <activity android:name=".Pe_admin_agregari" />

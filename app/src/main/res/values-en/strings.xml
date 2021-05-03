@@ -188,4 +188,15 @@
     <string name="PP_0">No seleccionado</string>
     <string name="o">o</string>
 
+    <string name="Pedidos_1">Tamaño</string>
+    <string name="Pedidos_2">Tamaño</string>
+    <string name="Pedidos_3">Tipo de pan</string>
+    <string name="Pedidos_4">Pan</string>
+    <string name="Pedidos_5">Toppings</string>
+    <string name="Pedidos_6">Toppings</string>
+    <string name="Pedidos_7">Color del pastel</string>
+    <string name="Pedidos_8">Color</string>
+    <string name="Pedidos_9">Extras</string>
+    <string name="Pedidos_10">Extras</string>
+
 </resources>

@@ -2,11 +2,11 @@ package com.example.dmpasteleria;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,12 +16,13 @@ import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class Pe_usuario_pasteles_personalizados_mapa extends AppCompatActivity {
     Button btPicker, btEnviar;
@@ -30,6 +31,7 @@ public class Pe_usuario_pasteles_personalizados_mapa extends AppCompatActivity {
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     String place_2 = null;
+    private static final String TAG = "Pedidos";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +55,7 @@ public class Pe_usuario_pasteles_personalizados_mapa extends AppCompatActivity {
                 PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
                 try {
                     startActivityForResult(builder.build(Pe_usuario_pasteles_personalizados_mapa.this),PLACE_PICKER_REQUEST);
-                } catch (GooglePlayServicesRepairableException e) {
-                    e.printStackTrace();
-                } catch (GooglePlayServicesNotAvailableException e) {
+                } catch (GooglePlayServicesRepairableException | GooglePlayServicesNotAvailableException e) {
                     e.printStackTrace();
                 }
             }
@@ -64,32 +64,32 @@ public class Pe_usuario_pasteles_personalizados_mapa extends AppCompatActivity {
         btEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatabaseReference reference = FirebaseDatabase.getInstance().getReference("pedidos");
                 FirebaseUser Usuario = fAuth.getCurrentUser();
                 String Usuario_2 = null;
                 Usuario_2.equals(Usuario);
-
-                reference.orderByChild("Usuario").equalTo(Usuario_2).addListenerForSingleValueEvent(new ValueEventListener() {
+                fStore.collection("Pedidos").addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot datas : snapshot.getChildren()) {
-                            if (reference.orderByChild("Estado del pedido").equals("0")){
-                                fStore.collection("pedidos")
-                                        .add(place_2);
-                                startActivity(new Intent(getApplicationContext(),Pe_usuario_pedidos.class));
-                            }
+                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                        for(DocumentChange doc: value.getDocumentChanges()){
+                            DocumentReference documentReference = fStore.collection("Pedidos").document(doc.toString());
+                            documentReference.get().addOnCompleteListener(task -> {
+                                if(task.isSuccessful()){
+                                    DocumentSnapshot document = task.getResult();
+                                    if(document.exists()){
+                                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                                        textView.setText((CharSequence) document.get("Direccion"));
+                                    } else{
+                                        Log.d(TAG, "No such document");
+                                    }
+                                } else{
+                                    Log.d(TAG, "get failed with ", task.getException());
+                                }
+                            });
                         }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
                     }
                 });
             }
         });
-
-
     }
 
     @Override
@@ -98,8 +98,7 @@ public class Pe_usuario_pasteles_personalizados_mapa extends AppCompatActivity {
         if(requestCode == PLACE_PICKER_REQUEST){
             if(resultCode == RESULT_OK){
                 Place place = PlacePicker.getPlace(data, this);
-                place_2.equals(place);
-
+                place_2 = place.toString();
                 textView.setText(place_2);
             }
         }

@@ -28,11 +28,16 @@
         <item>Cajeta 39.99 $</item>
     </string-array>
 
-
     <string-array name="numero">
         <item>1</item>
         <item>2</item>
         <item>3</item>
+    </string-array>
+
+    <string-array name="Pan">
+        <item>Chocolate</item>
+        <item>Vainilla</item>
+        <item>Fresa</item>
     </string-array>
 
     <!--Principal del menu desplegable izquierdo-->
@@ -48,7 +53,6 @@
     <string name="Pedidos">Pedidos</string>
     <string name="Cerrar_sesion">Cerrar sesion</string>
 
-
     <!-- Strings de Pe_iniciodeseion -->
 
     <string name="Registrarte_Como">Registrarme como…</string>
@@ -58,7 +62,6 @@
     <string name="Administrador">Administrador</string>
     <string name="Empleado">Empleado</string>
 
-
     <!-- Strings de Pe_admin_inventario -->
     <string name="Editar">Editar</string>
     <string name="Unidades">Unidades</string>
@@ -66,7 +69,6 @@
     <string name="Volver">Volver</string>
     <string name="Agregar">Agregar</string>
     <string name="Borrar">Borrar</string>
-
 
     <!--Menu desplegable izquierdo-->
     <string name="menu_home">Página Principal</string>
@@ -79,7 +81,6 @@
     <string name="action_pedidos">Pedidos</string>
     <string name="action_settings">Ajustes de la cuenta</string>
     <string name="action_logout">Salir</string>
-
 
     <!-- Strings de Pe_usuario_inicio -->
     <string name="title_seasonal">Pasteles de Temporada</string>
@@ -188,8 +189,19 @@
     <string name="PP_15">Verificar precio </string>
     <string name="PP_16">Agregar al carrito</string>
 
+
+    <string name="Pedidos_1">Tamaño</string>
+    <string name="Pedidos_2">Tamaño</string>
+    <string name="Pedidos_3">Tipo de pan</string>
+    <string name="Pedidos_4">Pan</string>
+    <string name="Pedidos_5">Toppings</string>
+    <string name="Pedidos_6">Toppings</string>
+    <string name="Pedidos_7">Color del pastel</string>
+    <string name="Pedidos_8">Color</string>
+    <string name="Pedidos_9">Extras</string>
+    <string name="Pedidos_10">Extras</string>
+
     <string name="PP_0">No seleccionado</string>
     <string name="o" translatable="false">o</string>
-
 
 </resources>

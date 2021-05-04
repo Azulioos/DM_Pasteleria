@@ -574,7 +574,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
                                 Log.d(TAG, "Estado del pedido = 0" + documentReference.getId());
-                                startActivity(new Intent(getApplicationContext(),Pe_usuario_pedidos.class));
+                                startActivity(new Intent(getApplicationContext(),Pe_usuario_pasteles_personalizados_mapa.class));
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                     @Override

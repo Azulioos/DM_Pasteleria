@@ -42,8 +42,9 @@ public class Pe_iniciodesesion extends AppCompatActivity {
         mIsWorker = findViewById(R.id.checkbox2);
         mIsAdmin = findViewById(R.id.checkbox3);
 
+        //Hace un set para cada posible resultado en los checkbox
         mIsAdmin.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if(buttonView.isChecked()){
+            if (buttonView.isChecked()) {
                 mIsUser.setChecked(false);
                 mIsWorker.setChecked(false);
             }
@@ -63,6 +64,7 @@ public class Pe_iniciodesesion extends AppCompatActivity {
             }
         });
 
+        //Set on click listener para el botón de LOGIN
         mLoginBtn.setOnClickListener(v -> {
             String email = mEmail.getText().toString().trim();
             String password = mPassword.getText().toString().trim();
@@ -70,6 +72,7 @@ public class Pe_iniciodesesion extends AppCompatActivity {
             fAuth = FirebaseAuth.getInstance();
             fStore = FirebaseFirestore.getInstance();
 
+            //Revisa si hay campos en blanco
             if (TextUtils.isEmpty(email)) {
                 mEmail.setError("Ingresa tu Email.");
                 return;
@@ -91,12 +94,14 @@ public class Pe_iniciodesesion extends AppCompatActivity {
         });
     }
 
+    //Función que abre la pantalla principal dependiendo el rol
     public void openPrincipal(String Uid){
-        String good = "1";
+        String good = "1";                   //String para comparar el estado de los roles
         DocumentReference df = fStore.collection("users").document(Uid);
         df.get().addOnSuccessListener(documentSnapshot -> {
             Log.d("TAG","OnSuccess" + documentSnapshot.getData());
 
+            //Valora para cada posible resultado de los checkbox
             if (documentSnapshot.getString("Role").equals(good) && mIsUser.isChecked()){
                 Toast.makeText(Pe_iniciodesesion.this,"Abriendo pantalla de usuario", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(Pe_iniciodesesion.this, Pe_usuario_inicio.class));
@@ -121,11 +126,13 @@ public class Pe_iniciodesesion extends AppCompatActivity {
         });
     }
 
+    //Función de regresar al registro
     public void ir_a_registro(View view) {
         startActivity(new Intent(getApplicationContext(), Pe_registro.class));
         finish();
     }
 
+    //Función para regresar
     public void regresar(View view) {
         startActivity(new Intent(getApplicationContext(), Pe_inicio.class));
         finish();

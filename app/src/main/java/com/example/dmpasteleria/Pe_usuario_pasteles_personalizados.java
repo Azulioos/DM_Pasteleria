@@ -2,7 +2,6 @@ package com.example.dmpasteleria;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,20 +14,13 @@ import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -554,7 +546,9 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
             @Override
             public void onClick(View v) {
                 int i;
-
+                startActivity(new Intent(getApplicationContext(),Pe_usuario_pasteles_personalizados_mapa.class));
+                finish();
+                /*
                 Map<String, Object> pedidos = new HashMap<>();
                 for(i=0; i<Contador_1;i++){
                     pedidos.put(PPRC[i], PPRP[i]);
@@ -563,9 +557,10 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                 pedidos.put("colores", Color);
                 FirebaseUser Usuario = fAuth.getCurrentUser();
                 String Estado = "0";
+                String Pasar = "Pasar a sucursal";
                 pedidos.put("Usuario", Usuario);
                 pedidos.put("Estado del pedido", Estado);
-                pedidos.put("Direccion", "Pasar a sucursal");
+                pedidos.put("Direccion", Pasar);
 
 
                 fStore.collection("pedidos")
@@ -581,7 +576,9 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                     public void onFailure(@NonNull Exception e) {
                         Log.w(TAG,"Error");
                     }
+
                 });
+                */
 
             }
         });

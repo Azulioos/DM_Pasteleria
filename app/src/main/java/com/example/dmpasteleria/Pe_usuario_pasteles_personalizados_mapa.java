@@ -66,7 +66,7 @@ public class Pe_usuario_pasteles_personalizados_mapa extends AppCompatActivity {
             public void onClick(View v) {
                 FirebaseUser Usuario = fAuth.getCurrentUser();
                 String Usuario_2 = null;
-                Usuario_2.equals(Usuario);
+                Usuario_2 = Usuario.toString();
                 fStore.collection("Pedidos").addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {

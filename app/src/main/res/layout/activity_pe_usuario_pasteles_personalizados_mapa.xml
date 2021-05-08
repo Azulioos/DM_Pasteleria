@@ -8,20 +8,21 @@
     android:padding="20dp"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".Pe_usuario_pasteles_personalizados_mapa">
+    tools:context=".Pe_usuario_pasteles_personalizados_mapa"
+    >
     
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/bt_picker"
-        android:text="@string/PP_12"
+        android:text="@string/Sucursal_1"
         />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/bt_enviar"
-        android:text="@string/PP_12"
+        android:text="@string/Sucursal_2"
         />
 
     <TextView

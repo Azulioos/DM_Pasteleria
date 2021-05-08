@@ -199,4 +199,7 @@
     <string name="Pedidos_9">Extras</string>
     <string name="Pedidos_10">Extras</string>
 
+    <string name="Sucursal_1">Seleccione una ubicacion de entrega</string>
+    <string name="Sucursal_2">Completar pedido</string>
+
 </resources>

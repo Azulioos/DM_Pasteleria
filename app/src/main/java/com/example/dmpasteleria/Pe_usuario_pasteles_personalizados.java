@@ -2,6 +2,7 @@ package com.example.dmpasteleria;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,19 +13,27 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TableLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    Button mValidarBtn, mProcederBtn, mValidar;
+    Button mValidarBtn, mProcederBtn;
     CheckBox mIsNormal, mIsSmall, mIsLarge, mExtra_5, mSuperficie_5;
     CheckBox mExtra_1, mExtra_2, mExtra_3, mExtra_4, mExtra_6;
     CheckBox mSuperficie_2, mSuperficie_3, mSuperficie_4, mSuperficie_1, mSuperficie_6;
@@ -33,11 +42,13 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
     LinearLayout mRelleno_1, mRelleno_2;
     FirebaseFirestore fStore;
     FirebaseAuth fAuth;
-    EditText mDireccion, mTextoExtra;
     List<String> lista = new ArrayList<String>();
     String listaobj;
     List<String> lista_2 = new ArrayList<String>();
     String listaobj_2;
+    Spinner spinners;
+    TextView PP6;
+    String Listan, Listan2;
 
     float PrecioFinal = 0;
     float Precio = 0;
@@ -57,6 +68,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pe_usuario_pasteles_personalizados);
+        PP6 = findViewById(R.id.PastelesPersonalizados_6);
 
         fAuth = FirebaseAuth.getInstance();
 
@@ -65,7 +77,6 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
             finish();
         }
 
-        mValidar = findViewById(R.id.PastelesPersonalizados_13b);
         mValidarBtn = findViewById(R.id.PastelesPersonalizados_20);
         mProcederBtn = findViewById(R.id.PastelesPersonalizados_22);
 
@@ -84,7 +95,6 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
         mIsLarge = findViewById(R.id.checkbox2);
         mIsNormal = findViewById(R.id.checkbox3);
         mImagen = findViewById(R.id.PastelesPersonalizados_5);
-        mImagen_2 = findViewById(R.id.PastelesPersonalizados_8);
 
         mExtra_5 = findViewById(R.id.Extra_5);
         mExtra_1 = findViewById(R.id.Extra_1);
@@ -93,20 +103,20 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
         mExtra_4 = findViewById(R.id.Extra_4);
         mExtra_6 = findViewById(R.id.Extra_6);
 
-        mSuperficie_5 = findViewById(R.id.Superficie_5);
+
         mSuperficie_1 = findViewById(R.id.Superficie_1);
         mSuperficie_2 = findViewById(R.id.Superficie_2);
         mSuperficie_3 = findViewById(R.id.Superficie_3);
         mSuperficie_4 = findViewById(R.id.Superficie_4);
-        mSuperficie_6 = findViewById(R.id.Superficie_6);
+
 
         Spinner spinners_4 = findViewById(R.id.PastelesPersonalizados_7);
-        ArrayAdapter<CharSequence> adapter4 = ArrayAdapter.createFromResource(this, R.array.numero, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter4 = ArrayAdapter.createFromResource(this, R.array.Pan, android.R.layout.simple_spinner_item);
         adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinners_4.setAdapter(adapter4);
         spinners_4.setOnItemSelectedListener(this);
 
-        Spinner spinners = findViewById(R.id.PastelesPersonalizados_13);
+        spinners = findViewById(R.id.PastelesPersonalizados_13);
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.numero, android.R.layout.simple_spinner_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinners.setAdapter(adapter1);
@@ -140,6 +150,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                 mIsNormal.setChecked(false);
                 mIsLarge.setChecked(false);
                 mImagen.setImageResource(R.drawable.icono_pastel);
+                PP6.setText(getResources().getString(R.string.PP_10_1));
                 Precio = 1f;
                 Capa = 99.99f;
             }
@@ -157,11 +168,11 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
 
         mSuperficie_1.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if(buttonView.isChecked()){
-                mSuperficie_5.setChecked(false);
+
                 mSuperficie_2.setChecked(false);
                 mSuperficie_3.setChecked(false);
                 mSuperficie_4.setChecked(false);
-                mSuperficie_6.setChecked(false);
+
 
                 Color = "Blanco";
             }
@@ -171,10 +182,10 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
         mSuperficie_2.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if(buttonView.isChecked()){
                 mSuperficie_1.setChecked(false);
-                mSuperficie_5.setChecked(false);
+
                 mSuperficie_3.setChecked(false);
                 mSuperficie_4.setChecked(false);
-                mSuperficie_6.setChecked(false);
+
 
                 Color = "Verde";
 
@@ -185,9 +196,9 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
             if(buttonView.isChecked()){
                 mSuperficie_1.setChecked(false);
                 mSuperficie_2.setChecked(false);
-                mSuperficie_5.setChecked(false);
+
                 mSuperficie_4.setChecked(false);
-                mSuperficie_6.setChecked(false);
+
 
                 Color = "Rosa";
             }
@@ -199,37 +210,14 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                 mSuperficie_1.setChecked(false);
                 mSuperficie_2.setChecked(false);
                 mSuperficie_3.setChecked(false);
-                mSuperficie_5.setChecked(false);
-                mSuperficie_6.setChecked(false);
+
 
                 Color = "Morado";
             }
         });
 
 
-        mSuperficie_5.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if(buttonView.isChecked()){
-                mSuperficie_1.setChecked(false);
-                mSuperficie_2.setChecked(false);
-                mSuperficie_3.setChecked(false);
-                mSuperficie_4.setChecked(false);
-                mSuperficie_6.setChecked(false);
 
-                Color = "Amarillo";
-            }
-        });
-
-        mSuperficie_6.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if(buttonView.isChecked()){
-                mSuperficie_1.setChecked(false);
-                mSuperficie_2.setChecked(false);
-                mSuperficie_3.setChecked(false);
-                mSuperficie_4.setChecked(false);
-                mSuperficie_5.setChecked(false);
-
-                Color = "Azul";
-            }
-        });
 
 
         mExtra_5.setOnCheckedChangeListener((buttonView, isChecked) -> {
@@ -243,161 +231,106 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
             }
         });
 
-        String Validar_1 = spinners.getSelectedItem().toString().trim();
-        mValidar.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                if(Validar_1.equals("1")){
-                    mRelleno_2.setVisibility(View.GONE);
-                    mRelleno_1.setVisibility(View.GONE);
-                }
-
-                if(Validar_1.equals("2")){
-                    mRelleno_2.setVisibility(View.GONE);
-                    mRelleno_1.setVisibility(View.VISIBLE);
-                }
-
-                if(Validar_1.equals("3")){
-                    mRelleno_2.setVisibility(View.VISIBLE);
-                    mRelleno_1.setVisibility(View.VISIBLE);
-                }
-
-            }
-        });
-        if(Validar_1.equals("1")){
-            mRelleno_2.setVisibility(View.GONE);
-            mRelleno_1.setVisibility(View.GONE);
-        }
-
-        if(Validar_1.equals("2")){
-            mRelleno_2.setVisibility(View.GONE);
-            mRelleno_1.setVisibility(View.VISIBLE);
-        }
-
-        if(Validar_1.equals("3")){
-            mRelleno_2.setVisibility(View.VISIBLE);
-            mRelleno_1.setVisibility(View.VISIBLE);
-        }
 
         mValidarBtn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                mIsNormal.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                    if(buttonView.isChecked()){
-                        Precio = 0.8f;
-                        Capa = 79.99f;
+                if(mIsNormal.isChecked()){
+                    Precio = 0.8f;
+                    Capa = 79.99f;
 
-                        PrecioFinal += Capa;
-                        PPRC[Contador_1] = "tamano";
-                        PPRP[Contador_1] = "Normal";
-                        Contador_1 += 1;
-                        PPRC[Contador_1] = "tamano precio";
-                        PPRP[Contador_1] = String.valueOf(Capa);
-                        Contador_1 += 1;
+                    PrecioFinal += Capa;
+                    PPRC[Contador_1] = "tamano";
+                    PPRP[Contador_1] = "Normal";
+                    Contador_1 += 1;
+                    PPRC[Contador_1] = "tamano precio";
+                    PPRP[Contador_1] = String.valueOf(Capa);
+                    Contador_1 += 1;
+                }
 
+                if(mIsSmall.isChecked()){
+                    Precio = 1f;
+                    Capa = 99.99f;
+                    PrecioFinal += Capa;
+                    PPRC[Contador_1] = "tamano";
+                    PPRP[Contador_1] = "Chico";
+                    Contador_1 += 1;
+                    PPRC[Contador_1] = "tamano precio";
+                    PPRP[Contador_1] = String.valueOf(Capa);
+                    Contador_1 += 1;
+                }
 
-                    }
-                });
+                if(mIsLarge.isChecked()){
+                    Precio = 1.2f;
+                    Capa = 129.99f;
+                    PrecioFinal += Capa;
+                    PPRC[Contador_1] = "tamano";
+                    PPRP[Contador_1] = "Grande";
+                    Contador_1 += 1;
+                    PPRC[Contador_1] = "tamano precio";
+                    PPRP[Contador_1] = String.valueOf(Capa);
+                    Contador_1 += 1;
+                }
 
-                mIsSmall.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                    if(buttonView.isChecked()){
-                        Precio = 1f;
-                        Capa = 99.99f;
-                        PrecioFinal += Capa;
-                        PPRC[Contador_1] = "tamano";
-                        PPRP[Contador_1] = "Chico";
-                        Contador_1 += 1;
-                        PPRC[Contador_1] = "tamano precio";
-                        PPRP[Contador_1] = String.valueOf(Capa);
-                        Contador_1 += 1;
-                    }
-                });
+                if(mExtra_1.isChecked()){
+                    float Superficie_1 = 29.99f;
+                    listaobj_2 = String.valueOf(Superficie_1);
+                    PrecioFinal += Superficie_1;
+                    listaobj = getResources().getString(R.string.PP_10_1);
+                    lista.add(listaobj);
+                    lista_2.add(listaobj_2);
+                }
 
-                mIsLarge.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                    if(buttonView.isChecked()){
-                        Precio = 1.2f;
-                        Capa = 129.99f;
-                        PrecioFinal += Capa;
-                        PPRC[Contador_1] = "tamano";
-                        PPRP[Contador_1] = "Grande";
-                        Contador_1 += 1;
-                        PPRC[Contador_1] = "tamano precio";
-                        PPRP[Contador_1] = String.valueOf(Capa);
-                        Contador_1 += 1;
-                    }
-                });
+                if(mExtra_2.isChecked()){
+                    float Superficie_2 = 19.99f;
+                    listaobj_2 = String.valueOf(Superficie_2);
+                    PrecioFinal += Superficie_2;
+                    listaobj = getResources().getString(R.string.PP_10_2);
+                    lista.add(listaobj);
+                    lista_2.add(listaobj_2);
+                }
 
-                mExtra_1.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                    if(buttonView.isChecked()){
-                        float Superficie_1 = 29.99f;
-                        listaobj_2 = String.valueOf(Superficie_1);
-                        PrecioFinal += Superficie_1;
-                        listaobj = getResources().getString(R.string.PP_10_1);
-                        lista.add(listaobj);
-                        lista_2.add(listaobj_2);
-                    }
-                });
+                if(mExtra_3.isChecked()){
+                    float Superficie_3 = 39.99f;
+                    listaobj_2 = String.valueOf(Superficie_3);
+                    PrecioFinal += Superficie_3;
+                    listaobj = getResources().getString(R.string.PP_10_3);
+                    lista.add(listaobj);
+                    lista_2.add(listaobj_2);
+                }
 
-                mExtra_2.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                    if(buttonView.isChecked()){
-                        float Superficie_2 = 19.99f;
-                        listaobj_2 = String.valueOf(Superficie_2);
-                        PrecioFinal += Superficie_2;
-                        listaobj = getResources().getString(R.string.PP_10_2);
-                        lista.add(listaobj);
-                        lista_2.add(listaobj_2);
+                if(mExtra_4.isChecked()){
+                    float Superficie_4 = 35.99f;
+                    listaobj_2 = String.valueOf(Superficie_4);
+                    PrecioFinal += Superficie_4;
+                    listaobj = getResources().getString(R.string.PP_10_4);
+                    lista.add(listaobj);
+                    lista_2.add(listaobj_2);
+                }
 
-                    }
-                });
-
-                mExtra_3.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                    if(buttonView.isChecked()){
-                        float Superficie_3 = 39.99f;
-                        listaobj_2 = String.valueOf(Superficie_3);
-                        PrecioFinal += Superficie_3;
-                        listaobj = getResources().getString(R.string.PP_10_3);
-                        lista.add(listaobj);
-                        lista_2.add(listaobj_2);
-
-                    }
-                });
-
-                mExtra_4.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                    if(buttonView.isChecked()){
-                        float Superficie_4 = 35.99f;
-                        listaobj_2 = String.valueOf(Superficie_4);
-                        PrecioFinal += Superficie_4;
-                        listaobj = getResources().getString(R.string.PP_10_4);
-                        lista.add(listaobj);
-                        lista_2.add(listaobj_2);
-
-                    }
-                });
-
-                mExtra_6.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                    if(buttonView.isChecked()){
-                        float Superficie_6 = 24.99f;
-                        listaobj_2 = String.valueOf(Superficie_6);
-                        PrecioFinal += Superficie_6;
-                        listaobj = getResources().getString(R.string.PP_10_6);
-                        lista.add(listaobj);
-                        lista_2.add(listaobj_2);
-
-                    }
-                });
-
+                if(mExtra_6.isChecked()){
+                    float Superficie_6 = 24.99f;
+                    listaobj_2 = String.valueOf(Superficie_6);
+                    PrecioFinal += Superficie_6;
+                    listaobj = getResources().getString(R.string.PP_10_5);
+                    lista.add(listaobj);
+                    lista_2.add(listaobj_2);
+                }
 
                 if(lista!=null && lista_2 != null){
                     PPRC[Contador_1] = "condimentos";
-                    PPRP[Contador_1] = lista.toString();
+                    Listan = lista.toString();
+                    PPRP[Contador_1] = Listan;
                     Contador_1 += 1;
                     PPRC[Contador_1] = "precio condimentos";
-                    PPRP[Contador_1] = lista_2.toString();
+                    Listan2 = lista_2.toString();
+                    PPRP[Contador_1] = Listan2;
                     Contador_1 += 1;
                 }
+
                 String Spinner_4 = spinners_4.getSelectedItem().toString().trim();
                 String Spinner_0 = spinners.getSelectedItem().toString().trim();
                 String Spinner_1 = spinners_1.getSelectedItem().toString().trim();
@@ -535,6 +468,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                     PPRC[Contador_1] = "extra";
                     PPRP[Contador_1] = String.valueOf(Texto);
                     Contador_1 += 1;
+
                 }
 
                 tableDynamic.addData(getClients());
@@ -548,19 +482,34 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                 int i;
                 startActivity(new Intent(getApplicationContext(),Pe_usuario_pasteles_personalizados_mapa.class));
                 finish();
-                /*
+
                 Map<String, Object> pedidos = new HashMap<>();
-                for(i=0; i<Contador_1;i++){
-                    pedidos.put(PPRC[i], PPRP[i]);
+                for(i=0; i<Contador_1-1;i++){
+
+                        pedidos.put(PPRC[i], PPRP[i]);
+                        System.out.println(PPRC[i]);
+                        System.out.println(PPRP[i]);
+
                 }
                 pedidos.put("Precio total", PrecioFinal);
+                System.out.println("Precio final: ");
+                System.out.println(PrecioFinal);
+                System.out.println("Color: ");
                 pedidos.put("colores", Color);
+                System.out.println(Color);
                 FirebaseUser Usuario = fAuth.getCurrentUser();
+                String Usuario_2 = Usuario.toString();
                 String Estado = "0";
+                System.out.println("Usuario: ");
                 String Pasar = "Pasar a sucursal";
-                pedidos.put("Usuario", Usuario);
+                pedidos.put("Usuario", Usuario.toString());
+                System.out.println(Usuario_2);
+                System.out.println("Estado: ");
                 pedidos.put("Estado del pedido", Estado);
+                System.out.println(Estado);
+                System.out.println("Pasar: ");
                 pedidos.put("Direccion", Pasar);
+                System.out.println(Pasar);
 
 
                 fStore.collection("pedidos")
@@ -578,7 +527,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                     }
 
                 });
-                */
+
 
             }
         });
@@ -599,10 +548,28 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
 
     private ArrayList<String[]> getClients() {
         int i;
-        for(i=0; i<=Contador_1;i++){
+        for(i=0; i<Contador_1-1;i++){
             rows.add(new String[]{PPRC[i],PPRP[i]});
         }
         rows.add(new String[]{"Precio total", String.valueOf(PrecioFinal)});
         return rows;
+    }
+
+    public void Ocultar(View view) {
+        String Validar_1 = spinners.getSelectedItem().toString().trim();
+        if(Validar_1.equals("1")){
+            mRelleno_2.setVisibility(View.GONE);
+            mRelleno_1.setVisibility(View.GONE);
+        }
+
+        if(Validar_1.equals("2")){
+            mRelleno_2.setVisibility(View.GONE);
+            mRelleno_1.setVisibility(View.VISIBLE);
+        }
+
+        if(Validar_1.equals("3")){
+            mRelleno_2.setVisibility(View.VISIBLE);
+            mRelleno_1.setVisibility(View.VISIBLE);
+        }
     }
 }

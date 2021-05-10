@@ -27,7 +27,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 public class Pe_usuario_pasteles_personalizados_mapa extends AppCompatActivity {
     Button btPicker, btEnviar;
     TextView textView;
-    int PLACE_PICKER_REQUEST = 1;
+    private final static int PLACE_PICKER_REQUEST = 999;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     String place_2 = null;
@@ -93,14 +93,19 @@ public class Pe_usuario_pasteles_personalizados_mapa extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         if(requestCode == PLACE_PICKER_REQUEST){
             if(resultCode == RESULT_OK){
-                Place place = PlacePicker.getPlace(data, this);
-                place_2 = place.toString();
-                textView.setText(place_2);
+                Place place = PlacePicker.getPlace(this, data);
+                String placename = String.format("Place: %s", place.getName());
+                double latitude = place.getLatLng().latitude;
+                double longitude = place.getLatLng().longitude;
+                textView.setText(placename);
             }
         }
     }
+
+
 }

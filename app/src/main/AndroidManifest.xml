@@ -27,9 +27,9 @@
 
 
         <activity android:name=".Pe_usuario_pasteles_personalizados_mapa" />
-        <activity android:name=".Pe_usuario_pedidos" />
+        <activity android:name=".Pe_inicio" />
         <activity android:name=".Pe_usuario_sucursales" />
-        <activity android:name=".Pe_usuario_pasteles_personalizados" />
+        <activity android:name=".Pe_usuario_pedidos" />
         <activity android:name=".Pe_admin_vistageneral" />
         <activity android:name=".Pe_admin_agregarp" />
         <activity android:name=".Pe_admin_agregari" />
@@ -44,7 +44,7 @@
         <activity android:name=".Pe_usuario_inicio" />
         <activity android:name=".Pe_registro" />
         <activity android:name=".Pe_iniciodesesion" />
-        <activity android:name=".Pe_inicio">
+        <activity android:name=".Pe_usuario_pasteles_personalizados">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

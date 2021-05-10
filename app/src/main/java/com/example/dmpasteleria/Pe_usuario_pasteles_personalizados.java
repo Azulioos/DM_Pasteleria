@@ -34,7 +34,7 @@ import java.util.Map;
 public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Button mValidarBtn, mProcederBtn;
-    CheckBox mIsNormal, mIsSmall, mIsLarge, mExtra_5, mSuperficie_5;
+    CheckBox mIsNormal, mIsSmall, mIsLarge, mExtra_5, mSuperficie_5, sucursal;
     CheckBox mExtra_1, mExtra_2, mExtra_3, mExtra_4, mExtra_6;
     CheckBox mSuperficie_2, mSuperficie_3, mSuperficie_4, mSuperficie_1, mSuperficie_6;
     ImageView mImagen;
@@ -231,12 +231,17 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
             }
         });
 
+        CheckBox sucursal = findViewById(R.id.sucursal);
+        sucursal.setVisibility(View.GONE);
+        mProcederBtn.setVisibility(View.GONE);
 
 
         mValidarBtn.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
+
+                mProcederBtn.setVisibility(View.VISIBLE);
+                sucursal.setVisibility(View.VISIBLE);
 
                 if(mIsNormal.isChecked()){
                     Precio = 0.8f;
@@ -336,7 +341,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                 String Spinner_1 = spinners_1.getSelectedItem().toString().trim();
                 String Spinner_2 = spinners_2.getSelectedItem().toString().trim();
                 EditText Texto_E = findViewById(R.id.Texto);
-                String mTexto_E = Texto_E.getText().toString().trim();
+
 
                 if(Spinner_4.equals("Chocolate")){
                     Pan = "Chocolate";
@@ -344,6 +349,10 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
 
                 if(Spinner_4.equals("Vainilla")){
                     Pan = "Vainilla";
+                }
+
+                if(Spinner_4.equals("Fresa")){
+                    Pan = "Fresa";
                 }
 
                 if(Spinner_0.equals("2")){
@@ -461,7 +470,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                         Contador_1 += 1;
                     }
                 }
-
+                String mTexto_E = Texto_E.getText().toString().trim();
                 if(!(mTexto_E.equals(""))){
                     float Texto = 19.99f;
                     PrecioFinal += Texto;
@@ -469,6 +478,10 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                     PPRP[Contador_1] = String.valueOf(Texto);
                     Contador_1 += 1;
 
+                } else{
+                    PPRC[Contador_1] = "extra";
+                    PPRP[Contador_1] = "Ninguno";
+                    Contador_1 += 1;
                 }
 
                 tableDynamic.addData(getClients());
@@ -480,8 +493,15 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
             @Override
             public void onClick(View v) {
                 int i;
-                startActivity(new Intent(getApplicationContext(),Pe_usuario_pasteles_personalizados_mapa.class));
-                finish();
+                if(!(mIsNormal.isChecked()) && !(mIsSmall.isChecked()) && !(mIsLarge.isChecked())){
+                    Toast.makeText(Pe_usuario_pasteles_personalizados.this, "Seleccione un tamaño", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(Color == null){
+                    Toast.makeText(Pe_usuario_pasteles_personalizados.this, "Seleccione un color", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 Map<String, Object> pedidos = new HashMap<>();
                 for(i=0; i<Contador_1-1;i++){
@@ -496,6 +516,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                 System.out.println(PrecioFinal);
                 System.out.println("Color: ");
                 pedidos.put("colores", Color);
+                pedidos.put("pan", Pan);
                 System.out.println(Color);
                 FirebaseUser Usuario = FirebaseAuth.getInstance().getCurrentUser();
                 String Usuario_2 = Usuario.getUid();

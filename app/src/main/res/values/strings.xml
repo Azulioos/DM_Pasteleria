@@ -203,6 +203,7 @@
 
     <string name="Sucursal_1">Seleccione una ubicacion de entrega</string>
     <string name="Sucursal_2">Completar pedido</string>
+    <string name="Sucursal_3">Pasar a sucursal</string>
 
 
     <string name="PP_0">No seleccionado</string>

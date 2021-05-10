@@ -101,13 +101,6 @@ public class Pe_usuario_pasteles_personalizados_mapa2 extends FragmentActivity i
     }
 
     public void Enviar(View view) {
-        //final DocumentReference docref = FirebaseFirestore.getInstance()
-        //.collection("pedidos")
-        //.document();
-        //String searchView_2 = searchView.toString();
-        //Map<String, Object> map_1 = new HashMap<>();
-        //map_1.put("direccion", searchView_2);
-        //docref.update(map_1)
         if(fAuth.getCurrentUser() == null) {
             startActivity(new Intent(getApplicationContext(), Pe_inicio.class));
             finish();

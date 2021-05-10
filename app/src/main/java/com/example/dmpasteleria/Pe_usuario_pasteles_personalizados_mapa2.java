@@ -41,6 +41,7 @@ public class Pe_usuario_pasteles_personalizados_mapa2 extends FragmentActivity i
     SupportMapFragment mapFragment;
     SearchView searchView;
     FirebaseUser Usuario;
+    String Usuario_2;
     private static final String TAG = "Pedidos";
 
     @Override
@@ -48,7 +49,9 @@ public class Pe_usuario_pasteles_personalizados_mapa2 extends FragmentActivity i
         super.onCreate(savedInstanceState);
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
-        Usuario = fAuth.getCurrentUser();
+        Usuario = FirebaseAuth.getInstance().getCurrentUser();
+        Usuario_2 = Usuario.getUid();
+        System.out.println(Usuario_2);
         setContentView(R.layout.activity_pe_usuario_pasteles_personalizados_mapa2);
         searchView = findViewById(R.id.sv_location);
         mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -109,11 +112,10 @@ public class Pe_usuario_pasteles_personalizados_mapa2 extends FragmentActivity i
             startActivity(new Intent(getApplicationContext(), Pe_inicio.class));
             finish();
         }
+        System.out.println(Usuario_2);
 
-        String Usuario_2 = null;
-        Usuario_2 = Usuario.toString();
         fStore.collection("pedidos")
-                .whereEqualTo("Estado del pedido", 0)
+                .whereEqualTo("Estado del pedido", "0")
                 .whereEqualTo("Usuario", Usuario_2)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -125,19 +127,21 @@ public class Pe_usuario_pasteles_personalizados_mapa2 extends FragmentActivity i
                                 final DocumentReference docref = FirebaseFirestore.getInstance()
                                 .collection("pedidos")
                                 .document(document.getId());
-                                String searchView_2 = searchView.toString();
+                                System.out.println("El objeto existe");
+                                String searchView_2 = searchView.getQuery().toString();
                                 Map<String, Object> map_1 = new HashMap<>();
-                                map_1.put("direccion", searchView_2);
+                                map_1.put("Direccion", searchView_2);
                                 docref.update(map_1)
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void aVoid) {
                                                 startActivity(new Intent(getApplicationContext(), Pe_usuario_pedidos.class));
-
+                                                System.out.println("Vamonos");
                                             }
                                         }).addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
+                                        System.out.println("Algo anda mal.");
 
                                     }
                                 });

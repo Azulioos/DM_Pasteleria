@@ -511,7 +511,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                         System.out.println(PPRP[i]);
 
                 }
-                pedidos.put("Precio total", PrecioFinal);
+                pedidos.put("Precio_total", PrecioFinal);
                 System.out.println("Precio final: ");
                 System.out.println(PrecioFinal);
                 System.out.println("Color: ");
@@ -526,7 +526,7 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                 pedidos.put("Usuario", Usuario_2);
                 System.out.println(Usuario_2);
                 System.out.println("Estado: ");
-                pedidos.put("Estado del pedido", Estado);
+                pedidos.put("Estado_del_pedido", Estado);
                 System.out.println(Estado);
                 System.out.println("Pasar: ");
                 pedidos.put("Direccion", Pasar);

@@ -2,18 +2,21 @@ package com.example.dmpasteleria;
 
 public class Pe_usuario_pedidos_datos {
 
-    private String tamano, pan, condimentos, colores, extra;
+    private String tamano, pan, condimentos, colores, extra, Estado_del_pedido;
+    private float Precio_total;
 
     private Pe_usuario_pedidos_datos(){
 
     }
 
-    private Pe_usuario_pedidos_datos(String tamano,String pan,String condimentos,String colores,String extra){
+    private Pe_usuario_pedidos_datos(String tamano,String pan,String condimentos,String colores,String extra, String Estado_del_pedido, float Precio_total){
         this.tamano = tamano;
         this.pan = pan;
         this.condimentos = condimentos;
         this.colores = colores;
         this.extra = extra;
+        this.Estado_del_pedido = Estado_del_pedido;
+        this.Precio_total = Precio_total;
 
     }
 
@@ -35,6 +38,14 @@ public class Pe_usuario_pedidos_datos {
 
     public String getExtra(){
         return extra;
+    }
+
+    public String getEstado_del_pedido(){
+        return Estado_del_pedido;
+    }
+
+    public float getPrecio_total(){
+        return Precio_total;
     }
 
 
@@ -59,4 +70,13 @@ public class Pe_usuario_pedidos_datos {
     public void setExtra(String extra){
         this.extra = extra;
     }
+
+    public void setEstado_del_pedido(String Estado_del_pedido){
+        this.Estado_del_pedido = Estado_del_pedido;
+    }
+
+    public void setPrecio_total(float Precio_total){
+        this.Precio_total = Precio_total;
+    }
+
 }

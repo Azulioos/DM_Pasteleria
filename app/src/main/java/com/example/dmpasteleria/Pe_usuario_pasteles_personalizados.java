@@ -519,11 +519,13 @@ public class Pe_usuario_pasteles_personalizados extends AppCompatActivity implem
                 pedidos.put("pan", Pan);
                 System.out.println(Color);
                 FirebaseUser Usuario = FirebaseAuth.getInstance().getCurrentUser();
+                String Usuario_3 = Usuario.getEmail();
                 String Usuario_2 = Usuario.getUid();
                 String Estado = "0";
                 System.out.println("Usuario: ");
                 String Pasar = "Pasar a sucursal";
                 pedidos.put("Usuario", Usuario_2);
+                pedidos.put("UsuarioCorreo", Usuario_3);
                 System.out.println(Usuario_2);
                 System.out.println("Estado: ");
                 pedidos.put("Estado_del_pedido", Estado);

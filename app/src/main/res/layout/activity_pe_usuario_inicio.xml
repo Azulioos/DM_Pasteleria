@@ -48,14 +48,12 @@
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:layout_marginTop="108dp"
                     android:text="@string/Sucursales"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
+                    android:layout_margin="20dp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/verificar_inicio"
-                    app:layout_constraintHorizontal_bias="0.536"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -63,7 +61,8 @@
                     android:id="@+id/verificar_inicio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_margin="20dp"
+
                     android:background="@drawable/recurso_boton_blanco"
                     android:gravity="center"
                     android:text="@string/Ir"
@@ -105,18 +104,14 @@
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_marginTop="36dp"
                     android:text="@string/ProductosDestacados"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
+                    android:layout_margin="20dp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/carousel_2"
                     app:layout_constraintEnd_toStartOf="@+id/menu_3"
-                    app:layout_constraintHorizontal_bias="0.597"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.258" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
                     android:id="@+id/menu_3"
@@ -165,18 +160,14 @@
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:layout_marginBottom="41dp"
                     android:text="@string/PastelesPersonalizados"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
+                    android:layout_margin="20dp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/carousel_3"
                     app:layout_constraintEnd_toStartOf="@+id/menu_4"
-                    app:layout_constraintHorizontal_bias="0.326"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <com.synnapps.carouselview.CarouselView
                     android:id="@+id/carousel_3"
@@ -186,7 +177,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/menu_4" >
+                    app:layout_constraintTop_toBottomOf="@+id/menu_4">
 
                 </com.synnapps.carouselview.CarouselView>
 

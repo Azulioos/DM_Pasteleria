@@ -205,6 +205,12 @@
     <string name="Pedidos_15">Direccion de entrega</string>
     <string name="Pedidos_16">Cambiar estado del pedido</string>
     <string name="Pedidos_17">Bienvenido empleado</string>
+    <string name="Pedidos_18">Pedidos aceptados</string>
+    <string name="Pedidos_19">El pedido pasa a estado 1 y se aceptara.</string>
+    <string name="Pedidos_20">Enviar el pedido</string>
+    <string name="Pedidos_21">Notificar al cliente que el pedido esta listo y se esta enviando al punto de entrega</string>
+    <string name="Pedidos_22">Notificar el punto de entrega</string>
+    <string name="Pedidos_23">Enviar notificación al cliente de la entrega del pedido</string>
 
     <string name="Sucursal_1">Seleccione una ubicacion de entrega</string>
     <string name="Sucursal_2">Completar pedido</string>

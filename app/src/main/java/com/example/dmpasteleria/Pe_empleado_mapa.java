@@ -10,7 +10,7 @@ import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -34,7 +34,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Pe_usuario_pasteles_personalizados_mapa2 extends FragmentActivity implements OnMapReadyCallback {
+public class Pe_empleado_mapa extends AppCompatActivity implements OnMapReadyCallback {
     FirebaseFirestore fStore;
     FirebaseAuth fAuth;
     GoogleMap map;
@@ -52,7 +52,7 @@ public class Pe_usuario_pasteles_personalizados_mapa2 extends FragmentActivity i
         Usuario = FirebaseAuth.getInstance().getCurrentUser();
         Usuario_2 = Usuario.getUid();
         System.out.println(Usuario_2);
-        setContentView(R.layout.activity_pe_usuario_pasteles_personalizados_mapa2);
+        setContentView(R.layout.activity_pe_empleado_mapa);
         searchView = findViewById(R.id.sv_location);
         mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.google_map);
@@ -64,14 +64,14 @@ public class Pe_usuario_pasteles_personalizados_mapa2 extends FragmentActivity i
                 List<Address> addressList = null;
 
                 if(location != null || !(location.equals(""))){
-                    Geocoder geocoder = new Geocoder(Pe_usuario_pasteles_personalizados_mapa2.this);
+                    Geocoder geocoder = new Geocoder(Pe_empleado_mapa.this);
                     try{
                         addressList = geocoder.getFromLocationName(location, 1);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                     if (addressList == null  || addressList.size() == 0) {
-                        Toast.makeText(Pe_usuario_pasteles_personalizados_mapa2.this, "address_not_found", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Pe_empleado_mapa.this, "address_not_found", Toast.LENGTH_SHORT).show();
                         return false;
                     }
 
@@ -118,8 +118,8 @@ public class Pe_usuario_pasteles_personalizados_mapa2 extends FragmentActivity i
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Log.d(TAG, document.getId() + " => " + document.getData());
                                 final DocumentReference docref = FirebaseFirestore.getInstance()
-                                .collection("pedidos")
-                                .document(document.getId());
+                                        .collection("pedidos")
+                                        .document(document.getId());
                                 System.out.println("El objeto existe");
                                 String searchView_2 = searchView.getQuery().toString();
                                 Map<String, Object> map_1 = new HashMap<>();
@@ -146,5 +146,4 @@ public class Pe_usuario_pasteles_personalizados_mapa2 extends FragmentActivity i
                     }
                 });
     }
-
 }

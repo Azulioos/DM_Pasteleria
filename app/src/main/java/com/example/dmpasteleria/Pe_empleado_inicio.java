@@ -1,5 +1,6 @@
 package com.example.dmpasteleria;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -44,6 +45,7 @@ public class Pe_empleado_inicio extends AppCompatActivity implements Pe_empleado
     String Usuario_2;
     FirebaseAuth fAuth;
     private Pe_empleado_adapter adapter;
+    String Estado_3;
 
     private static final String TAG = "Pedidos";
 
@@ -65,6 +67,7 @@ public class Pe_empleado_inicio extends AppCompatActivity implements Pe_empleado
                 whereEqualTo("Usuario", Usuario_2);
 
         /*PagingConfig config_2 = new PagingConfig();*/
+
         PagedList.Config config = new PagedList.Config.Builder()
                 .setInitialLoadSizeHint(10)
                 .setPageSize(3)
@@ -163,29 +166,131 @@ public class Pe_empleado_inicio extends AppCompatActivity implements Pe_empleado
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Log.d(TAG, document.getId() + " => " + document.getData());
-                                int Estado = document.getLong("Estado_del_pedido").intValue();
+                                String Estado = document.getString("Estado_del_pedido");
                                 final DocumentReference docref = FirebaseFirestore.getInstance()
                                         .collection("pedidos")
                                         .document(document.getId());
-                                Estado += 1;
-                                System.out.println("El objeto existe");
-                                Map<String, Object> map_1 = new HashMap<>();
-                                map_1.put("Estado_del_pedido", Estado);
-                                docref.update(map_1)
-                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                int Estado_2 = Integer.parseInt(Estado);
+                                if(Estado_2 > 3){
+
+                                }
+                                else{
+                                    Estado_2 += 1;
+                                    Estado_3 = String.valueOf(Estado_2);
+                                    System.out.println("El objeto existe");
+                                }
+                                AlertDialog.Builder builder = new AlertDialog.Builder(Pe_empleado_inicio.this);
+                                switch (Estado_2){
+                                    case 1:
+                                        builder.setCancelable(true);
+                                        builder.setTitle(getResources().getString(R.string.Pedidos_18));
+                                        builder.setMessage(getResources().getString(R.string.Pedidos_19));
+                                        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                                             @Override
-                                            public void onSuccess(Void aVoid) {
-                                                startActivity(new Intent(getApplicationContext(), Pe_empleado_inicio.class));
-                                                System.out.println("Vamonos");
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                dialog.cancel();
                                             }
-                                        }).addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        System.out.println("Algo anda mal.");
+                                        });
 
-                                    }
-                                });
+                                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                Map<String, Object> map_1 = new HashMap<>();
+                                                map_1.put("Estado_del_pedido", Estado_3);
+                                                docref.update(map_1)
+                                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                            @Override
+                                                            public void onSuccess(Void aVoid) {
+                                                                startActivity(new Intent(getApplicationContext(), Pe_empleado_inicio.class));
+                                                                System.out.println("Vamonos");
+                                                            }
+                                                        }).addOnFailureListener(new OnFailureListener() {
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception e) {
+                                                        System.out.println("Algo anda mal.");
 
+                                                    }
+                                                });
+                                            }
+                                        });
+
+                                        builder.show();
+
+                                        Log.d("Cargando","Cargando");
+                                        break;
+                                    case 2:
+                                        builder.setCancelable(true);
+                                        builder.setTitle(getResources().getString(R.string.Pedidos_20));
+                                        builder.setMessage(getResources().getString(R.string.Pedidos_21));
+                                        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                dialog.cancel();
+                                            }
+                                        });
+
+                                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                Map<String, Object> map_1 = new HashMap<>();
+                                                map_1.put("Estado_del_pedido", Estado_3);
+                                                docref.update(map_1)
+                                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                            @Override
+                                                            public void onSuccess(Void aVoid) {
+                                                                startActivity(new Intent(getApplicationContext(), Pe_empleado_inicio.class));
+                                                                System.out.println("Vamonos");
+                                                            }
+                                                        }).addOnFailureListener(new OnFailureListener() {
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception e) {
+                                                        System.out.println("Algo anda mal.");
+
+                                                    }
+                                                });
+                                            }
+                                        });
+
+                                        builder.show();
+                                        Log.d("Cargando","Cargando");
+                                        break;
+                                    case 3:
+                                        builder.setCancelable(true);
+                                        builder.setTitle(getResources().getString(R.string.Pedidos_22));
+                                        builder.setMessage(getResources().getString(R.string.Pedidos_23));
+                                        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                dialog.cancel();
+                                            }
+                                        });
+
+                                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                Map<String, Object> map_1 = new HashMap<>();
+                                                map_1.put("Estado_del_pedido", Estado_3);
+                                                docref.update(map_1)
+                                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                            @Override
+                                                            public void onSuccess(Void aVoid) {
+                                                                startActivity(new Intent(getApplicationContext(), Pe_empleado_inicio.class));
+                                                                System.out.println("Vamonos");
+                                                            }
+                                                        }).addOnFailureListener(new OnFailureListener() {
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception e) {
+                                                        System.out.println("Algo anda mal.");
+
+                                                    }
+                                                });
+                                            }
+                                        });
+
+                                        builder.show();
+                                        Log.d("Cargando","Cargando");
+                                        break;
+                                }
                             }
                         } else {
                             Log.d(TAG, "Error getting documents: ", task.getException());

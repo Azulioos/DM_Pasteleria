@@ -41,7 +41,7 @@ public class Pe_empleado_adapter extends FirestorePagingAdapter<Pe_empleado_pedi
     @NonNull
     @Override
     public ProductsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pe_usuario_pedidos_objetos, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pe_empleado_pedidos_objetos, parent, false);
         return new ProductsViewHolder(view);
     }
 

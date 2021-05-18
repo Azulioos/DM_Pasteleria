@@ -5,7 +5,6 @@ import android.widget.SearchView;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Pe_empleado_pedidos_datos {
@@ -15,8 +14,6 @@ public class Pe_empleado_pedidos_datos {
     GoogleMap map;
     SupportMapFragment mapFragment;
     SearchView searchView;
-    FirebaseUser Usuario;
-    String Usuario_2;
     private static final String TAG = "Pedidos";
 
     private String tamano, pan, condimentos, colores, extra, Estado_del_pedido, UsuarioCorreo, Direccion;
@@ -106,11 +103,11 @@ public class Pe_empleado_pedidos_datos {
         this.Precio_total = Precio_total;
     }
 
-    public void  setUsuarioCorreo(String UsuarioCorreo){
+    public void setUsuarioCorreo(String UsuarioCorreo){
         this.UsuarioCorreo = UsuarioCorreo;
     }
 
-    public  void setDireccion(String Direccion){
+    public void setDireccion(String Direccion){
         this.Direccion = Direccion;
     }
 

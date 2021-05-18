@@ -16,16 +16,11 @@
         android:roundIcon="@mipmap/ic_launcher_1_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DMPasteleria">
-
-
+        <activity android:name=".Pe_empleado_mapa"></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyB_qsP8AOP_P0MdlPz-48TDaJYjTP3vbjo"
-            />
-        <!-- android:value="AIzaSyCYhaJkQ0B0DbxPO25i8lU5-4DovTxp8BA"-->
-
-
+            android:value="AIzaSyB_qsP8AOP_P0MdlPz-48TDaJYjTP3vbjo" /> <!-- android:value="AIzaSyCYhaJkQ0B0DbxPO25i8lU5-4DovTxp8BA" -->
         <activity android:name=".Pe_usuario_pasteles_personalizados_mapa" />
         <activity android:name=".Pe_usuario_pasteles_personalizados" />
         <activity android:name=".Pe_usuario_sucursales" />
@@ -52,7 +47,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Pe_usuario_pasteles_personalizados_mapa2"/>
+        <activity android:name=".Pe_usuario_pasteles_personalizados_mapa2" />
     </application>
 
 </manifest>

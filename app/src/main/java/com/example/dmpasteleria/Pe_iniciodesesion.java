@@ -7,19 +7,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Pe_iniciodesesion extends AppCompatActivity {
@@ -114,7 +108,7 @@ public class Pe_iniciodesesion extends AppCompatActivity {
                 } else{
                     if(documentSnapshot.getString("RoleWorker").equals(good) && mIsWorker.isChecked()){
                         Toast.makeText(Pe_iniciodesesion.this,"Abriendo pantalla de empleado", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(Pe_iniciodesesion.this, Pe_admin_inicio.class));
+                        startActivity(new Intent(Pe_iniciodesesion.this, Pe_empleado_inicio.class));
                         finish();
                     } else{
                         if(!(mIsWorker.isChecked() || mIsUser.isChecked() || mIsAdmin.isChecked())){

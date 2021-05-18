@@ -1,5 +1,6 @@
 package com.example.dmpasteleria;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,15 +10,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
-import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.firebase.ui.firestore.paging.FirestorePagingAdapter;
+import com.firebase.ui.firestore.paging.FirestorePagingOptions;
+import com.firebase.ui.firestore.paging.LoadingState;
+import com.google.firebase.firestore.DocumentSnapshot;
 
-public class Pe_empleado_adapter extends FirestoreRecyclerAdapter<Pe_empleado_pedidos_datos ,Pe_empleado_adapter.ProductsViewHolder> {
+public class Pe_empleado_adapter extends FirestorePagingAdapter<Pe_empleado_pedidos_datos ,Pe_empleado_adapter.ProductsViewHolder> {
     private OnListItemClick onListItemClick;
+    private static final String TAG = "Pedidos";
 
-    public Pe_empleado_adapter(@NonNull FirestoreRecyclerOptions<Pe_empleado_pedidos_datos> options, OnListItemClick onListItemClick) {
+    public Pe_empleado_adapter(@NonNull FirestorePagingOptions<Pe_empleado_pedidos_datos> options, OnListItemClick onListItemClick) {
         super(options);
         this.onListItemClick = onListItemClick;
+
     }
 
     @Override
@@ -38,6 +43,30 @@ public class Pe_empleado_adapter extends FirestoreRecyclerAdapter<Pe_empleado_pe
     public ProductsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pe_usuario_pedidos_objetos, parent, false);
         return new ProductsViewHolder(view);
+    }
+
+    @Override
+    protected void onLoadingStateChanged(@NonNull LoadingState state){
+        super.onLoadingStateChanged(state);
+        switch (state){
+            case LOADING_INITIAL:
+                Log.d("Cargando","Cargando");
+                break;
+            case LOADING_MORE:
+                Log.d("Cargando","Cargando");
+                break;
+            case FINISHED:
+                Log.d("Cargando","Cargando");
+                break;
+            case ERROR:
+                Log.d("Cargando","Cargando");
+                break;
+            case LOADED:
+                Log.d("Cargando","Cargando");
+                break;
+
+        }
+
     }
 
 
@@ -68,16 +97,20 @@ public class Pe_empleado_adapter extends FirestoreRecyclerAdapter<Pe_empleado_pe
             tvDireccion = itemView.findViewById(R.id.tvDireccion);
             tvUsuarioCorreo = itemView.findViewById(R.id.tvUsuarioCorreo);
             tvEmpleado = itemView.findViewById(R.id.tvEmpleado);
+
+
             tvEmpleado.setOnClickListener(this);
         }
 
+
         @Override
         public void onClick(View v) {
-            onListItemClick.onItemClick(getItem(getAdapterPosition()), getAdapterPosition());
+                onListItemClick.onItemClick(getItem(getAdapterPosition()), getAdapterPosition());
         }
     }
 
-    public interface OnListItemClick{
-        void onItemClick(Pe_empleado_pedidos_datos snapshot, int position);
+    public interface OnListItemClick {
+        void onItemClick(DocumentSnapshot snapshot, int position);
     }
+
 }

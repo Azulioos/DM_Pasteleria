@@ -1,7 +1,5 @@
 package com.example.dmpasteleria;
 
-import android.view.View;
-import android.widget.Button;
 import android.widget.SearchView;
 
 import com.google.android.gms.maps.GoogleMap;
@@ -23,13 +21,11 @@ public class Pe_empleado_pedidos_datos {
 
     private String tamano, pan, condimentos, colores, extra, Estado_del_pedido, UsuarioCorreo, Direccion;
     private float Precio_total;
-    private View.OnClickListener Empleado;
-
     private Pe_empleado_pedidos_datos(){
 
     }
 
-    private Pe_empleado_pedidos_datos(String tamano,String pan,String condimentos,String colores,String extra, String Estado_del_pedido, float Precio_total, String UsuarioCorreo, String Direccion, Button Empleado){
+    private Pe_empleado_pedidos_datos(String tamano,String pan,String condimentos,String colores,String extra, String Estado_del_pedido, float Precio_total, String UsuarioCorreo, String Direccion){
         this.tamano = tamano;
         this.pan = pan;
         this.condimentos = condimentos;
@@ -76,6 +72,7 @@ public class Pe_empleado_pedidos_datos {
     public String getDireccion(){
         return Direccion;
     }
+    
 
 
 

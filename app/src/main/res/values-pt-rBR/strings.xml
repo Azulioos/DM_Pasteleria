@@ -129,6 +129,7 @@
     <string name="Pedidos_14">Datos del cliente</string>
     <string name="Pedidos_15">Direccion de entrega</string>
     <string name="Pedidos_16">Cambiar estado del pedido</string>
+    <string name="Pedidos_17">Bienvenido empleado</string>
 
     <string name="Sucursal_1">Seleccione una ubicacion de entrega</string>
     <string name="Sucursal_2">Completar pedido</string>

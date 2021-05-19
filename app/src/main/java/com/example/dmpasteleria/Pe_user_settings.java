@@ -11,17 +11,17 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.Objects;
 
 public class Pe_user_settings extends AppCompatActivity {
     private static final String TAG = "";
     TextView UserFiled, UserMail, UserDate;
     FirebaseAuth fAuth;
     String userID;
+    FirebaseUser Usuario;
     FirebaseFirestore fStore;
     Button buttonChangeData;
     @Override
@@ -35,15 +35,17 @@ public class Pe_user_settings extends AppCompatActivity {
         UserDate = findViewById(R.id.showDate);         //User date birth field
 
         //Instancias de Firebase
+
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
+        Usuario = FirebaseAuth.getInstance().getCurrentUser();
+        userID = Usuario.getUid();
 
         //Instancia del botón para cambiar los datos
         buttonChangeData = findViewById(R.id.buttonEditData);
 
         /*Hacer el query a la Cloud Firestore para obtener los datos alojados, utilizando el ID
         * del usuario correspondiente*/
-        userID = Objects.requireNonNull(fAuth.getCurrentUser()).getUid();
         DocumentReference documentReference = fStore.collection("users").document(userID);
         documentReference.get().addOnCompleteListener(task -> {
             if(task.isSuccessful()){

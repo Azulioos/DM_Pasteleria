@@ -128,9 +128,6 @@ public class Pe_usuario_inicio extends AppCompatActivity {
 
 
     public void openUserAccount(MenuItem item) {
-        FirebaseAuth fAuth;
-        fAuth = FirebaseAuth.getInstance();
-        fAuth.signOut();
         startActivity(new Intent(getApplicationContext(), Pe_user_settings.class));
         finish();
     }

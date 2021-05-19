@@ -143,8 +143,6 @@ public class Pe_empleado_inicio extends AppCompatActivity implements Pe_empleado
 
     public void openUserAccount(MenuItem item) {
         FirebaseAuth fAuth;
-        fAuth = FirebaseAuth.getInstance();
-        fAuth.signOut();
         startActivity(new Intent(getApplicationContext(), Pe_user_settings.class));
         finish();
     }
@@ -171,8 +169,9 @@ public class Pe_empleado_inicio extends AppCompatActivity implements Pe_empleado
                                         .collection("pedidos")
                                         .document(document.getId());
                                 int Estado_2 = Integer.parseInt(Estado);
-                                if(Estado_2 > 3){
-
+                                if(Estado_2 > 2){
+                                    startActivity(new Intent(getApplicationContext(), Pe_empleado_mapa.class));
+                                    finish();
                                 }
                                 else{
                                     Estado_2 += 1;

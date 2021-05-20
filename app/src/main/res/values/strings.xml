@@ -119,6 +119,7 @@
     <string name="Toolbar3">Ayuda e informacion</string>
     <string name="Toolbar4">Idioma</string>
     <string name="Toolbar5">Cerrar sesion</string>
+    <string name="Toolbar6">Pagos</string>
 
     <!-- Strings de Pe_admin_inicio toolbar -->
     <string name="Admin1">+ Agregar producto</string>

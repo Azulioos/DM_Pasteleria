@@ -121,6 +121,7 @@
     <string name="Toolbar3">Help</string>
     <string name="Toolbar4">Language</string>
     <string name="Toolbar5">Log out</string>
+    <string name="Toolbar6">Payments</string>
 
     <!-- Strings de Pe_admin_inicio toolbar -->
     <string name="Admin1">+ Add product</string>

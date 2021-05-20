@@ -27,6 +27,4 @@
         android:id="@+id/Toolbar5"
         android:onClick="logout"/>
 
-
-
 </menu>

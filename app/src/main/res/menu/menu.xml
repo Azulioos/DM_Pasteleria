@@ -32,4 +32,9 @@
         android:id="@+id/Toolbar5"
         android:onClick="signOut" />
 
+    <item
+        android:title="@string/Toolbar6"
+        android:id="@+id/Toolbar6"
+        android:onClick="Payments" />
+
 </menu>

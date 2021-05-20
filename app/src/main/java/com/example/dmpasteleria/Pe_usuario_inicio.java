@@ -136,4 +136,9 @@ public class Pe_usuario_inicio extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), Pe_usuario_pasteles_personalizados.class));
         finish();
     }
+
+    public void Payments(View view) {
+        startActivity(new Intent(getApplicationContext(), Pe_usuario_pedidos_paypal.class));
+        finish();
+    }
 }

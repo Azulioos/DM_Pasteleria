@@ -16,7 +16,9 @@
         android:roundIcon="@mipmap/ic_launcher_1_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DMPasteleria">
-        <activity android:name=".Pe_empleado_mapa"></activity>
+        <activity android:name=".Pe_usuario_paypal_PaymentDetails"></activity>
+        <activity android:name=".Pe_usuario_pedidos_paypal" />
+        <activity android:name=".Pe_empleado_mapa" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -40,7 +42,7 @@
         <activity android:name=".Pe_usuario_inicio" />
         <activity android:name=".Pe_registro" />
         <activity android:name=".Pe_iniciodesesion" />
-        <activity android:name=".Pe_change_settings"/>
+        <activity android:name=".Pe_change_settings" />
         <activity android:name=".Pe_inicio">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

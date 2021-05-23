@@ -57,12 +57,6 @@ public class Pe_usuario_inicio extends AppCompatActivity {
             Toast.makeText( Pe_usuario_inicio.this, mImagesTitle[position] , Toast.LENGTH_SHORT).show();   //Muestra un mensaje al hacer click en el pastel
         });
 
-        CarouselView carouselView2 = findViewById(R.id.carousel_2);
-        carouselView2.setPageCount(mImages.length);
-        carouselView2.setImageListener((position, imageView) -> imageView.setImageResource(mImages[position]));
-        carouselView2.setImageClickListener(position -> {
-            Toast.makeText( Pe_usuario_inicio.this, mImagesTitle[position] , Toast.LENGTH_SHORT).show();   //Muestra un mensaje al hacer click en el pastel
-        });
 
         CarouselView carouselView3 = findViewById(R.id.carousel_3);
         carouselView3.setPageCount(mImages.length);
@@ -137,8 +131,23 @@ public class Pe_usuario_inicio extends AppCompatActivity {
         finish();
     }
 
+    public void Sucursales(View view) {
+        startActivity(new Intent(getApplicationContext(), Pe_usuario_sucursales.class));
+        finish();
+    }
+
     public void Payments(MenuItem item) {
         startActivity(new Intent(getApplicationContext(), Pe_usuario_pedidos_paypal.class));
+        finish();
+    }
+
+    public void Pedidos(MenuItem item) {
+        startActivity(new Intent(getApplicationContext(), Pe_usuario_pedidos.class));
+        finish();
+    }
+
+    public void Ayuda(MenuItem item) {
+        startActivity(new Intent(getApplicationContext(), Pe_usuario_pedidos.class));
         finish();
     }
 }

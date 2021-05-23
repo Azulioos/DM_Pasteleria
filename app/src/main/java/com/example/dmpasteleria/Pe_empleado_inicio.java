@@ -127,7 +127,7 @@ public class Pe_empleado_inicio extends AppCompatActivity implements Pe_empleado
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
+        inflater.inflate(R.menu.amenu, menu);
         return true;
 
     }
@@ -296,5 +296,10 @@ public class Pe_empleado_inicio extends AppCompatActivity implements Pe_empleado
                         }
                     }
                 });
+    }
+
+    public void Ayuda(MenuItem item) {
+        startActivity(new Intent(getApplicationContext(), Pe_usuario_pedidos.class));
+        finish();
     }
 }

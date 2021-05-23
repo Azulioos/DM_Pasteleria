@@ -4,12 +4,10 @@ import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.SearchView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -18,21 +16,12 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Pe_empleado_mapa extends AppCompatActivity implements OnMapReadyCallback {
     FirebaseFirestore fStore;
@@ -98,6 +87,19 @@ public class Pe_empleado_mapa extends AppCompatActivity implements OnMapReadyCal
     public void onMapReady(GoogleMap googleMap) {
         map = googleMap;
 
+        List<Address> addressList_2 = null;
+        Geocoder geocoder_2 = new Geocoder(Pe_empleado_mapa.this);
+        try {
+            addressList_2 = geocoder_2.getFromLocationName("Nuevo leon,San Nicolas, Ciudad universitaria", 1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Address address_2 = addressList_2.get(0);
+        System.out.println(address_2);
+        LatLng latLng_2 = new LatLng(address_2.getLatitude(), address_2.getLongitude());
+        map.addMarker(new MarkerOptions().position(latLng_2).title("San Nicolas, Ciudad universitaria"));
+        map.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng_2, 10));
+
     }
 
     public void Enviar(View view) {
@@ -106,44 +108,5 @@ public class Pe_empleado_mapa extends AppCompatActivity implements OnMapReadyCal
             finish();
         }
         System.out.println(Usuario_2);
-
-        fStore.collection("pedidos")
-                .whereEqualTo("Estado_del_pedido", "0")
-                .whereEqualTo("Usuario", Usuario_2)
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d(TAG, document.getId() + " => " + document.getData());
-                                final DocumentReference docref = FirebaseFirestore.getInstance()
-                                        .collection("pedidos")
-                                        .document(document.getId());
-                                System.out.println("El objeto existe");
-                                String searchView_2 = searchView.getQuery().toString();
-                                Map<String, Object> map_1 = new HashMap<>();
-                                map_1.put("Direccion", searchView_2);
-                                docref.update(map_1)
-                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void aVoid) {
-                                                startActivity(new Intent(getApplicationContext(), Pe_usuario_pedidos.class));
-                                                System.out.println("Vamonos");
-                                            }
-                                        }).addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        System.out.println("Algo anda mal.");
-
-                                    }
-                                });
-
-                            }
-                        } else {
-                            Log.d(TAG, "Error getting documents: ", task.getException());
-                        }
-                    }
-                });
     }
 }

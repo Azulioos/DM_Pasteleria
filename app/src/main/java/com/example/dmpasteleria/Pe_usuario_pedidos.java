@@ -83,6 +83,11 @@ public class Pe_usuario_pedidos extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
+    public void Ayuda(MenuItem item) {
+        startActivity(new Intent(getApplicationContext(), Pe_ayuda_informacion.class));
+        finish();
+    }
+
     private class ProductsViewHolder extends RecyclerView.ViewHolder{
 
         private TextView tvTamano;
@@ -172,11 +177,13 @@ public class Pe_usuario_pedidos extends AppCompatActivity {
         finish();
     }
 
+    public void Pedidos(MenuItem item) {
+        startActivity(new Intent(getApplicationContext(), Pe_usuario_pedidos.class));
+        finish();
+    }
+
 
     public void openUserAccount(MenuItem item) {
-        FirebaseAuth fAuth;
-        fAuth = FirebaseAuth.getInstance();
-        fAuth.signOut();
         startActivity(new Intent(getApplicationContext(), Pe_user_settings.class));
         finish();
     }
@@ -187,5 +194,7 @@ public class Pe_usuario_pedidos extends AppCompatActivity {
     }
 
     public void Payments(MenuItem item) {
+        startActivity(new Intent(getApplicationContext(), Pe_usuario_pedidos_paypal.class));
+        finish();
     }
 }

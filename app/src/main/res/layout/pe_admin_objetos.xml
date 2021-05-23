@@ -29,17 +29,26 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 />
-
-            <TextView
-                android:id="@+id/tvProducto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Admin_ai2"
-                android:layout_marginLeft="8dp"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                />
         </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_margin="8dp"
+        >
+
+        <TextView
+            android:id="@+id/tvProducto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Admin_ai2"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            />
+    </LinearLayout>
 
 
 

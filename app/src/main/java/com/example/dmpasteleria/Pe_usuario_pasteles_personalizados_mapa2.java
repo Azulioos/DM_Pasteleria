@@ -3,6 +3,7 @@ package com.example.dmpasteleria;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -42,6 +44,8 @@ public class Pe_usuario_pasteles_personalizados_mapa2 extends FragmentActivity i
     SearchView searchView;
     FirebaseUser Usuario;
     String Usuario_2;
+    Location currentLocation;
+    FusedLocationProviderClient fusedLocationProviderClient;
     private static final String TAG = "Pedidos";
 
     @Override
@@ -53,6 +57,9 @@ public class Pe_usuario_pasteles_personalizados_mapa2 extends FragmentActivity i
         Usuario_2 = Usuario.getUid();
         System.out.println(Usuario_2);
         setContentView(R.layout.activity_pe_usuario_pasteles_personalizados_mapa2);
+
+
+
         searchView = findViewById(R.id.sv_location);
         mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.google_map);
@@ -62,7 +69,6 @@ public class Pe_usuario_pasteles_personalizados_mapa2 extends FragmentActivity i
             public boolean onQueryTextSubmit(String query) {
                 String location = searchView.getQuery().toString();
                 List<Address> addressList = null;
-
                 if(location != null || !(location.equals(""))){
                     Geocoder geocoder = new Geocoder(Pe_usuario_pasteles_personalizados_mapa2.this);
                     try{
@@ -93,12 +99,28 @@ public class Pe_usuario_pasteles_personalizados_mapa2 extends FragmentActivity i
         mapFragment.getMapAsync(this);
     }
 
+    private void fetchLocation() {
+
+    }
+
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         map = googleMap;
-
+        List<Address> addressList_2 = null;
+        Geocoder geocoder_2 = new Geocoder(Pe_usuario_pasteles_personalizados_mapa2.this);
+        try {
+            addressList_2 = geocoder_2.getFromLocationName("Nuevo leon,San Nicolas, Ciudad universitaria", 1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Address address_2 = addressList_2.get(0);
+        System.out.println(address_2);
+        LatLng latLng_2 = new LatLng(address_2.getLatitude(), address_2.getLongitude());
+        map.addMarker(new MarkerOptions().position(latLng_2).title("San Nicolas, Ciudad universitaria"));
+        map.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng_2, 10));
     }
+
 
     public void Enviar(View view) {
         if(fAuth.getCurrentUser() == null) {

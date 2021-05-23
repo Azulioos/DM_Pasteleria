@@ -16,11 +16,13 @@
 
     <item
         android:title="@string/Toolbar2"
-        android:id="@+id/Toolbar2" />
+        android:id="@+id/Toolbar2"
+        android:onClick="Pedidos"/>
 
     <item
         android:title="@string/Toolbar3"
-        android:id="@+id/Toolbar3" />
+        android:id="@+id/Toolbar3"
+        android:onClick="Ayuda"/>
 
     <item
         android:title="@string/Toolbar4"

@@ -141,5 +141,8 @@
     <string name="Sucursal_1">Seleccione una ubicacion de entrega</string>
     <string name="Sucursal_2">Completar pedido</string>
     <string name="Sucursal_3">Pasar a sucursal</string>
+    <string name="Sucursal_4">Sucursales</string>
+    <string name="Sucursal_5">Sucursal ciudad universitaria - Nuevo León - San nicólas</string>
+    <string name="Sucursal_6">Sucursal ubicada al lado de la estación del metro, disponibilidad de lunes a viernes de 10:00 A.M a 7:30 P.M</string>
 
 </resources>

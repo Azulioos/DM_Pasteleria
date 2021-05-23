@@ -103,9 +103,8 @@ public class Pe_admin_gestionari extends AppCompatActivity implements Pe_admin_a
                                 Log.d(TAG, document.getId() + " => " + document.getData());
                                 int Estado = document.getLong("Cantidad").intValue();
                                 docref = FirebaseFirestore.getInstance()
-                                        .collection("Inventario")
+                                        .collection("inventario")
                                         .document(document.getId());
-                                numberPickerDialog();
                                 Estado_2 = Estado;
                                 Log.d("Cargando","Cargando");
                                 numberPickerDialog();
@@ -118,6 +117,7 @@ public class Pe_admin_gestionari extends AppCompatActivity implements Pe_admin_a
     }
 
     private void numberPickerDialog() {
+        Log.d("Hola","Hola");
         NumberPicker myNumberPicker = new NumberPicker(this);
         myNumberPicker.setMaxValue(100);
         myNumberPicker.setMinValue(1);
@@ -160,9 +160,7 @@ public class Pe_admin_gestionari extends AppCompatActivity implements Pe_admin_a
                 });
             }
         });
-
-
-
+        builder.show();
     }
 
     private void loadLocale() {
@@ -236,4 +234,13 @@ public class Pe_admin_gestionari extends AppCompatActivity implements Pe_admin_a
         finish();
     }
 
+    public void Ayuda(MenuItem item) {
+        startActivity(new Intent(getApplicationContext(), Pe_usuario_pedidos.class));
+        finish();
+    }
+
+    public void Pedidos(MenuItem item) {
+        startActivity(new Intent(getApplicationContext(), Pe_usuario_pedidos.class));
+        finish();
+    }
 }

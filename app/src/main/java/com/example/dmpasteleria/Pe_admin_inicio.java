@@ -44,7 +44,7 @@ public class Pe_admin_inicio extends AppCompatActivity {
     }
 
     public void gadmin4(View view) {
-        startActivity(new Intent(getApplicationContext(), Pe_admin_vistageneral.class));
+        startActivity(new Intent(getApplicationContext(), Pe_empleado_inicio.class));
         finish();
     }
 

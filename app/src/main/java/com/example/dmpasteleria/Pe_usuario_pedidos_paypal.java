@@ -45,7 +45,7 @@ public class Pe_usuario_pedidos_paypal extends AppCompatActivity {
             .clientId(Pe_usuario_paypal.PAYPAL_CLIENT_ID);
 
     Button btnPayNow;
-    String amount;
+    String amount = "";
 
     protected void onDestroy(){
         stopService(new Intent(this, PayPalService.class));
@@ -57,11 +57,11 @@ public class Pe_usuario_pedidos_paypal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pe_usuario_pedidos_paypal);
 
-        Intent intent = new Intent(this,PayPalService.class);
+        Intent intent = new Intent(this, PayPalService.class);
         intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION,config);
-        startActivity(intent);
+        startService(intent);
 
-        UserFiled = findViewById(R.id.textView3);        //Username field
+        UserFiled = findViewById(R.id.textView4);        //Username field
         UserMail = findViewById(R.id.textView6);    //User email field
 
         //Instancias de Firebase
@@ -89,8 +89,8 @@ public class Pe_usuario_pedidos_paypal extends AppCompatActivity {
                                         .collection("pedidos")
                                         .document(document.getId());
                                 System.out.println("El objeto existe");
-                                UserFiled.setText((CharSequence) document.get("Precio_total"));
-                                UserMail.setText((CharSequence) document.get("Direccion"));
+                                UserFiled.setText((CharSequence) document.get("Direccion"));
+                                UserMail.setText((CharSequence) document.get("Precio_total").toString());
                             }
                         } else {
                             Log.d(TAG, "Error getting documents: ", task.getException());
@@ -108,12 +108,12 @@ public class Pe_usuario_pedidos_paypal extends AppCompatActivity {
 
     private void processPayment() {
         amount = UserMail.getText().toString();
-        PayPalPayment payPalPayment = new PayPalPayment(new BigDecimal(String.valueOf(amount)),"USD", "Completar pedido", PayPalPayment.PAYMENT_INTENT_SALE);
+        PayPalPayment payPalPayment = new PayPalPayment(new BigDecimal(String.valueOf(amount)),"USD", "Donate", PayPalPayment.PAYMENT_INTENT_SALE);
         Intent intent = new Intent(this, PaymentActivity.class);
         intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION,config);
         intent.putExtra(PaymentActivity.EXTRA_PAYMENT,payPalPayment);
         startActivityForResult(intent, PAYPAL_REQUEST_CODE);
-        startActivity(new Intent(getApplicationContext(), Pe_usuario_paypal_PaymentDetails.class));
+
 
 
     }

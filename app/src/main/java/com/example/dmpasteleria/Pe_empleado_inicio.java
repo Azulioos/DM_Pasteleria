@@ -299,7 +299,7 @@ public class Pe_empleado_inicio extends AppCompatActivity implements Pe_empleado
     }
 
     public void Ayuda(MenuItem item) {
-        startActivity(new Intent(getApplicationContext(), Pe_usuario_pedidos.class));
+        startActivity(new Intent(getApplicationContext(), Pe_ayuda_informacion.class));
         finish();
     }
 }

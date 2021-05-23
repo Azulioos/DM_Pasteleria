@@ -235,7 +235,7 @@ public class Pe_admin_gestionari extends AppCompatActivity implements Pe_admin_a
     }
 
     public void Ayuda(MenuItem item) {
-        startActivity(new Intent(getApplicationContext(), Pe_usuario_pedidos.class));
+        startActivity(new Intent(getApplicationContext(), Pe_ayuda_informacion.class));
         finish();
     }
 

@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_1_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DMPasteleria">
-        <activity android:name=".Pe_ayuda_informacion"></activity>
+        <activity android:name=".Pe_empleado_enviado"></activity>
+        <activity android:name=".Pe_ayuda_informacion" />
         <activity android:name=".Pe_usuario_paypal_PaymentDetails" />
         <activity android:name=".Pe_usuario_pedidos_paypal" />
         <activity android:name=".Pe_empleado_mapa" />

@@ -17,11 +17,11 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Locale;
 
-public class Pe_ayuda_informacion extends AppCompatActivity {
+public class Pe_empleado_enviado extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pe_ayuda_informacion);
+        setContentView(R.layout.activity_pe_empleado_enviado);
         Toolbar toolbar = findViewById(R.id.toolbar_i);
         setSupportActionBar(toolbar);
 
@@ -29,7 +29,7 @@ public class Pe_ayuda_informacion extends AppCompatActivity {
     }
 
     public void Volver(View view) {
-        startActivity(new Intent(getApplicationContext(), Pe_usuario_inicio.class));
+        startActivity(new Intent(getApplicationContext(), Pe_empleado_inicio.class));
         finish();
     }
 
@@ -41,7 +41,7 @@ public class Pe_ayuda_informacion extends AppCompatActivity {
 
     public void showChangeLanguageDialog(MenuItem menu) {
         final String[] listItems = {"English","Español", "Portugues"};
-        AlertDialog.Builder mBuilder = new AlertDialog.Builder(Pe_ayuda_informacion.this);
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(Pe_empleado_enviado.this);
         mBuilder.setTitle("Escoge un idioma");
         mBuilder.setSingleChoiceItems(listItems, -1, (dialogInterface, i) -> {
             if(i == 0){

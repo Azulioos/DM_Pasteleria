@@ -103,10 +103,10 @@ public class Pe_empleado_mapa extends AppCompatActivity implements OnMapReadyCal
     }
 
     public void Enviar(View view) {
-        if(fAuth.getCurrentUser() == null) {
-            startActivity(new Intent(getApplicationContext(), Pe_inicio.class));
-            finish();
-        }
-        System.out.println(Usuario_2);
+            startActivity(new Intent(getApplicationContext(), Pe_empleado_enviado.class));
+    }
+
+    public void Cancelar(View view) {
+        startActivity(new Intent(getApplicationContext(), Pe_empleado_inicio.class));
     }
 }

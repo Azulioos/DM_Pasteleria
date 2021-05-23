@@ -147,7 +147,7 @@ public class Pe_usuario_inicio extends AppCompatActivity {
     }
 
     public void Ayuda(MenuItem item) {
-        startActivity(new Intent(getApplicationContext(), Pe_usuario_pedidos.class));
+        startActivity(new Intent(getApplicationContext(), Pe_ayuda_informacion.class));
         finish();
     }
 }

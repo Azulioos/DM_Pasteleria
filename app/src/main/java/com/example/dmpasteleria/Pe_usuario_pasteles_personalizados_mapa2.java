@@ -107,6 +107,8 @@ public class Pe_usuario_pasteles_personalizados_mapa2 extends FragmentActivity i
     @Override
     public void onMapReady(GoogleMap googleMap) {
         map = googleMap;
+
+
         List<Address> addressList_2 = null;
         Geocoder geocoder_2 = new Geocoder(Pe_usuario_pasteles_personalizados_mapa2.this);
         try {

@@ -79,15 +79,15 @@
     <string name="menu_help">Información y ayuda</string>
 
     <!--Menu desplegable derecho-->
-    <string name="action_pedidos">Pedidos</string>
-    <string name="action_settings">Ajustes de la cuenta</string>
-    <string name="action_logout">Salir</string>
+    <string name="action_pedidos">Orders</string>
+    <string name="action_settings">Account settings</string>
+    <string name="action_logout">Log out</string>
 
 
     <!-- Strings de Pe_usuario_inicio -->
     <string name="title_seasonal">Pasteles de Temporada</string>
     <string name="title_offer">Pasteles en Oferta</string>
-    <string name="title_other">Otros Postres</string>
+    <string name="title_other">Otros stuff</string>
     <string name="title_otherOffer">Otros Postres en Oferta</string>
     <string name="top_advises">Anuncios importantes, ofertas, y otros anunciios de prioridad</string>
     <string name="title_Advises">Avisos importantes, ofertas especiales y avisos prioritarios</string>
@@ -95,17 +95,17 @@
 
     <!-- Strings de Pe_iniciodesesion -->
     <string name="Iniciar">INGRESAR</string>
-    <string name="Residencia">Residencia</string>
-    <string name="Nacimiento">Fecha de nacimiento</string>
-    <string name="ICorreo">Ingrese su correo</string>
-    <string name="Correo">Correo electrónico</string>
-    <string name="IContraseña">Ingrese su contraseña</string>
-    <string name="CContraseña">Confirme su contraseña</string>
-    <string name="Contraseña">Contraseña</string>
-    <string name="Nombre">Nombre de usuario</string>
-    <string name="Crear">Crear una cuenta</string>
-    <string name="Ingresar">¿No tienes una cuenta? Crea una aquí</string>
-    <string name="Iniciodesesion">Inicio de sesión</string>
+    <string name="Residencia">Residence</string>
+    <string name="Nacimiento">Birthday</string>
+    <string name="ICorreo">E-mail</string>
+    <string name="Correo">Email</string>
+    <string name="IContraseña">Type a password</string>
+    <string name="CContraseña">Confirm the password</string>
+    <string name="Contraseña">Password</string>
+    <string name="Nombre">Username</string>
+    <string name="Crear">Create an account</string>
+    <string name="Ingresar">You dont have an account? Create one</string>
+    <string name="Iniciodesesion">Log in</string>
 
     <!-- Strings de Pe_usuario_inicio -->
     <string name="Bievenido">Welcome</string>
@@ -189,35 +189,39 @@
     <string name="PP_0">Not selected</string>
     <string name="o">o</string>
 
-    <string name="Pedidos_1">Tamaño</string>
-    <string name="Pedidos_2">Tamaño</string>
-    <string name="Pedidos_3">Tipo de pan</string>
-    <string name="Pedidos_4">Pan</string>
+    <string name="Pedidos_1">Size</string>
+    <string name="Pedidos_2">Size</string>
+    <string name="Pedidos_3">Type of bread</string>
+    <string name="Pedidos_4">Bread</string>
     <string name="Pedidos_5">Toppings</string>
     <string name="Pedidos_6">Toppings</string>
-    <string name="Pedidos_7">Color del pastel</string>
+    <string name="Pedidos_7">Color of the cake</string>
     <string name="Pedidos_8">Color</string>
     <string name="Pedidos_9">Extras</string>
     <string name="Pedidos_10">Extras</string>
-    <string name="Pedidos_11">Estado del pedido</string>
-    <string name="Pedidos_12">Monto a pagar</string>
-    <string name="Pedidos_13">Pedidos pendientes</string>
-    <string name="Pedidos_14">Datos del cliente</string>
-    <string name="Pedidos_15">Direccion de entrega</string>
-    <string name="Pedidos_16">Cambiar estado del pedido</string>
-    <string name="Pedidos_17">Bienvenido empleado</string>
-    <string name="Pedidos_18">Pedidos aceptados</string>
-    <string name="Pedidos_19">El pedido pasa a estado 1 y se aceptara.</string>
-    <string name="Pedidos_20">Enviar el pedido</string>
-    <string name="Pedidos_21">Notificar al cliente que el pedido esta listo y se esta enviando al punto de entrega</string>
-    <string name="Pedidos_22">Notificar el punto de entrega</string>
-    <string name="Pedidos_23">Enviar notificación al cliente de la entrega del pedido</string>
+    <string name="Pedidos_11">Order state</string>
+    <string name="Pedidos_12">Debt to pay</string>
+    <string name="Pedidos_13">Pending orders</string>
+    <string name="Pedidos_14">Clients data</string>
+    <string name="Pedidos_15">Delivery directions</string>
+    <string name="Pedidos_16">Change order state</string>
+    <string name="Pedidos_17">Welcome employed</string>
+    <string name="Pedidos_18">Orders accepted</string>
+    <string name="Pedidos_19">The order will pass to 1 and will get accepted</string>
+    <string name="Pedidos_20">Send the order</string>
+    <string name="Pedidos_21">Notify the client the order is being sended</string>
+    <string name="Pedidos_22">Notify delivery point</string>
+    <string name="Pedidos_23">Sned notification to the client Enviar notificación al cliente de la entrega del pedido</string>
+    <string name="Pedidos_24">Delivery point stablished</string>
+    <string name="Pedidos_25">In a bit the notificaction will be sended.</string>
 
-    <string name="Sucursal_1">Seleccione una ubicacion de entrega</string>
-    <string name="Sucursal_2">Completar pedido</string>
-    <string name="Sucursal_3">Pasar a sucursal</string>
-    <string name="Sucursal_4">Sucursales</string>
+    <string name="Sucursal_1">Select a delivery place Seleccione una ubicacion de entrega</string>
+    <string name="Sucursal_2">Complete the order</string>
+    <string name="Sucursal_3">Get the order in stores</string>
+    <string name="Sucursal_4">Stores</string>
     <string name="Sucursal_5">Sucursal ciudad universitaria - Nuevo León - San nicólas</string>
-    <string name="Sucursal_6">Sucursal ubicada al lado de la estación del metro, disponibilidad de lunes a viernes de 10:00 A.M a 7:30 P.M</string>
+    <string name="Sucursal_6">Sucursal ubicated near the subway station "ciudad universitaria" disponibilidad de lunes a viernes de 10:00 A.M a 7:30 P.M</string>
+    <string name="Manual">To have a better understanding of this app visit the next link:</string>
+
 
 </resources>

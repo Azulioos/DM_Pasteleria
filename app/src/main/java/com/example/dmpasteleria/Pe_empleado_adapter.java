@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -36,6 +37,30 @@ public class Pe_empleado_adapter extends FirestorePagingAdapter<Pe_empleado_pedi
         holder.tvEstado.setText(model.getEstado_del_pedido());
         holder.tvDireccion.setText(model.getDireccion());
         holder.tvUsuarioCorreo.setText(model.getUsuarioCorreo());
+
+        String imagen = model.getEstado_del_pedido();
+        System.out.println(holder.tvEstado.toString());
+        System.out.println(imagen);
+
+        switch (imagen){
+            case "0":
+                holder.tvImagen.setImageResource(R.drawable.icon_0);
+                holder.tvEstado.setText("Pedido no aceptado");
+                break;
+            case "1":
+                holder.tvImagen.setImageResource(R.drawable.icon_1);
+                holder.tvEstado.setText("Pedido aceptado y preparando");
+                break;
+            case "2":
+                holder.tvImagen.setImageResource(R.drawable.icon_2);
+                holder.tvEstado.setText("Enviando pedido");
+                break;
+            case "3":
+                holder.tvImagen.setImageResource(R.drawable.icon_3);
+                holder.tvEstado.setText("Pedido en el lugar de entrega");
+                break;
+
+        }
     }
 
     @NonNull
@@ -83,6 +108,7 @@ public class Pe_empleado_adapter extends FirestorePagingAdapter<Pe_empleado_pedi
         private  TextView tvDireccion;
         private  TextView tvUsuarioCorreo;
         private Button tvEmpleado;
+        private ImageView tvImagen;
 
 
         public ProductsViewHolder(@NonNull View itemView) {
@@ -97,6 +123,7 @@ public class Pe_empleado_adapter extends FirestorePagingAdapter<Pe_empleado_pedi
             tvDireccion = itemView.findViewById(R.id.tvDireccion);
             tvUsuarioCorreo = itemView.findViewById(R.id.tvUsuarioCorreo);
             tvEmpleado = itemView.findViewById(R.id.tvEmpleado);
+            tvImagen = itemView.findViewById(R.id.tvImagen);
 
 
             tvEmpleado.setOnClickListener(this);

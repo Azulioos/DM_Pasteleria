@@ -165,6 +165,7 @@ public class Pe_empleado_inicio extends AppCompatActivity implements Pe_empleado
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Log.d(TAG, document.getId() + " => " + document.getData());
                                 String Estado = document.getString("Estado_del_pedido");
+                                String Pan = document.getString("pan");
                                 final DocumentReference docref = FirebaseFirestore.getInstance()
                                         .collection("pedidos")
                                         .document(document.getId());
@@ -200,6 +201,44 @@ public class Pe_empleado_inicio extends AppCompatActivity implements Pe_empleado
                                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                             @Override
                                                             public void onSuccess(Void aVoid) {
+                                                                fstore.collection("inventario")
+                                                                        .whereEqualTo("Producto", Pan)
+                                                                        .get()
+                                                                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                                                            @Override
+                                                                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                                                if (task.isSuccessful()) {
+                                                                                    for (QueryDocumentSnapshot document : task.getResult()) {
+                                                                                        int Cantidad = document.getLong("Cantidad").intValue();
+                                                                                        Log.d(TAG, document.getId() + " => " + document.getData());
+                                                                                        final DocumentReference docref_2 = FirebaseFirestore.getInstance()
+                                                                                                .collection("inventario")
+                                                                                                .document(document.getId());
+                                                                                        Map<String, Object> map_1 = new HashMap<>();
+                                                                                        Cantidad -= 2;
+                                                                                        map_1.put("Cantidad", Cantidad);
+                                                                                        docref_2.update(map_1)
+                                                                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                                                    @Override
+                                                                                                    public void onSuccess(Void aVoid) {
+                                                                                                        startActivity(new Intent(getApplicationContext(), Pe_empleado_inicio.class));
+                                                                                                        System.out.println("Vamonos");
+                                                                                                    }
+                                                                                                }).addOnFailureListener(new OnFailureListener() {
+                                                                                            @Override
+                                                                                            public void onFailure(@NonNull Exception e) {
+                                                                                                System.out.println("Algo anda mal.");
+
+                                                                                            }
+                                                                                        });
+
+                                                                                    }
+                                                                                } else {
+                                                                                    Log.d(TAG, "Error getting documents: ", task.getException());
+                                                                                }
+                                                                            }
+                                                                        });
+
                                                                 startActivity(new Intent(getApplicationContext(), Pe_empleado_inicio.class));
                                                                 System.out.println("Vamonos");
                                                             }

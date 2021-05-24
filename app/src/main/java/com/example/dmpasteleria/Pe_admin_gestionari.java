@@ -209,7 +209,7 @@ public class Pe_admin_gestionari extends AppCompatActivity implements Pe_admin_a
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
+        inflater.inflate(R.menu.amenu, menu);
         return true;
 
     }

@@ -29,7 +29,10 @@ public class Pe_ayuda_informacion extends AppCompatActivity {
     }
 
     public void Volver(View view) {
-        startActivity(new Intent(getApplicationContext(), Pe_usuario_inicio.class));
+        FirebaseAuth fAuth;
+        fAuth = FirebaseAuth.getInstance();
+        fAuth.signOut();
+        startActivity(new Intent(getApplicationContext(), Pe_inicio.class));
         finish();
     }
 

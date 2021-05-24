@@ -12,20 +12,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -154,17 +147,11 @@ public class Pe_registro extends AppCompatActivity implements AdapterView.OnItem
                     user.put("Nacimiento", Nacimiento);
                     if(mIsUser.isChecked() && !(mIsAdmin.isChecked() && !(mIsWorker.isChecked()))){
                         user.put("Role", "1");
-                        user.put("RoleAdmin", "0");
-                        user.put("RoleWorker", "0");
                     }
                     if(mIsAdmin.isChecked() && !(mIsWorker.isChecked()) && !(mIsUser.isChecked())){
-                        user.put("Role", "0");
                         user.put("RoleAdmin", "1");
-                        user.put("RoleWorker", "0");
                     }
                     if(mIsWorker.isChecked() && !(mIsUser.isChecked()) && !(mIsAdmin.isChecked())){
-                        user.put("Role", "0");
-                        user.put("RoleAdmin", "0");
                         user.put("RoleWorker", "1");
                     }
                     documentReference.set(user).addOnSuccessListener(aVoid -> Log.d(TAG, "Usuario creado correctamente con el ID: " + userID));

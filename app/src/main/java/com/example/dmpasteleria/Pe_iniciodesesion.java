@@ -96,17 +96,17 @@ public class Pe_iniciodesesion extends AppCompatActivity {
             Log.d("TAG","OnSuccess" + documentSnapshot.getData());
 
             //Valora para cada posible resultado de los checkbox
-            if (documentSnapshot.getString("Role").equals(good) && mIsUser.isChecked()){
+            if (documentSnapshot.getString("Role") != null && mIsUser.isChecked()){
                 Toast.makeText(Pe_iniciodesesion.this,"Abriendo pantalla de usuario", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(Pe_iniciodesesion.this, Pe_usuario_inicio.class));
                 finish();
             } else{
-                if(documentSnapshot.getString("RoleAdmin").equals(good) && mIsAdmin.isChecked()){
+                if(documentSnapshot.getString("RoleAdmin") != null && mIsAdmin.isChecked()){
                     Toast.makeText(Pe_iniciodesesion.this,"Abriendo pantalla de administrador", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(Pe_iniciodesesion.this, Pe_admin_inicio.class));
                     finish();
                 } else{
-                    if(documentSnapshot.getString("RoleWorker").equals(good) && mIsWorker.isChecked()){
+                    if(documentSnapshot.getString("RoleWorker") != null && mIsWorker.isChecked()){
                         Toast.makeText(Pe_iniciodesesion.this,"Abriendo pantalla de empleado", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(Pe_iniciodesesion.this, Pe_empleado_inicio.class));
                         finish();

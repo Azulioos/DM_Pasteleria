@@ -63,8 +63,7 @@ public class Pe_empleado_inicio extends AppCompatActivity implements Pe_empleado
         Usuario = FirebaseAuth.getInstance().getCurrentUser();
         Usuario_2 = Usuario.getUid();
 
-        Query query = fstore.collection("pedidos").
-                whereEqualTo("Usuario", Usuario_2);
+        Query query = fstore.collection("pedidos");
 
         /*PagingConfig config_2 = new PagingConfig();*/
 
